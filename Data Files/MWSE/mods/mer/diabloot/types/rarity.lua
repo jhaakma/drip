@@ -1,0 +1,5 @@
+---@alias diablo2ItemRarity
+---| '"common"' # Common items.
+---| '"uncommon"' # Uncommon items.
+---| '"rare"' # Rare items.
+---| '"veryRare"' # Very rare items.
