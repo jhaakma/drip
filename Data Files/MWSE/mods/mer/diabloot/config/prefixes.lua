@@ -1,1986 +1,3369 @@
 local prefixes = {
     {
-        name = "Acrobat's",
-        description = "+1 to Amazon Passive Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        prefix = "Acrobat's",
+        description = "+10 to Acrobatics",
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Amber",
+        prefix = "Amber",
         description = "Lightning resist 31-40%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Angel's",
+        prefix = "Angel's",
         description = "+1 to Sorceress Skill Levels",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Archangel's",
+        prefix = "Archangel's",
         description = "+2 to Sorceress Skill Levels",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Archer's",
+        prefix = "Archer's",
         description = "+3 to Amazon Bow and Crossbow Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Arcadian",
+        prefix = "Arcadian",
         description = "+51-100 to Attack Rating against Demons; Damage +26-50% against Demons",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Arching",
+        prefix = "Arching",
         description = "+1 minimum and +261-360 maximum lightning damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Artisan's",
+        prefix = "Artisan's",
         description = "Adds 3 Sockets",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Assamic",
+        prefix = "Assamic",
         description = "+25-50 to Attack Rating against Demons; Damage +10-25% against Demons",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Astral",
+        prefix = "Astral",
         description = "+151-200 to Attack Rating against Demons; Damage +101-150% against Demons",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Athlete's",
+        prefix = "Athlete's",
         description = "+3 to Amazon Passive Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Azure",
+        prefix = "Azure",
         description = "Cold resist 5-10%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Bahamut's",
+        prefix = "Bahamut's",
         description = "+91-120 to Mana",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Berserker",
+        prefix = "Berserker",
         description = "+2 to Barbarian Skill Levels",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Beryl",
+        prefix = "Beryl",
         description = "Poison resist 5-10%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Blazing",
+        prefix = "Blazing",
         description = "+2 to Sorceress Fire Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Blessed",
+        prefix = "Blessed",
         description = "51-65% Defense",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Blighting",
+        prefix = "Blighting",
         description = "+2 to Necromancer Curses",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Boreal",
+        prefix = "Boreal",
         description = "+16-23 minimum and +46-90 maximum Cold Damage for 3 seconds",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Boywer's",
+        prefix = "Boywer's",
         description = "+2 to Amazon Bow and Crossbow Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Bronze",
+        prefix = "Bronze",
         description = "+10-20 Attack rating",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Brutal",
+        prefix = "Brutal",
         description = "41-50% Damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Burgundy",
+        prefix = "Burgundy",
         description = "Fire resist 11-20%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Burning",
+        prefix = "Burning",
         description = "+1 to Sorceress Fire Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Buzzing",
+        prefix = "Buzzing",
         description = "+1 minimum and +181-260 maximum Lightning Damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Captain's",
+        prefix = "Captain's",
         description = "+1 to Paladin Offensive Auras",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Caretaker's",
+        prefix = "Caretaker's",
         description = "+2 to Druid Summoning Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Celestial",
+        prefix = "Celestial",
         description = "+300-400 to Attack Rating against Demons; Damage +201-300% against Demons",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Charged",
+        prefix = "Charged",
         description = "+2 to Sorceress Lightning Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Chilling",
+        prefix = "Chilling",
         description = "+1 to Sorceress Cold Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Chromatic",
+        prefix = "Chromatic",
         description = "+21-30% to All Resistances",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Cobalt",
+        prefix = "Cobalt",
         description = "Cold resist 21-30%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Commander's",
+        prefix = "Commander's",
         description = "+2 to Paladin Offensive Auras",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Communal",
+        prefix = "Communal",
         description = "+3 to Druid Shapeshifting Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Compact",
+        prefix = "Compact",
         description = "+20-40 Quantity",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Condensing",
+        prefix = "Condensing",
         description = "+121-170 minimum and +181-240 maximum Fire Damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Consecrated",
+        prefix = "Consecrated",
         description = "+25-75 to Attack Rating against Undead; Damage +25-75% against Undead",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Coral",
+        prefix = "Coral",
         description = "Lightning resist 21-30%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Corrosive",
+        prefix = "Corrosive",
         description = "+29 Poison Damage for 2 seconds",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Crimson",
+        prefix = "Crimson",
         description = "Fire resist 5-10%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Cruel",
+        prefix = "Cruel",
         description = "+201-300% Damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Cunning",
+        prefix = "Cunning",
         description = "+3 to Assassin Traps",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Cursing",
+        prefix = "Cursing",
         description = "+3 to Necromancer Curses",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Deadly",
+        prefix = "Deadly",
         description = "21-30% Damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Dense",
+        prefix = "Dense",
         description = "+80-120 Quantity",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Devious",
+        prefix = "Devious",
         description = "Magic damage reduced by 1",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Divine",
+        prefix = "Divine",
         description = "+326-450 to Attack Rating against Undead; Damage +276-350% against Undead",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Dragon's",
+        prefix = "Dragon's",
         description = "+31-40 to Mana",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Drake's",
+        prefix = "Drake's",
         description = "+21-30 to Mana",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Echoing",
+        prefix = "Echoing",
         description = "+3 to Barbarian Warcries",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Elysian",
+        prefix = "Elysian",
         description = "+201-300 to Attack Rating against Demons; Damage +151-200% against Demons",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Emerald",
+        prefix = "Emerald",
         description = "Poison resist 31-40%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Entrapping",
+        prefix = "Entrapping",
         description = "+1 to Assassin Traps",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Expert's",
+        prefix = "Expert's",
         description = "+1 to Barbarian Combat Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Faithful",
+        prefix = "Faithful",
         description = "+ (3 per character level/0.5 per character level) to Defense",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Fanatic",
+        prefix = "Fanatic",
         description = "+1 to Barbarian Combat Masteries",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Felicitous",
+        prefix = "Felicitous",
         description = "5-10% Better Chance of Getting Magic Item",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Feral",
+        prefix = "Feral",
         description = "+2 to Druid Shapeshifting Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Ferocious",
+        prefix = "Ferocious",
         description = "+101-200% Damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Fine",
+        prefix = "Fine",
         description = "+21-40 to Attack rating; Damage 21-30%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Firey",
+        prefix = "Firey",
         description = "+16-25 minimum nad +31-60 maximum Fire Damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Flaming",
+        prefix = "Flaming",
         description = "+81-120 minimum and +131-180 maximum to Fire Damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Fletcher",
+        prefix = "Fletcher",
         description = "+1 to Amazon Bow and Crossbow Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Fool's",
+        prefix = "Fool's",
         description = "+ (16.5 per character level) to Attack Rating and + (0.5 per character level) to maximum Damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Fortified",
+        prefix = "Fortified",
         description = "Magic damage reduced by 2",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Fortuitous",
+        prefix = "Fortuitous",
         description = "11-15% better chance of getting magic items",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Foul",
+        prefix = "Foul",
         description = "+15 Poison Damage for 2 seconds",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Freezing",
+        prefix = "Freezing",
         description = "+2 to Sorceress Cold Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Fungal",
+        prefix = "Fungal",
         description = "+1 to Necromancer Poison and Bone Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Furious",
+        prefix = "Furious",
         description = "+3 to Barbarian Combat Masteries",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Garnet",
+        prefix = "Garnet",
         description = "Fire resist 21-30%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Gaea's",
+        prefix = "Gaea's",
         description = "+3 to Druid Elemental Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Glacial",
+        prefix = "Glacial",
         description = "+3 to Sorceress Cold Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Glimmering",
+        prefix = "Glimmering",
         description = "+1 to Light radius",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Glorious",
+        prefix = "Glorious",
         description = "41-50% Defense",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Glowing",
+        prefix = "Glowing",
         description = "+1 minimum and +121-180 maximum LightningDamage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Godly",
+        prefix = "Godly",
         description = "+101-200% Defense",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Gold",
+        prefix = "Gold",
         description = "+81-100 to Attack rating",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Golemlord's",
+        prefix = "Golemlord's",
         description = "+3 to Necromancer Summoning Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Grandmaster's",
+        prefix = "Grandmaster's",
         description = "+251-300 to Attack Rating; Damage +151-200%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Graverobber's",
+        prefix = "Graverobber's",
         description = "+1 to Necromancer Summoning Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Great Wyrm's",
+        prefix = "Great Wyrm's",
         description = "+61-90 to Mana",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Grinding",
+        prefix = "Grinding",
         description = "+ 0.75 per character level to maximum Damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Guardian's",
+        prefix = "Guardian's",
         description = "+3 to Paladin Defensive Auras",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Gymnast's",
+        prefix = "Gymnast's",
         description = "+2 to Amazon Passive Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Hallowed",
+        prefix = "Hallowed",
         description = "+251-325 to Attack Rating against Undead; Damage +201-275% against Undead",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Harpoonist's",
+        prefix = "Harpoonist's",
         description = "+1 to Amazon Javelin and Spear Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Hawk-Branded",
+        prefix = "Hawk-Branded",
         description = "+2 to Paladin Combat Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Hawkeye",
+        prefix = "Hawkeye",
         description = "+1.5 to Attack Rating, based on Character Level",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Hexing",
+        prefix = "Hexing",
         description = "+1 to Necromancer Curses",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Hibernal",
+        prefix = "Hibernal",
         description = "+24-45 minimum and +91-140 maximum Cold Damage for 4 seconds",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Hierophant's",
+        prefix = "Hierophant's",
         description = "+2 to Druid Skill Levels",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Holy",
+        prefix = "Holy",
         description = "81-100% Defense",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Howling",
+        prefix = "Howling",
         description = "Hit causes monsters to flee 18-50%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Iron",
+        prefix = "Iron",
         description = "+21-40 to Attack rating",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Jade",
+        prefix = "Jade",
         description = "Poison resist 21-30%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Jagged",
+        prefix = "Jagged",
         description = "10-20% Damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Jeweler's",
+        prefix = "Jeweler's",
         description = "Adds 3 Sockets",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Keeper's",
+        prefix = "Keeper's",
         description = "+3 to Druid Summoning Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Kenshi's",
+        prefix = "Kenshi's",
         description = "+3 to Assassin Martial Arts",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "King's",
+        prefix = "King's",
         description = "+121-150 to Attack rating; Damage 81-100%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Knight's",
+        prefix = "Knight's",
         description = "+81-100  to Attack rating; Damage 51-65%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Lancer's",
+        prefix = "Lancer's",
         description = "+3 to Amazon Javelin and Spear Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Lapis",
+        prefix = "Lapis",
         description = "Cold resist 11-20%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Lion-Branded",
+        prefix = "Lion-Branded",
         description = "+1 to Paladin Combat Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Lizard's",
+        prefix = "Lizard's",
         description = "1-5 to Mana",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Lord's",
+        prefix = "Lord's",
         description = "+101-120 to Attack rating; Damage 66-80%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Lunar",
+        prefix = "Lunar",
         description = "+25-50 to Attack Rating against Demons",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
-    { name = "+10-25% Damage against Demons" },
-    {
-        name = "Magekiller's",
+     {
+        prefix = "Magekiller's",
         description = "+1 to Assassin Skill Levels",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Maiden's",
+        prefix = "Maiden's",
         description = "+1 to Amazon Skill Levels",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Marshall's",
+        prefix = "Marshall's",
         description = "+3 Paladin Offensive Auras",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Massive",
+        prefix = "Massive",
         description = "51-65% Damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Master's",
+        prefix = "Master's",
         description = "+151-250 to Attack Rating; Damage +101-150%(Weapons)",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
-    { name = "+3 to Barbarian Combat Skills (Amulets, Barbarian Helms, Weapons)" },
-    {
-        name = "Mechanist's",
+     {
+        prefix = "Mechanist's",
         description = "Adds 1 Socket",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Mentalist's",
+        prefix = "Mentalist's",
         description = "+1 to Assassin Shadow Disciplines",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Merciless",
+        prefix = "Merciless",
         description = "81-100% Damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Meteoric",
+        prefix = "Meteoric",
         description = "+121-150 to Attack rating",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Mnemonic",
+        prefix = "Mnemonic",
         description = "+ (0.5 per character level) to Mana",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Mojo",
+        prefix = "Mojo",
         description = "+2 to Necromancer Summoning Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Monk's",
+        prefix = "Monk's",
         description = "+1 to Paladin Skill Levels",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Nature's",
+        prefix = "Nature's",
         description = "+1 to Druid Elemental Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Necromancer's",
+        prefix = "Necromancer's",
         description = "+2 to Necromancer Skill Levels",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Noxious",
+        prefix = "Noxious",
         description = "+2 to Necromancer Poison and Bone Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Ocher",
+        prefix = "Ocher",
         description = "Lightning resist 11-20%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Pestilent",
+        prefix = "Pestilent",
         description = "+275 Poison Damage for 2 seconds",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Platinum",
+        prefix = "Platinum",
         description = "+101-120 to Attack rating",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Powered",
+        prefix = "Powered",
         description = "+3 to Sorceress Lighting Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Preserver's",
+        prefix = "Preserver's",
         description = "+1 to Paladin Defensive Auras",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Priest's",
+        prefix = "Priest's",
         description = "+2 to Paladin Skill Levels",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Prismatic",
+        prefix = "Prismatic",
         description = "+16-20% to All Resistances",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Psychic",
+        prefix = "Psychic",
         description = "+2 to Assassin Shadow Disciplines",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Pure",
+        prefix = "Pure",
         description = "+76-175 to Attack Rating against Undead; Damage +76-125% against Undead",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Raging",
+        prefix = "Raging",
         description = "+2 to Barbarian Combat Masteries",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Rainbow",
+        prefix = "Rainbow",
         description = "+8-11% to All Resistances",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Resonant",
+        prefix = "Resonant",
         description = "+2 to Barbarian Warcries",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Rose-Branded",
+        prefix = "Rose-Branded",
         description = "+3 to Paladin Combat Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Ruby",
+        prefix = "Ruby",
         description = "Fire resist 31-40%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Rugged",
+        prefix = "Rugged",
         description = "+5-20 to max Stamina",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Russet",
+        prefix = "Russet",
         description = "+11-20 to Fire Resist",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Sacred",
+        prefix = "Sacred",
         description = "+175-250 to Attack Rating against Undead; Damage +126-200% against Undead",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Saintly",
+        prefix = "Saintly",
         description = "66-80% Defense",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Sapphire",
+        prefix = "Sapphire",
         description = "Cold resist 31-40%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Savage",
+        prefix = "Savage",
         description = "66-80% Damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Scintillating",
+        prefix = "Scintillating",
         description = "+12-15% to All Resistances",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Screaming",
+        prefix = "Screaming",
         description = "+ (0.75 per character level) to maximum Damage(Weapons)",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
-    { name = "Hit Causes Monsters to Flee, 12-25%(Bow, Crossbows, Weapons)" },
-    {
-        name = "Sensei's",
+     {
+        prefix = "Sensei's",
         description = "+2 to Assassin Martial Arts",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Septic",
+        prefix = "Septic",
         description = "+6 Poison Damage for 2 seconds",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Serpent's",
+        prefix = "Serpent's",
         description = "+11-20 to Mana",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Shadow",
+        prefix = "Shadow",
         description = "+3 to Assassin Shadow Disciplines",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Shaman's",
+        prefix = "Shaman's",
         description = "+1 to Druid Skill Levels",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Sharp",
+        prefix = "Sharp",
         description = "+10-20 to Attack rating; Damage 10-20%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Shimmering",
+        prefix = "Shimmering",
         description = "+3-7% to all Resistances",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Shivering",
+        prefix = "Shivering",
         description = "+10-15 minimum and +31-45 maximum Cold Damage for 2 seconds",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Shocking",
+        prefix = "Shocking",
         description = "+1 minimum and +361-480 maximum Lightning Damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Shogukusha's",
+        prefix = "Shogukusha's",
         description = "+1 to Assassin Martial Arts",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Silver",
+        prefix = "Silver",
         description = "+61-80 to Attack rating",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Slayer",
+        prefix = "Slayer",
         description = "+1 to Barbarian Skill Levels",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Smoking",
+        prefix = "Smoking",
         description = "+51-80 minimum and +91-130 maximum Fire Damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Smoldering",
+        prefix = "Smoldering",
         description = "+26-50 minimum and +61-90 maximum Fire Damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Snake's",
+        prefix = "Snake's",
         description = "5-10 to Mana",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Snowy",
+        prefix = "Snowy",
         description = "+6-9 minimum and +19-30 maximum Cold Damage for 1 second",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Soldier's",
+        prefix = "Soldier's",
         description = "+61-80 to Attack rating; Damage 41-50%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Sounding",
+        prefix = "Sounding",
         description = "+1 to Barbarian Warcries",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Sparking",
+        prefix = "Sparking",
         description = "+1 to Sorceress Lighting Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Spearmaiden's",
+        prefix = "Spearmaiden's",
         description = "+2 to Amazon Javelin and Spear Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Spiritual",
+        prefix = "Spiritual",
         description = "+1 to Druid Shapeshifting Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Static",
+        prefix = "Static",
         description = "+1 minimum and +49-120 Maximum Lightning Damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Steel",
+        prefix = "Steel",
         description = "+41-60 to Attack rating",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Strange",
+        prefix = "Strange",
         description = "+151-300 to Attack Rating",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Strong",
+        prefix = "Strong",
         description = "31-40% Defense",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Sturdy",
+        prefix = "Sturdy",
         description = "10-30% Defense",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Summoner's",
+        prefix = "Summoner's",
         description = "+1 to Necromancer Skill Levels",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Tangerine",
+        prefix = "Tangerine",
         description = "Lightning resist 5-10%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Terrene",
+        prefix = "Terrene",
         description = "+2 to Druid Elemental Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Thin",
+        prefix = "Thin",
         description = "+41-80 Quantity",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Tireless",
+        prefix = "Tireless",
         description = "Heal Stamina +25-50%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Toxic",
+        prefix = "Toxic",
         description = "+150 Poison Damage for 5 seconds",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Trainer's",
+        prefix = "Trainer's",
         description = "+1 to Druid Summoning Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Trickster's",
+        prefix = "Trickster's",
         description = "+2 to Assassin Traps",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Triumphant",
+        prefix = "Triumphant",
         description = "+1 point of Mana after each kill",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Unearthly",
+        prefix = "Unearthly",
         description = "+101-150 to Attack Rating against Demons; Damage +51-100% against Demons",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Valkyrie's",
+        prefix = "Valkyrie's",
         description = "+2 to Amazon Skill Levels",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Venomous",
+        prefix = "Venomous",
         description = "+3 to Necromancer Poison and Bone Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Veteran's",
+        prefix = "Veteran's",
         description = "+2 to Barbarian Combat Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Vicious",
+        prefix = "Vicious",
         description = "31-40% Damage",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Victorious",
+        prefix = "Victorious",
         description = "+2-5 Mana after each Kill",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Vigorous",
+        prefix = "Vigorous",
         description = "+21-30 to Maximum Stamina",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Viridian",
+        prefix = "Viridian",
         description = "Poison resist 11-20%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Visionary",
+        prefix = "Visionary",
         description = "+1 per character level to Armor Level",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Vodoun",
+        prefix = "Vodoun",
         description = "+2 to Necromancer Summoning Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Volcanic",
+        prefix = "Volcanic",
         description = "+3 to Sorceress Fire Skills",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Vulpine",
+        prefix = "Vulpine",
         description = "7-12% damage taken goes to Mana",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Wailing",
+        prefix = "Wailing",
         description = "Hit Causes Monsters to Flee, 25-100%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Warder's",
+        prefix = "Warder's",
         description = "+2 to Paladin Defensive Auras",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Warrior's",
+        prefix = "Warrior's",
         description = "+41-60 Attack rating;  Damage 31-40%",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Weird",
+        prefix = "Weird",
         description = "+301-450 to Attack Rating",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Witch-hunter's",
+        prefix = "Witch-hunter's",
         description = "+2 to Assassin Skill Levels",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
     {
-        name = "Wyrm's",
+        prefix = "Wyrm's",
         description = "+41-60 to Mana",
-        effects = {},
-        modifiers = {},
-        rarity = "common",
-        validWeaponTypes = {},
-        validArmorTypes = {},
-        validClothingTypes = {},
+        effects = {
+            {
+                id = tes3.effect.fortifyHealth,
+                range = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        }
+        },
     },
 }
 return prefixes
