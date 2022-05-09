@@ -1,8 +1,16 @@
 local config = {}
 local cache
 config.materials = require("mer.diabloot.config.materials")
-config.prefixes = require("mer.diabloot.config.prefixes")
-config.suffixes = require("mer.diabloot.config.suffixes")
+config.modifiers = {
+    equipment = {
+        prefixes = require("mer.diabloot.config.modifiers.equipment.prefixes"),
+        suffixes = require("mer.diabloot.config.modifiers.equipment.suffixes")
+    },
+    weapons = {
+        prefixes = require("mer.diabloot.config.modifiers.weapons.prefixes"),
+        suffixes = require("mer.diabloot.config.modifiers.weapons.suffixes")
+    }
+}
 config.weapons = require("mer.diabloot.config.weapons")
 config.armor = require("mer.diabloot.config.armor")
 config.clothing = require("mer.diabloot.config.clothing")
@@ -13,6 +21,21 @@ config.modDescription = [[
 Diabloot adds Diablo 2 style loot to Morrowind. Unique weapons, armor, clothing and accesories are dynamically generated, with hundreds of possible modifiers and over a million possible combinations.
 ]]
 config.configPath = "diabloot"
+config.modifierIcon = "Icons/diabloot/modifier.dds"
+
+--Auto scaling
+config.scaling = {
+    levelMin = 1,
+    levelMax = 30,
+    modifierMin = 0.1,
+    modifierMax = 1.0,
+    baseValues = {
+        chargeCost = 10,
+        maxCharge = 500,
+    }
+}
+
+config.selfRepairPercentPerHour = 1
 
 --MCM Configs (Stored in Json, cached in memory)
 config.mcmDefault = {
