@@ -1,5 +1,0 @@
-require("mer.diabloot.mcm")
-require("mer.diabloot.controllers.lootPlacement")
-require("mer.diabloot.controllers.tooltips")
-require("mer.diabloot.customEffects.selfRepair")
-require("mer.diabloot.customEffects.infectious")
