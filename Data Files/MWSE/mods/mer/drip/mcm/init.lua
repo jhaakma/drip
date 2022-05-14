@@ -60,13 +60,23 @@ local function registerMCM()
     }
 
     page:createSlider{
-        label = "Chance to Enchant",
-        description = "Determines the % chance to give a valid object an enchantment",
+        label = "First Modifier Chance",
+        description = "Determines the % chance to give a valid object a Modifier",
         min = 0,
         max = 100,
         step = 1,
         jump = 10,
-        variable = mwse.mcm.createTableVariable{ id = "enchantChance", table = mcmConfig }
+        variable = mwse.mcm.createTableVariable{ id = "modifierChance", table = mcmConfig }
+    }
+
+    page:createSlider{
+        label = "Second Modifier Chance",
+        description = "Determines the % chance to give a valid object a second Modifier. The actual chance may be slightly lower as some modifiers fail due to the name being too long.",
+        min = 0,
+        max = 100,
+        step = 1,
+        jump = 10,
+        variable = mwse.mcm.createTableVariable{ id = "secondaryModifierChance", table = mcmConfig }
     }
 
     page:createDropdown{

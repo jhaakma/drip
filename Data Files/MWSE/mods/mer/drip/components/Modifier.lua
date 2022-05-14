@@ -5,6 +5,7 @@ local logger = common.createLogger("Modifier")
 local Modifier = {}
 
 function Modifier:validate(modifierData)
+    if not modifierData then return nil end
     local dripModifierFields = {
         prefix =  "string",
         suffix =  "string",
@@ -58,15 +59,16 @@ function Modifier:validForObject(object)
     --Check invalid cast type and object type combinations
     if self.castType then
         local objIsWeapon = object.objectType == tes3.objectType.weapon
+             or object.objectType == tes3.objectType.ammunition
         --Thrown weapons/ammo can't have Constant Effect
         local ammoTypes = {
             [tes3.weaponType.arrow] = true,
             [tes3.weaponType.bolt] = true,
             [tes3.weaponType.marksmanThrown] = true
         }
-        local isThrownWeapon = objIsWeapon and ammoTypes[object.type]
+        local isAmmo = objIsWeapon and ammoTypes[object.type]
         local enchantIsConstant = self.castType == tes3.enchantmentType.constant
-        if enchantIsConstant and isThrownWeapon then
+        if enchantIsConstant and isAmmo then
             logger:debug("Modifier is a constant effect, but object is a thrown weapon")
             return false
         end
@@ -83,7 +85,7 @@ function Modifier:validForObject(object)
     if self.validObjectTypes then
         logger:debug("has validObjectTypes")
         if not self.validObjectTypes[object.objectType] then
-            logger:debug("%s objectType not invalid", object.name)
+            logger:debug("%s objectType is invalid", object.name)
             return false
         end
     end
@@ -91,7 +93,7 @@ function Modifier:validForObject(object)
     if self.validWeaponTypes and object.objectType == tes3.objectType.weapon then
         logger:debug("has validWeaponTypes")
         if not self.validWeaponTypes[object.type] then
-            logger:debug("%s weaponType not invalid", object.name)
+            logger:debug("%s weaponType is invalid", object.name)
             return false
         end
     end
@@ -107,7 +109,7 @@ function Modifier:validForObject(object)
     if self.validArmorSlots and object.objectType == tes3.objectType.armor then
         logger:debug("has validArmorSlots")
         if not self.validArmorSlots[object.slot] then
-            logger:debug("%s armorSlot not invalid", object.name)
+            logger:debug("%s armorSlot is invalid", object.name)
             return false
         end
     end

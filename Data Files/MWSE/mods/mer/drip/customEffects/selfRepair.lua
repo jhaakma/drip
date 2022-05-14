@@ -39,7 +39,7 @@ interop.registerModifier{
 
 
 event.register("magicEffectsResolved", function()
-    logger:debug("Creating Self Repair Magic Effect")
+    logger:trace("Creating Self Repair Magic Effect")
     tes3.addMagicEffect{
         id = tes3.effect.selfRepair,
         name = "Self Repair",
@@ -90,9 +90,9 @@ event.register("magicEffectsResolved", function()
             local maxCondition = item.maxCondition
 
 
-            logger:debug("self-repair magnitude: %s", magnitude)
+            logger:trace("self-repair magnitude: %s", magnitude)
             if condition and maxCondition then
-                logger:debug("Current condition: %s", condition)
+                logger:trace("Current condition: %s", condition)
                 local repairAmount = maxCondition * (magnitude/100) * e.deltaTime
 
                 itemData.data.selfRepairLeftover = itemData.data.selfRepairLeftover or 0
@@ -102,9 +102,9 @@ event.register("magicEffectsResolved", function()
                 itemData.data.selfRepairLeftover = leftOver
                 repairAmount = math.floor(repairAmount)
 
-                logger:debug("Repair amount: %s", repairAmount)
+                logger:trace("Repair amount: %s", repairAmount)
                 local newCondition = condition + repairAmount
-                logger:debug("New condition: %s", newCondition)
+                logger:trace("New condition: %s", newCondition)
                 newCondition = math.min(newCondition, maxCondition)
                 itemData.condition = newCondition
             end

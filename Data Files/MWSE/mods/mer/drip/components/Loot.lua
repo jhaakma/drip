@@ -182,8 +182,27 @@ function Loot:replaceLootInInventory(ownerReference, stack)
 
     if ownerReference.mobile and ownerReference.object:hasItemEquipped(stack.object) then
         logger:debug("Unequipping %s and equipping %s", stack.object.name, self.object.name)
+
         ownerReference.mobile:unequip{ item = stack.object}
+        -- local isConstantEffect = self.object.enchantment and
+        --     self.object.enchantment.castType == tes3.enchantmentType.constant
+
+        -- if isConstantEffect then
+        --     --Block constant effect Vfx from showing
+        --     ---@param e vfxCreatedEventData
+        --     local function blockEffect(e)
+        --         local isRef = e.vfx.target == ownerReference
+        --         if isRef then
+        --             timer.delayOneFrame(function()
+        --                 event.unregister("vfxCreated", blockEffect)
+        --             end)
+        --             e.vfx.expired = true
+        --         end
+        --     end
+        --     event.register("vfxCreated", blockEffect)
+        -- end
         ownerReference.mobile:equip{ item = self.object }
+        ownerReference:updateEquipment()
     end
 
     --Remove the object from the inventory

@@ -16,26 +16,14 @@ Drip adds Diablo 2 style loot to Morrowind. Unique weapons, armor, clothing and 
 ]]
 config.configPath = "drip"
 config.modifierIcon = "Icons/drip/modifier.dds"
-
---Auto scaling
-config.scaling = {
-    levelMin = 1,
-    levelMax = 30,
-    modifierMin = 0.1,
-    modifierMax = 1.0,
-    baseValues = {
-        chargeCost = 10,
-        maxCharge = 500,
-    }
-}
-
 config.selfRepairPercentPerHour = 1
 
 --MCM Configs (Stored in Json, cached in memory)
 config.mcmDefault = {
     logLevel = "INFO",
     enabled = true,
-    enchantChance = 1,--percent
+    modifierChance = 1,--percent
+    secondaryModifierChance = 20
 }
 config.save = function(newConfig)
     cache = newConfig

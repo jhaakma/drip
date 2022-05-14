@@ -2,14 +2,8 @@ local common = require("mer.drip.common")
 local logger = common.createLogger("LootPlacement")
 local Loot = require("mer.drip.components.Loot")
 local Modifier = require("mer.drip.components.Modifier")
+local modifierConfig = common.config.modifiers
 
-local function rollToEnchant()
-    local chance = common.config.mcm.enchantChance
-    local roll = math.random(100)
-    if roll <= chance then
-        return true
-    end
-end
 
 local function getRandomModifier(object, list)
     local attempts = 0
@@ -26,23 +20,37 @@ local function getRandomModifier(object, list)
 end
 
 
-local function rollForModifiers(object)
-    logger:debug("Object: %s", object.name)
-    local modifierConfig = common.config.modifiers
+local function getFirstModifier(object)
+    if math.random(100) <= common.config.mcm.modifierChance then
+        local list = math.random() < 0.5 and modifierConfig.prefixes or modifierConfig.suffixes
+        return getRandomModifier(object, list)
+    end
+end
 
-    logger:debug("Getting prefix")
-    local prefix = rollToEnchant() and getRandomModifier(object, modifierConfig.prefixes)
-    logger:debug("Getting suffix")
-    local suffix = rollToEnchant() and getRandomModifier(object, modifierConfig.suffixes)
+local function rollForModifiers(object)
+    --Roll for fist modifier, and if it succeeds, roll for second modifier
+    --First modifier has 50/50 chance of being prefix or suffix
     local modifiers = {}
-    if prefix then
-        logger:debug("Adding '%s' to modifiers list", prefix.prefix)
-        table.insert(modifiers, prefix)
+
+    logger:debug("Object: %s", object.name)
+
+    local firstModifier = getFirstModifier(object)
+    if not firstModifier then
+        return
     end
-    if suffix then
-        logger:debug("Adding '%s' to modifiers list", suffix.suffix)
-        table.insert(modifiers, suffix)
+    table.insert(modifiers, firstModifier)
+    local secondModifier
+    if math.random(100) < common.config.mcm.secondaryModifierChance then
+        if firstModifier.prefix then
+            secondModifier = getRandomModifier(object, modifierConfig.suffixes)
+        else
+            secondModifier = getRandomModifier(object, modifierConfig.prefixes)
+        end
     end
+    if secondModifier then
+        table.insert(modifiers, secondModifier)
+    end
+
     if #modifiers > 0 then
         return modifiers
     end
@@ -89,12 +97,14 @@ local validTypes = {
 }
 ---@param e cellChangedEventData
 local function onCellChanged(e)
-    for ref in e.cell:iterateReferences() do
-        if validTypes[ref.baseObject.objectType] then
-            if ref.object.inventory then
-                if not ref.object.organic then
-                    if not ref.data.dripified then
-                        addToRef(ref)
+    for _, cell in pairs(tes3.getActiveCells()) do
+        for ref in cell:iterateReferences() do
+            if validTypes[ref.baseObject.objectType] then
+                if ref.object.inventory then
+                    if not ref.object.organic then
+                        if not ref.data.dripified then
+                            addToRef(ref)
+                        end
                     end
                 end
             end
