@@ -50,11 +50,11 @@ end
 
 ---@param object tes3weapon | tes3clothing | tes3armor
 function Modifier:validForObject(object)
-    logger:debug("Checking if modifier is valid for object %s", object.id)
+    logger:trace("Checking if modifier is valid for object %s", object.id)
 
-    logger:debug("self.prefix: %s", self.prefix)
-    logger:debug("self.suffix: %s", self.suffix)
-    logger:debug("self.castType: %s", self.castType)
+    logger:trace("self.prefix: %s", self.prefix)
+    logger:trace("self.suffix: %s", self.suffix)
+    logger:trace("self.castType: %s", self.castType)
 
     --Check invalid cast type and object type combinations
     if self.castType then
@@ -69,12 +69,12 @@ function Modifier:validForObject(object)
         local isAmmo = objIsWeapon and ammoTypes[object.type]
         local enchantIsConstant = self.castType == tes3.enchantmentType.constant
         if enchantIsConstant and isAmmo then
-            logger:debug("Modifier is a constant effect, but object is a thrown weapon")
+            logger:trace("Modifier is a constant effect, but object is a thrown weapon")
             return false
         end
         local enchentIsOnStrike = self.castType == tes3.enchantmentType.onStrike
         if enchentIsOnStrike and not objIsWeapon then
-            logger:debug("Modifier is an onStrike effect, but object is not a weapon")
+            logger:trace("Modifier is an onStrike effect, but object is not a weapon")
             return false
         end
     end
@@ -83,46 +83,46 @@ function Modifier:validForObject(object)
 
     --Object type
     if self.validObjectTypes then
-        logger:debug("has validObjectTypes")
+        logger:trace("has validObjectTypes")
         if not self.validObjectTypes[object.objectType] then
-            logger:debug("%s objectType is invalid", object.name)
+            logger:trace("%s objectType is invalid", object.name)
             return false
         end
     end
     ---Weapon Type
     if self.validWeaponTypes and object.objectType == tes3.objectType.weapon then
-        logger:debug("has validWeaponTypes")
+        logger:trace("has validWeaponTypes")
         if not self.validWeaponTypes[object.type] then
-            logger:debug("%s weaponType is invalid", object.name)
+            logger:trace("%s weaponType is invalid", object.name)
             return false
         end
     end
     --Weight class
     if self.validWeightClasses and object.objectType == tes3.objectType.armor then
-        logger:debug("has validWeightClasses")
+        logger:trace("has validWeightClasses")
         if not self.validWeightClasses[object.weightClass] then
-            logger:debug("%s objectWeightclass is invalid", object.name)
+            logger:trace("%s objectWeightclass is invalid", object.name)
             return false
         end
     end
     --Armor Slots
     if self.validArmorSlots and object.objectType == tes3.objectType.armor then
-        logger:debug("has validArmorSlots")
+        logger:trace("has validArmorSlots")
         if not self.validArmorSlots[object.slot] then
-            logger:debug("%s armorSlot is invalid", object.name)
+            logger:trace("%s armorSlot is invalid", object.name)
             return false
         end
     end
     --Clothing Slots
     if self.validClothingSlots and object.objectType == tes3.objectType.clothing then
-        logger:debug("has validClothingSlots")
+        logger:trace("has validClothingSlots")
         if not self.validClothingSlots[object.slot] then
-            logger:debug("%s clothingSlot not invalid", object.name)
+            logger:trace("%s clothingSlot not invalid", object.name)
             return false
         end
     end
+
     return true
 end
-
 
 return Modifier

@@ -70,10 +70,10 @@ local function addToRef(reference)
         --Check if it's a lootifiable object
         if objectIds[stack.object.id:lower()] then
             local modifiers = rollForModifiers(stack.object)
-            if modifiers then
+            if modifiers and #modifiers > 0 then
                 logger:debug("Converting %s to loot", stack.object.name)
                 local loot = Loot:new{
-                    baseObject = stack.object.id,
+                    baseObject = stack.object,
                     modifiers = modifiers,
                 }
                 if loot then
@@ -126,7 +126,7 @@ local function onLeveledItemPicked(e)
         if modifiers then
             logger:debug("Converting leveled item %s to loot", object.name)
             local loot = Loot:new{
-                baseObject = object.id,
+                baseObject = object,
                 modifiers = modifiers,
             }
             if loot then

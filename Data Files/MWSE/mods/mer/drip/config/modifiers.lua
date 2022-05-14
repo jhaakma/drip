@@ -5,6 +5,7 @@ local modifiers = {
     --Weapon multipliers
     {
         prefix = "Quality",
+        value = 50,
         description = "+5 Max Damage",
         modifications = {
             chopMax = 5,
@@ -15,12 +16,13 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
-        }
+        },
     },
 
     --Sharp weapons only
     {
         prefix = "Sharp",
+        value = 100,
         description = "+10 Max Damage",
         modifications = {
             chopMax = 10,
@@ -39,11 +41,12 @@ local modifiers = {
             [tes3.weaponType.axeOneHand] = true,
             [tes3.weaponType.axeTwoHand] = true,
             [tes3.weaponType.marksmanThrown] = true,
-        }
+        },
     },
     {
         --blunt weapons only
         prefix = "Cruel",
+        value = 100,
         description = "+10 Max Damage",
         modifications = {
             chopMax = 10,
@@ -58,11 +61,12 @@ local modifiers = {
             [tes3.weaponType.bluntOneHand] = true,
             [tes3.weaponType.bluntTwoClose] = true,
             [tes3.weaponType.bluntTwoWide] = true,
-        }
+        },
     },
 
     {
         prefix = "Ferocious",
+        valueMulti = 1.25,
         description = "1.25x Damage",
         multipliers = {
             chopMin = 1.25,
@@ -80,6 +84,7 @@ local modifiers = {
     },
     {
         prefix = "Brutal",
+        valueMulti = 1.5,
         description = "1.5x Damage",
         multipliers = {
             chopMin = 1.5,
@@ -97,6 +102,7 @@ local modifiers = {
     },
     {
         prefix = "Vicious",
+        valueMulti = 1.75,
         description = "1.75x Damage",
         multipliers = {
             chopMin = 1.75,
@@ -114,6 +120,7 @@ local modifiers = {
     },
     {
         prefix = "Deadly",
+        valueMulti = 2.0,
         description = "2x Damage",
         multipliers = {
             chopMin = 2,
@@ -134,6 +141,7 @@ local modifiers = {
     --Weight multipliers\
     {
         prefix = "Condensed",
+        valueMulti = 1.25,
         castType = tes3.enchantmentType.constant,
         description = "0.75x Weight",
         multipliers = {
@@ -143,11 +151,12 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.weapon] = true,
         },
-        icon = "Icons/diabloot/multiplier.dds"
+        icon = "Icons/diabloot/multiplier.dds",
     },
 
     {
         prefix = "Compact",
+        valueMulti = 1.5,
         castType = tes3.enchantmentType.constant,
         description = "0.5x Weight",
         multipliers = {
@@ -157,12 +166,13 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.weapon] = true,
         },
-        icon = "Icons/diabloot/multiplier.dds"
+        icon = "Icons/diabloot/multiplier.dds",
     },
 
     --Armor Multipliers
     {
         prefix = "Fortified",
+        valueMulti = 1.5,
         description = "1.5x Armor Rating",
         multipliers = {
             armorRating = 1.5
@@ -170,10 +180,11 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.armor] = true,
         },
-        icon = "Icons/diabloot/multiplier.dds"
+        icon = "Icons/diabloot/multiplier.dds",
     },
     {
         prefix = "Glorious",
+        valueMulti = 2.0,
         description = "2x Armor Rating",
         multipliers = {
             armorRating = 2,
@@ -181,15 +192,41 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.armor] = true,
         },
-        icon = "Icons/diabloot/multiplier.dds"
+        icon = "Icons/diabloot/multiplier.dds",
     },
 
     --Vanilla effects
+
+    --drainAttribute
+    {
+        prefix = "Shaming",
+        value = 50,
+        castType = tes3.enchantmentType.onStrike,
+        chargeCost = 10,
+        maxCharge = 100,
+        effects = {
+            {
+                id = tes3.effect.drainAttribute,
+                attribute = tes3.attribute.intelligence,
+                rangeType = tes3.effectRange.touch,
+                min = 3,
+                max = 7,
+                duration = 20,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.ammunition] = true,
+        },
+    },
+
+
 
     -- waterBreathing
     --weak
     {
         prefix = "Mudcrab's",
+        value = 25,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 10,
         maxCharge = 50,
@@ -206,11 +243,12 @@ local modifiers = {
         validClothingSlots = {
             [tes3.clothingSlot.ring] = true,
             [tes3.clothingSlot.amulet] = true,
-        }
+        },
     },
     --strong
     {
         prefix = "Argonian's",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 20,
         maxCharge = 200,
@@ -235,6 +273,7 @@ local modifiers = {
     --weak
     {
         suffix = "the Fish",
+        value = 25,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 10,
         maxCharge = 100,
@@ -256,6 +295,7 @@ local modifiers = {
     --strong
     {
         suffix = "the Dreugh",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 50,
         maxCharge = 500,
@@ -279,6 +319,7 @@ local modifiers = {
     --weak
     {
         suffix = "Buoyancy",
+        value = 25,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 10,
         maxCharge = 100,
@@ -299,7 +340,8 @@ local modifiers = {
     },
     --strong
     {
-        suffix = "the Waves",
+        suffix = "Ocean-Striding",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 50,
         maxCharge = 500,
@@ -322,7 +364,8 @@ local modifiers = {
     -- shield
     --weak
     {
-        suffix = "Protection",
+        prefix = "Protector's",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -340,6 +383,7 @@ local modifiers = {
     --strong
     {
         prefix = "Guardian's",
+        value = 100,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -358,6 +402,7 @@ local modifiers = {
     -- fireShield
     {
         suffix = "Flameguard",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -376,6 +421,7 @@ local modifiers = {
     -- lightningShield
     {
         suffix = "Stormguard",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -394,6 +440,7 @@ local modifiers = {
     -- frostShield
     {
         suffix = "Frostguard",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -412,6 +459,7 @@ local modifiers = {
     -- burden
     {
         suffix = "Heavystep",
+        value = 25,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 10,
         maxCharge = 100,
@@ -437,6 +485,7 @@ local modifiers = {
     --weak
     {
         suffix = "Lightstep",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -454,6 +503,7 @@ local modifiers = {
     --strong
     {
         prefix = "Ulm Juicedaw's",
+        value = 100,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -473,6 +523,7 @@ local modifiers = {
     --weak
     {
         suffix = "the Frog",
+        value = 25,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 10,
         maxCharge = 100,
@@ -496,6 +547,7 @@ local modifiers = {
     --strong
     {
         suffix = "the Toad",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 50,
         maxCharge = 500,
@@ -521,6 +573,7 @@ local modifiers = {
     --weak
     {
         suffix = "Floating",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 10,
         maxCharge = 100,
@@ -544,6 +597,7 @@ local modifiers = {
     --strong
     {
         suffix = "Soaring",
+        value = 100,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 50,
         maxCharge = 500,
@@ -569,6 +623,7 @@ local modifiers = {
     --weak
     {
         suffix = "Slowfall",
+        value = 25,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 10,
         maxCharge = 100,
@@ -593,6 +648,7 @@ local modifiers = {
     --weak
     {
         suffix = "Jamming",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 10,
         maxCharge = 100,
@@ -617,6 +673,7 @@ local modifiers = {
     --weak
     {
         prefix = "Burgler's",
+        value = 25,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 10,
         maxCharge = 100,
@@ -639,6 +696,7 @@ local modifiers = {
     --strong
     {
         prefix = "Locksmith's",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 50,
         maxCharge = 500,
@@ -663,6 +721,7 @@ local modifiers = {
     --weak
     {
         prefix = "Firey",
+        value = 25,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 10,
         maxCharge = 100,
@@ -682,6 +741,7 @@ local modifiers = {
     --strong
     {
         prefix = "Blazing",
+        value = 50,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 50,
         maxCharge = 500,
@@ -704,6 +764,7 @@ local modifiers = {
     --weak
     {
         prefix = "Arching",
+        value = 25,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 10,
         maxCharge = 100,
@@ -723,6 +784,7 @@ local modifiers = {
     --strong
     {
         prefix = "Electric",
+        value = 50,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 50,
         maxCharge = 500,
@@ -744,6 +806,7 @@ local modifiers = {
     --weak
     {
         prefix = "Chilling",
+        value = 25,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 10,
         maxCharge = 100,
@@ -763,6 +826,7 @@ local modifiers = {
     --strong
     {
         prefix = "Freezing",
+        value = 50,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 50,
         maxCharge = 500,
@@ -785,6 +849,7 @@ local modifiers = {
     --weak
     {
         prefix = "Viper's",
+        value = 25,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 10,
         maxCharge = 100,
@@ -805,6 +870,7 @@ local modifiers = {
     --strong
     {
         prefix = "Foul",
+        value = 50,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 50,
         maxCharge = 500,
@@ -826,6 +892,7 @@ local modifiers = {
     -- disintegrateWeapon/disintegrateArmor
     {
         prefix = "Corrosive",
+        value = 50,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 10,
         maxCharge = 100,
@@ -852,6 +919,7 @@ local modifiers = {
     -- invisibility
     {
         suffix = "Shrouding",
+        value = 25,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 10,
         maxCharge = 100,
@@ -872,6 +940,7 @@ local modifiers = {
     },
     {
         suffix = "Shadows",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 10,
         maxCharge = 100,
@@ -894,6 +963,7 @@ local modifiers = {
     -- chameleon
     {
         suffix = "the Chameleon",
+        value = 25,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 50,
         maxCharge = 500,
@@ -917,6 +987,7 @@ local modifiers = {
 
     {
         prefix = "Astral",
+        value = 100,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -935,6 +1006,7 @@ local modifiers = {
     -- light
     {
         prefix = "Glowing",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -954,6 +1026,7 @@ local modifiers = {
     --weak
     {
         prefix = "Elusive",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -971,6 +1044,7 @@ local modifiers = {
     --strong
     {
         prefix = "Watcher's",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -989,13 +1063,14 @@ local modifiers = {
     -- nightEye
     {
         suffix = "the Cat",
+        value = 30,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
                 id = tes3.effect.nightEye,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 15,
+                max = 15,
             },
         },
         validObjectTypes = {
@@ -1007,6 +1082,7 @@ local modifiers = {
     -- charm
     {
         suffix = "Smiles",
+        value = 25,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 10,
         maxCharge = 100,
@@ -1031,7 +1107,8 @@ local modifiers = {
     -- paralyze
     --weak
     {
-        prefix = "Stunning",
+        prefix = "Jink",
+        value = 25,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 10,
         maxCharge = 100,
@@ -1050,6 +1127,7 @@ local modifiers = {
     --strong
     {
         prefix = "Paralyzing",
+        value = 50,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 50,
         maxCharge = 500,
@@ -1070,6 +1148,7 @@ local modifiers = {
     --weak
     {
         suffix = "Tongue-Tying",
+        value = 25,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 10,
         maxCharge = 100,
@@ -1088,6 +1167,7 @@ local modifiers = {
     --strong
     {
         suffix = "Silence",
+        value = 50,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 50,
         maxCharge = 500,
@@ -1107,6 +1187,7 @@ local modifiers = {
     -- blind
     {
         suffix = "Blinding",
+        value = 25,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 10,
         maxCharge = 100,
@@ -1126,6 +1207,7 @@ local modifiers = {
     },
     {
         suffix = "Eye-Gouging",
+        value = 50,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 50,
         maxCharge = 500,
@@ -1147,6 +1229,7 @@ local modifiers = {
     -- sound
     {
         suffix = "Echoes",
+        value = 25,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 10,
         maxCharge = 100,
@@ -1167,6 +1250,7 @@ local modifiers = {
     -- soultrap
     {
         suffix = "Soul-Stealing",
+        value = 30,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 10,
         maxCharge = 100,
@@ -1186,6 +1270,7 @@ local modifiers = {
     -- telekinesis
     {
         suffix = "Far-Reaching",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1204,6 +1289,7 @@ local modifiers = {
     -- detectAnimal/detectEnchantment/detectKey
     {
         suffix = "the Seeker",
+        value = 75,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1235,6 +1321,7 @@ local modifiers = {
     -- spellAbsorption
     {
         suffix = "Absorbing",
+        value = 100,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1253,6 +1340,7 @@ local modifiers = {
     -- reflect
     {
         suffix = "Mirrors",
+        value = 100,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1271,6 +1359,7 @@ local modifiers = {
     -- cureCommonDisease
     {
         suffix = "Curing",
+        value = 25,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 10,
         maxCharge = 100,
@@ -1292,9 +1381,10 @@ local modifiers = {
     -- cureBlightDisease
     {
         prefix = "Rilm's",
+        value = 100,
         castType = tes3.enchantmentType.onUse,
-        chargeCost = 10,
-        maxCharge = 100,
+        chargeCost = 20,
+        maxCharge = 200,
         effects = {
 
             {
@@ -1314,6 +1404,7 @@ local modifiers = {
     -- curePoison
     {
         prefix = "Balyna's",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 10,
         maxCharge = 100,
@@ -1335,6 +1426,7 @@ local modifiers = {
     -- cureParalyzation
     {
         suffix = "Free Action",
+        value = 20,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 10,
         maxCharge = 100,
@@ -1356,6 +1448,7 @@ local modifiers = {
     -- restoreAttribute
     {
         suffix = "Restoration",
+        value = 75,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 100,
         maxCharge = 500,
@@ -1406,6 +1499,7 @@ local modifiers = {
     -- restoreHealth
     {
         suffix = "Healing",
+        value = 25,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 20,
         maxCharge = 100,
@@ -1430,6 +1524,7 @@ local modifiers = {
     -- restoreMagicka
     {
         suffix = "Meditation",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 20,
         maxCharge = 100,
@@ -1454,6 +1549,7 @@ local modifiers = {
     -- restoreFatigue
     {
         suffix = "Stamina",
+        value = 25,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 20,
         maxCharge = 100,
@@ -1478,6 +1574,7 @@ local modifiers = {
     -- fortifyAttribute
     {
         suffix = "the Bear",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1495,6 +1592,7 @@ local modifiers = {
     },
     {
         suffix = "the Owl",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1512,6 +1610,7 @@ local modifiers = {
     },
     {
         suffix = "Faith",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1529,6 +1628,7 @@ local modifiers = {
     },
     {
         suffix = "Precision",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1546,6 +1646,7 @@ local modifiers = {
     },
     {
         suffix = "the Hare",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1563,6 +1664,7 @@ local modifiers = {
     },
     {
         prefix = "Ogrim's",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1580,6 +1682,7 @@ local modifiers = {
     },
     {
         prefix = "Captain's",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1598,6 +1701,7 @@ local modifiers = {
 
     {
         prefix = "King's",
+        value = 100,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1613,11 +1717,16 @@ local modifiers = {
                 max = 3,
             },
         },
+        validObjectTypes = {
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        },
     },
 
 
     {
         prefix = "Fool's",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1635,6 +1744,7 @@ local modifiers = {
     },
     {
         prefix = "Celestial",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1655,6 +1765,7 @@ local modifiers = {
 
     {
         prefix = "Defender's",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1675,6 +1786,7 @@ local modifiers = {
 
     {
         prefix = "Blacksmith's",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1692,6 +1804,7 @@ local modifiers = {
 
     {
         prefix = "Soldier's",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1712,6 +1825,7 @@ local modifiers = {
 
     {
         prefix = "Knight's",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1732,6 +1846,7 @@ local modifiers = {
 
     {
         prefix = "Barbarian's",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1754,6 +1869,7 @@ local modifiers = {
 
     {
         prefix = "Fencer's",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1773,6 +1889,7 @@ local modifiers = {
     },
     {
         prefix = "Knight's",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1793,6 +1910,7 @@ local modifiers = {
 
     {
         prefix = "Berserker's",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1814,6 +1932,7 @@ local modifiers = {
 
     {
         prefix = "Lancer's",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1834,6 +1953,7 @@ local modifiers = {
 
     {
         suffix = "the Sprinter",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1852,6 +1972,7 @@ local modifiers = {
 
     {
         prefix = "Enchanter's",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1870,6 +1991,7 @@ local modifiers = {
 
     {
         prefix = "Sorcerer's",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1888,6 +2010,7 @@ local modifiers = {
 
     {
         prefix = "Warlock's",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1906,6 +2029,7 @@ local modifiers = {
 
     {
         prefix = "Mesmer's",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1924,6 +2048,7 @@ local modifiers = {
 
     {
         prefix = "Summoner's",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1942,6 +2067,7 @@ local modifiers = {
 
     {
         suffix = "the Shaman",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1960,6 +2086,7 @@ local modifiers = {
 
     {
         prefix = "Angel's",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1978,6 +2105,7 @@ local modifiers = {
 
     {
         prefix = "Archangel's",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -1996,6 +2124,7 @@ local modifiers = {
 
     {
         suffix = "the Alchemist",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2014,6 +2143,7 @@ local modifiers = {
 
     {
         suffix = "the Monk",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2031,6 +2161,7 @@ local modifiers = {
 
     {
         prefix = "Feral",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2046,10 +2177,14 @@ local modifiers = {
                 max = 3,
             },
         },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
     },
 
     {
         suffix = "the Thief",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2066,7 +2201,8 @@ local modifiers = {
     },
 
     {
-        prefiox = "Devious",
+        prefix = "Devious",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2084,6 +2220,7 @@ local modifiers = {
 
     {
         prefix = "Gymnast's",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2101,6 +2238,7 @@ local modifiers = {
 
     {
         suffix = "the Scout",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2121,6 +2259,7 @@ local modifiers = {
 
     {
         suffix = "the Assassin",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2141,6 +2280,7 @@ local modifiers = {
 
     {
         suffix = "the Bowyer",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2161,6 +2301,7 @@ local modifiers = {
 
     {
         suffix = "the Merchant",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2178,6 +2319,7 @@ local modifiers = {
     },
     {
         prefix = "Cunning",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2203,6 +2345,7 @@ local modifiers = {
 
     {
         suffix = "Silver Tongue",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2221,6 +2364,7 @@ local modifiers = {
 
     {
         prefix = "Boxer's",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2250,6 +2394,7 @@ local modifiers = {
     -- fortifyMaximumMagicka
     {
         prefix = "Drake's",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2267,6 +2412,7 @@ local modifiers = {
 
     {
         prefix = "Dragon's",
+        value = 100,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2289,6 +2435,7 @@ local modifiers = {
     -- absorbHealth
     {
         suffix = "the Vampire",
+        value = 50,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 10,
         maxCharge = 500,
@@ -2310,6 +2457,7 @@ local modifiers = {
     -- absorbMagicka
     {
         prefix = "Magekiller's",
+        value = 50,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 10,
         maxCharge = 500,
@@ -2331,6 +2479,7 @@ local modifiers = {
     -- absorbFatigue
     {
         prefix = "Taxing",
+        value = 50,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 10,
         maxCharge = 500,
@@ -2352,6 +2501,7 @@ local modifiers = {
     -- resistFire
     {
         prefix = "Burgundy",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2368,6 +2518,7 @@ local modifiers = {
     },
     {
         prefix = "Crimson",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2386,6 +2537,7 @@ local modifiers = {
     -- resistFrost
     {
         prefix = "Cobalt",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2402,6 +2554,7 @@ local modifiers = {
     },
     {
         prefix = "Azure",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2420,6 +2573,7 @@ local modifiers = {
     -- resistShock
     {
         prefix = "Coral",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2436,6 +2590,7 @@ local modifiers = {
     },
     {
         prefix = "Amber",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2454,7 +2609,8 @@ local modifiers = {
     --Resist Elements
 
     {
-        prefix = "Chromatic",
+        prefix = "Prismatic",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2483,6 +2639,7 @@ local modifiers = {
     },
     {
         prefix = "Chromatic",
+        value = 75,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2513,6 +2670,7 @@ local modifiers = {
     -- resistMagicka
     {
         prefix = "Magickguard",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2529,13 +2687,14 @@ local modifiers = {
     },
     {
         prefix = "Lord's",
+        value = 100,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
                 id = tes3.effect.resistMagicka,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 7,
+                max = 7,
             },
         },
         validObjectTypes = {
@@ -2547,6 +2706,7 @@ local modifiers = {
     -- resistCommonDisease/resistBlightDisease/resistPoison
     {
         prefix = "Medic's",
+        value = 75,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2577,13 +2737,14 @@ local modifiers = {
     -- resistNormalWeapons
     {
         prefix = "Ghostly",
+        value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
                 id = tes3.effect.resistNormalWeapons,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 20,
+                max = 20,
             },
         },
         validObjectTypes = {
@@ -2595,6 +2756,7 @@ local modifiers = {
     -- resistParalysis
     {
         suffix = "Freedom",
+        value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
             {
@@ -2612,6 +2774,7 @@ local modifiers = {
     -- turnUndead
     {
         prefix = "Blessed",
+        value = 50,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 10,
         maxCharge = 100,
@@ -2632,6 +2795,7 @@ local modifiers = {
 
     {
         prefix = "Holy",
+        value = 75,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 20,
         maxCharge = 200,
@@ -2653,6 +2817,7 @@ local modifiers = {
     -- summonScamp
     {
         suffix = "Summon Scamp",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 10,
         maxCharge = 100,
@@ -2676,6 +2841,7 @@ local modifiers = {
     -- summonClannfear
     {
         suffix = "Summon Clannfear",
+        value = 100,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 50,
         maxCharge = 500,
@@ -2698,6 +2864,7 @@ local modifiers = {
     -- summonDaedroth
     {
         suffix = "Summon Daedroth",
+        value = 150,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 100,
         maxCharge = 500,
@@ -2721,6 +2888,7 @@ local modifiers = {
     -- summonDremora
     {
         suffix = "Summon Dremora",
+        value = 150,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 500,
         maxCharge = 1000,
@@ -2744,6 +2912,7 @@ local modifiers = {
     -- summonAncestralGhost
     {
         suffix = "Summon Ancestral Ghost",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 50,
         maxCharge = 500,
@@ -2767,6 +2936,7 @@ local modifiers = {
     -- summonSkeletalMinion
     {
         suffix = "Summon Skeletal Minion",
+        value = 100,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 50,
         maxCharge = 500,
@@ -2790,6 +2960,7 @@ local modifiers = {
     -- summonBonewalker
     {
         suffix = "Summon Bonewalker",
+        value = 100,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 250,
         maxCharge = 1000,
@@ -2813,6 +2984,7 @@ local modifiers = {
     -- summonGreaterBonewalker
     {
         suffix = "Summon Greater Bonewalker",
+        value = 150,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 250,
         maxCharge = 1000,
@@ -2836,6 +3008,7 @@ local modifiers = {
     -- summonBonelord
     {
         suffix = "Summon Bonelord",
+        value = 150,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 250,
         maxCharge = 1000,
@@ -2858,6 +3031,7 @@ local modifiers = {
     -- summonWingedTwilight
     {
         suffix = "Summon Winged Twilight",
+        value = 200,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 500,
         maxCharge = 1000,
@@ -2881,6 +3055,7 @@ local modifiers = {
     -- summonHunger
     {
         suffix = "Summon Hunger",
+        value = 200,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 250,
         maxCharge = 1000,
@@ -2904,6 +3079,7 @@ local modifiers = {
     -- summonGoldenSaint
     {
         suffix = "Summon Golden Saint",
+        value = 300,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 1000,
         maxCharge = 2000,
@@ -2927,6 +3103,7 @@ local modifiers = {
     -- summonFlameAtronach
     {
         suffix = "Flamecalling",
+        value = 75,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 50,
         maxCharge = 500,
@@ -2949,6 +3126,7 @@ local modifiers = {
     -- summonFrostAtronach
     {
         suffix = "Frostcalling",
+        value = 100,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 100,
         maxCharge = 500,
@@ -2972,6 +3150,7 @@ local modifiers = {
     -- summonStormAtronach
     {
         suffix = "Stormcalling",
+        value = 125,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 100,
         maxCharge = 500,
@@ -2993,6 +3172,7 @@ local modifiers = {
     -- summonCenturionSphere
     {
         suffix = "Summon Centurion Sphere",
+        value = 100,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 100,
         maxCharge = 500,
@@ -3015,6 +3195,7 @@ local modifiers = {
     -- commandCreature
     {
         suffix = "Taming",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 20,
         maxCharge = 100,
@@ -3039,6 +3220,7 @@ local modifiers = {
     -- commandHumanoid
     {
         suffix = "Command",
+        value = 100,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 20,
         maxCharge = 100,
@@ -3064,6 +3246,7 @@ local modifiers = {
     -- boundDagger
     {
         prefix = "Devil",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 20,
         maxCharge = 100,
@@ -3085,6 +3268,7 @@ local modifiers = {
     -- boundLongsword
     {
         prefix = "Devil",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 20,
         maxCharge = 100,
@@ -3107,6 +3291,7 @@ local modifiers = {
     -- boundMace
     {
         prefix = "Devil",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 20,
         maxCharge = 100,
@@ -3129,6 +3314,7 @@ local modifiers = {
     -- boundBattleAxe
     {
         prefix = "Devil",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 20,
         maxCharge = 100,
@@ -3151,6 +3337,7 @@ local modifiers = {
     -- boundSpear
     {
         prefix = "Devil",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 20,
         maxCharge = 100,
@@ -3173,6 +3360,7 @@ local modifiers = {
     -- boundLongbow
     {
         prefix = "Devil",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 20,
         maxCharge = 100,
@@ -3195,6 +3383,7 @@ local modifiers = {
     -- boundCuirass
     {
         prefix = "Devil",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 20,
         maxCharge = 100,
@@ -3219,6 +3408,7 @@ local modifiers = {
     -- boundHelm
     {
         prefix = "Devil",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 20,
         maxCharge = 100,
@@ -3243,6 +3433,7 @@ local modifiers = {
     -- boundBoots
     {
         prefix = "Devil",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 20,
         maxCharge = 100,
@@ -3267,6 +3458,7 @@ local modifiers = {
     -- boundShield
     {
         prefix = "Devil",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 20,
         maxCharge = 100,
@@ -3291,6 +3483,7 @@ local modifiers = {
     -- boundGloves
     {
         prefix = "Devil",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 20,
         maxCharge = 100,
@@ -3315,6 +3508,7 @@ local modifiers = {
 
     {
         prefix = "Howling",
+        value = 50,
         castType = tes3.enchantmentType.onStrike,
         effects = {
             {

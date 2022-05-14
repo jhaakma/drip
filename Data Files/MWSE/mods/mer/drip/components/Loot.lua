@@ -5,14 +5,17 @@ local logger = common.createLogger("Loot")
 ---@type dripLoot
 local Loot = {}
 
+
+
 ---@param lootData dripLootData
 function Loot:new(lootData)
     logger:trace("Creating new loot for %s", lootData.baseObject.name)
     local loot = setmetatable(lootData, self)
     self.__index = self
     --Create the tes3object
-    loot.object = tes3.getObject(loot.baseObject):createCopy{}
+    loot.object = loot.baseObject:createCopy{}
     if not loot.object then return nil end
+
     loot.object.modified = true
     --Remove any modifiers that don't share the same cast type as the first one
     local targetCastType = loot.modifiers[1].castType or tes3.enchantmentType.constant
@@ -26,6 +29,7 @@ function Loot:new(lootData)
     loot.modifiers = modifiers
     loot:applyModifications()
     loot:applyMultipliers()
+    loot:applyValueModifiers()
     loot.object.enchantment = Loot:makeComplexEnchantment(loot.modifiers)
     local name = loot:getLootName()
     if #name > 31 then
@@ -36,6 +40,19 @@ function Loot:new(lootData)
 
     logger:trace("Created new loot: %s", loot.object.name)
     return loot
+end
+
+function Loot:applyValueModifiers()
+    for _, modifier in ipairs(self.modifiers) do
+        if modifier.value then
+            self.object.value = self.object.value + modifier.value
+        end
+    end
+    for _, modifier in ipairs(self.modifiers) do
+        if modifier.valueMulti then
+            self.object.value = self.object.value * modifier.valueMulti
+        end
+    end
 end
 
 
@@ -77,7 +94,7 @@ end
 
 function Loot:getLootName()
     logger:trace("Getting loot name")
-    local baseName = tes3.getObject(self.baseObject).name
+    local baseName = self.baseObject.name
     local name
     local function appendPrefixSuffix()
         name = baseName
@@ -100,7 +117,7 @@ function Loot:getLootName()
     appendPrefixSuffix()
     local attempts = 0
 
-    while attempts < 10 and #name > 31 do
+    while attempts < 10 do
         logger:trace("'%s' too long, attempting to remove material prefix", name)
         baseName = self:removeMaterialPrefix(baseName)
         appendPrefixSuffix()
