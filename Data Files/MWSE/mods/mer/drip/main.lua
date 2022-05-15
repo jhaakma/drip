@@ -47,3 +47,21 @@ local clothing = require("mer.drip.config.oaab.clothing")
 for _, clothing in ipairs(clothing) do
     interop.registerClothing(clothing)
 end
+
+--TR
+local materials = require("mer.drip.config.tr.materials")
+for _, pattern in ipairs(materials) do
+    interop.registerMaterialPattern(pattern)
+end
+local weapons = require("mer.drip.config.tr.weapons")
+for _, weapon in ipairs(weapons) do
+    interop.registerWeapon(weapon)
+end
+local armor = require("mer.drip.config.tr.armor")
+for _, armor in ipairs(armor) do
+    interop.registerArmor(armor)
+end
+local clothing = require("mer.drip.config.tr.clothing")
+for _, clothing in ipairs(clothing) do
+    interop.registerClothing(clothing)
+end
