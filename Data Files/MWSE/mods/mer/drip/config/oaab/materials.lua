@@ -4,6 +4,7 @@ return {
     "cook's",
     "corkbulb",
     "resin",
+    "tongman",
     "stalhrim",
     "farmer's",
     "wood",

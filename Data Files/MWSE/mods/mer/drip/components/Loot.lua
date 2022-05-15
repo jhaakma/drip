@@ -308,6 +308,11 @@ function Loot:replaceLootInInventory(ownerReference, stack)
         }
     end
     --register on player data
+    logger:debug("Adding %s to generatedLoot list", self.object.id:lower())
+    self:persist()
+end
+
+function Loot:persist()
     config.persistent.generatedLoot[self.object.id:lower()] = {
         modifiers = self.modifiers,
     }

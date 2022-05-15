@@ -152,6 +152,7 @@ local function onLeveledItemPicked(e)
                 logger:debug("Converted to %s", loot.object.name)
                 logger:debug("Replacing existing object with enchanted version")
                 e.pick = loot.object
+                loot:persist()
             end
         end
     end
