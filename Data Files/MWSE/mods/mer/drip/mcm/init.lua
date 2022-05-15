@@ -2,18 +2,18 @@ local common = require("mer.drip.common")
 local mcmConfig = mwse.loadConfig(common.config.configPath, common.config.mcmDefault)
 
 local LINKS_LIST = {
-    -- {
-    --     text = "Release history",
-    --     url = "https://github.com/jhaakma/crafting-framework/releases"
-    -- },
+    {
+        text = "Release history",
+        url = "https://github.com/jhaakma/drip/releases"
+    },
     -- {
     --     text = "Wiki",
     --     url = "https://github.com/jhaakma/crafting-framework/wiki"
     -- },
-    -- {
-    --     text = "Nexus",
-    --     url = "https://www.nexusmods.com/morrowind/mods/51009"
-    -- },
+    {
+        text = "Nexus Page",
+        url = "https://www.nexusmods.com/morrowind/mods/51242"
+    },
     {
         text = "Buy me a coffee",
         url = "https://ko-fi.com/merlord"
@@ -26,12 +26,10 @@ local CREDITS_LIST = {
     },
 }
 
-local SIDE_BAR_DEFAULT = common.config.modDescription
-
 local function addSideBar(component)
-    local versionText = string.format("Crafting Framework")
+    local versionText = string.format(common.config.modName)
     component.sidebar:createCategory(versionText)
-    component.sidebar:createInfo{ text = SIDE_BAR_DEFAULT}
+    component.sidebar:createInfo{ text = common.config.modDescription}
 
     local linksCategory = component.sidebar:createCategory("Links")
     for _, link in ipairs(LINKS_LIST) do
@@ -44,7 +42,7 @@ local function addSideBar(component)
 end
 
 local function registerMCM()
-    local template = mwse.mcm.createTemplate{ name = common.config.modName }
+    local template = mwse.mcm.createTemplate{ name = common.config.modName, headerImagePath = "textures/drip/MCMHeader.dds" }
     template.onClose = function()
         common.config.save(mcmConfig)
     end
@@ -60,8 +58,9 @@ local function registerMCM()
     }
 
     page:createSlider{
-        label = "First Modifier Chance",
-        description = "Determines the % chance to give a valid object a Modifier",
+        label = "First Modifier Chance: %s%%",
+        description = "Determines the % chance to give a valid object a Modifier. WARNING: Setting this too high can cause stuttering when first entering a cell. Any higher than 10% is not recommended."
+            .. string.format(" Default: %s", common.config.mcmDefault.modifierChance),
         min = 0,
         max = 100,
         step = 1,
@@ -70,13 +69,25 @@ local function registerMCM()
     }
 
     page:createSlider{
-        label = "Second Modifier Chance",
-        description = "Determines the % chance to give a valid object a second Modifier. The actual chance may be slightly lower as some modifiers fail due to the name being too long.",
+        label = "Second Modifier Chance: %s%%",
+        description = "Determines the % chance to give a valid object a second Modifier. The actual chance may be slightly lower as some modifiers fail due to the name being too long."
+        .. string.format(" Default: %s", common.config.mcmDefault.secondaryModifierChance),
         min = 0,
         max = 100,
         step = 1,
         jump = 10,
         variable = mwse.mcm.createTableVariable{ id = "secondaryModifierChance", table = mcmConfig }
+    }
+
+    page:createSlider{
+        label = "Wild Chance: %s%%",
+        description = "Determines the % chance to give a valid object an additional Wild Modifier (if applicable). This will change the magnitude of all effects to be from 1 to (min + max)."
+        .. string.format(" Default: %s", common.config.mcmDefault.wildChance),
+        min = 0,
+        max = 100,
+        step = 1,
+        jump = 10,
+        variable = mwse.mcm.createTableVariable{ id = "wildChance", table = mcmConfig }
     }
 
     page:createDropdown{

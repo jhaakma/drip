@@ -16,7 +16,7 @@ local function applyTooltips(e)
                         tooltip = e.tooltip,
                         text = modifier.description,
                         icon = modifier.icon,
-                        color = tes3ui.getPalette("positive_color")
+                        color = { 0.1, 0.8, 0.1}
                     }
                 end
             end

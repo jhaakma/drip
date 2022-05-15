@@ -16,7 +16,7 @@ local function getRandomModifier(object, list)
         end
         attempts = attempts + 1
     end
-    logger:error("Failed to find a modifier for %s", object.name)
+    logger:trace("Failed to find a modifier for %s", object.name)
 end
 
 
@@ -32,7 +32,7 @@ local function rollForModifiers(object)
     --First modifier has 50/50 chance of being prefix or suffix
     local modifiers = {}
 
-    logger:debug("Object: %s", object.name)
+    logger:trace("Object: %s", object.name)
 
     local firstModifier = getFirstModifier(object)
     if not firstModifier then
@@ -40,7 +40,9 @@ local function rollForModifiers(object)
     end
     table.insert(modifiers, firstModifier)
     local secondModifier
-    if math.random(100) < common.config.mcm.secondaryModifierChance then
+    --If first modifier was wild, guarantee a second.
+    --If wild is the second modifier, we already have another to apply the wild to
+    if firstModifier.wild or math.random(100) < common.config.mcm.secondaryModifierChance then
         if firstModifier.prefix then
             secondModifier = getRandomModifier(object, modifierConfig.suffixes)
         else
@@ -80,8 +82,23 @@ local function addToRef(reference)
                     logger:debug("Converted to %s", loot.object.name)
                     logger:debug("Replacing existing object with enchanted version")
                     loot:replaceLootInInventory(reference, stack)
+                elseif #modifiers > 1 then
+                    logger:trace("Trying with one less modifier")
+                    table.remove(modifiers, 1)
+                    logger:trace("Converting %s to loot", stack.object.name)
+                    local loot = Loot:new{
+                        baseObject = stack.object,
+                        modifiers = modifiers,
+                    }
+                    if loot then
+                        logger:debug("Converted to %s", loot.object.name)
+                        logger:debug("Replacing existing object with enchanted version")
+                        loot:replaceLootInInventory(reference, stack)
+                    else
+                        logger:trace("Failed to convert %s to loot", stack.object.name)
+                    end
                 else
-                    logger:error("Failed to convert %s to loot", stack.object.name)
+                    logger:trace("Failed to convert %s to loot", stack.object.name)
                 end
             end
         end
@@ -97,6 +114,7 @@ local validTypes = {
 }
 ---@param e cellChangedEventData
 local function onCellChanged(e)
+    if not common.config.mcm.enabled then return end
     for _, cell in pairs(tes3.getActiveCells()) do
         for ref in cell:iterateReferences() do
             if validTypes[ref.baseObject.objectType] then
@@ -118,6 +136,7 @@ event.register("cellChanged", onCellChanged)
 ]]
 ---@param e leveledItemPickedEventData
 local function onLeveledItemPicked(e)
+    if not common.config.mcm.enabled then return end
     if not e.pick then return end
     local objectIds = common.getAllLootObjectIds()
     if objectIds[e.pick.id:lower()] then

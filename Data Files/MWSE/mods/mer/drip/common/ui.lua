@@ -1,6 +1,7 @@
 local UI = {}
 local doIcon = false
 
+---@return tes3uiElement
 function UI.addLabelToTooltip(e)
     local tooltip, text, color = e.tooltip, e.text, e.color
     local function setupOuterBlock(e)
@@ -19,11 +20,15 @@ function UI.addLabelToTooltip(e)
         and tooltip:findChild(partmenuID):findChild(partmenuID):findChild(partmenuID)
         or tooltip
 
-    local outerBlock = mainBlock:createBlock()
+    local outerBlock = mainBlock:createBlock{ id = "DRIP_EffectBlock" }
     setupOuterBlock(outerBlock)
 
-    mainBlock:reorderChildren(-2, -1, 1)
+    local insertBefore = mainBlock:findChild("HelpMenu_armorRating")
+        or mainBlock:findChild("HelpMenu_weaponType") or -2
+
+    mainBlock:reorderChildren(insertBefore, -1, 1)
     mainBlock:updateLayout()
+
     if text then
         local label = outerBlock:createLabel({text = text})
         label.autoHeight = true
@@ -36,7 +41,8 @@ function UI.addLabelToTooltip(e)
 end
 
 function UI.createEffectBlock(e)
-    local effectBlock = UI.addLabelToTooltip(e)
+    local block = UI.addLabelToTooltip(e)
+
     -- if doIcon then
     --     local icon = effectBlock:createImage{ path = e.icon }
     --     icon.height = 16

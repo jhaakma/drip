@@ -38,7 +38,7 @@ end
 function Modifier:new(data)
     local isValid, errorMsg = self:validate(data)
     if not isValid then
-        logger:error("Invalid modifier data: %s", errorMsg)
+        logger:debug("Invalid modifier data: %s", errorMsg)
         return nil
     end
     if data == nil then return end

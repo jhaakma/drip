@@ -1,4 +1,0 @@
-local suffixes = {
-
-}
-return suffixes

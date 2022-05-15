@@ -1,7 +1,5 @@
 local modifiers = {
 
-    --Custom effects
-
     --Weapon multipliers
     {
         prefix = "Quality",
@@ -743,15 +741,35 @@ local modifiers = {
         prefix = "Blazing",
         value = 50,
         castType = tes3.enchantmentType.onStrike,
+        chargeCost = 20,
+        maxCharge = 200,
+        effects = {
+            {
+                id = tes3.effect.fireDamage,
+                rangeType = tes3.effectRange.touch,
+                min = 5,
+                max = 20,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.ammunition] = true
+        },
+    },
+    --Slow
+    {
+        suffix = "Flames",
+        value = 50,
+        castType = tes3.enchantmentType.onStrike,
         chargeCost = 50,
         maxCharge = 500,
         effects = {
             {
                 id = tes3.effect.fireDamage,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 10,
-                duration = 5,
+                min = 2,
+                max = 5,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -783,7 +801,27 @@ local modifiers = {
     },
     --strong
     {
-        prefix = "Electric",
+        prefix = "Shocking",
+        value = 50,
+        castType = tes3.enchantmentType.onStrike,
+        chargeCost = 20,
+        maxCharge = 200,
+        effects = {
+            {
+                id = tes3.effect.shockDamage,
+                rangeType = tes3.effectRange.touch,
+                min = 5,
+                max = 20,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.ammunition] = true
+        },
+    },
+    --Slow
+    {
+        suffix = "Electricity",
         value = 50,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 50,
@@ -792,8 +830,9 @@ local modifiers = {
             {
                 id = tes3.effect.shockDamage,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 20,
+                min = 2,
+                max = 5,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -812,7 +851,7 @@ local modifiers = {
         maxCharge = 100,
         effects = {
             {
-                id = tes3.effect.shockDamage,
+                id = tes3.effect.frostDamage,
                 rangeType = tes3.effectRange.touch,
                 min = 3,
                 max = 7,
@@ -828,14 +867,35 @@ local modifiers = {
         prefix = "Freezing",
         value = 50,
         castType = tes3.enchantmentType.onStrike,
+        chargeCost = 20,
+        maxCharge = 200,
+        effects = {
+            {
+                id = tes3.effect.frostDamage,
+                rangeType = tes3.effectRange.touch,
+                min = 5,
+                max = 20,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.ammunition] = true
+        },
+    },
+    --Slow
+    {
+        suffix = "Icicles",
+        value = 50,
+        castType = tes3.enchantmentType.onStrike,
         chargeCost = 50,
         maxCharge = 500,
         effects = {
             {
-                id = tes3.effect.shockDamage,
+                id = tes3.effect.frostDamage,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 20,
+                min = 2,
+                max = 5,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -890,9 +950,11 @@ local modifiers = {
     },
 
     -- disintegrateWeapon/disintegrateArmor
+
+    --weak
     {
         prefix = "Corrosive",
-        value = 50,
+        value = 25,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 10,
         maxCharge = 100,
@@ -915,10 +977,36 @@ local modifiers = {
             [tes3.objectType.ammunition] = true
         },
     },
+    --strong
+    {
+        prefix = "Acidic",
+        value = 50,
+        castType = tes3.enchantmentType.onStrike,
+        chargeCost = 50,
+        maxCharge = 500,
+        effects = {
+            {
+                id = tes3.effect.disintegrateWeapon,
+                rangeType = tes3.effectRange.touch,
+                min = 10,
+                max = 20,
+            },
+            {
+                id = tes3.effect.disintegrateArmor,
+                rangeType = tes3.effectRange.touch,
+                min = 10,
+                max = 20,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.ammunition] = true
+        },
+    },
 
     -- invisibility
     {
-        suffix = "Shrouding",
+        suffix = "Hiding",
         value = 25,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 10,
@@ -962,7 +1050,7 @@ local modifiers = {
 
     -- chameleon
     {
-        suffix = "the Chameleon",
+        suffix = "Camoflauge",
         value = 25,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 50,
@@ -1081,18 +1169,18 @@ local modifiers = {
 
     -- charm
     {
-        suffix = "Smiles",
-        value = 25,
+        suffix = "Befriending",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
-        chargeCost = 10,
-        maxCharge = 100,
+        chargeCost = 20,
+        maxCharge = 200,
         effects = {
             {
                 id = tes3.effect.charm,
                 rangeType = tes3.effectRange.touch,
-                min = 10,
-                max = 15,
-                duration = 5,
+                min = 20,
+                max = 30,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -1497,9 +1585,33 @@ local modifiers = {
 
 
     -- restoreHealth
+    --weak
     {
         suffix = "Healing",
         value = 25,
+        castType = tes3.enchantmentType.onUse,
+        chargeCost = 5,
+        maxCharge = 50,
+        effects = {
+            {
+                id = tes3.effect.restoreHealth,
+                rangeType = tes3.effectRange.self,
+                min = 10,
+                max = 20,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+        validClothingSlots = {
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
+    },
+    --strong
+    {
+        suffix = "Recovery",
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 20,
         maxCharge = 100,
@@ -1507,9 +1619,9 @@ local modifiers = {
             {
                 id = tes3.effect.restoreHealth,
                 rangeType = tes3.effectRange.self,
-                duration = 5,
-                min = 2,
-                max = 5,
+                min = 5,
+                max = 10,
+                duration = 20,
             },
         },
         validObjectTypes = {
@@ -1532,7 +1644,7 @@ local modifiers = {
             {
                 id = tes3.effect.restoreMagicka,
                 rangeType = tes3.effectRange.self,
-                duration = 5,
+                duration = 10,
                 min = 1,
                 max = 2,
             },
@@ -1557,9 +1669,9 @@ local modifiers = {
             {
                 id = tes3.effect.restoreFatigue,
                 rangeType = tes3.effectRange.self,
-                duration = 5,
-                min = 2,
-                max = 5,
+                duration = 10,
+                min = 3,
+                max = 7,
             },
         },
         validObjectTypes = {
@@ -1627,7 +1739,7 @@ local modifiers = {
         },
     },
     {
-        suffix = "Precision",
+        suffix = "the Nix-Hound",
         value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -1681,7 +1793,7 @@ local modifiers = {
         },
     },
     {
-        prefix = "Captain's",
+        prefix = "Scamp's",
         value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -1699,6 +1811,26 @@ local modifiers = {
         },
     },
 
+    {
+        prefix = "Celestial",
+        value = 50,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifyAttribute,
+                attribute = tes3.attribute.luck,
+                rangeType = tes3.effectRange.self,
+                min = 5,
+                max = 5,
+            }
+        },
+        validObjectTypes = {
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        },
+    },
+
+    --fortifyAttribute combos
     {
         prefix = "King's",
         value = 100,
@@ -1724,43 +1856,6 @@ local modifiers = {
     },
 
 
-    {
-        prefix = "Fool's",
-        value = 25,
-        castType = tes3.enchantmentType.constant,
-        effects = {
-            {
-                id = tes3.effect.fortifyAttribute,
-                attribute = tes3.attribute.luck,
-                rangeType = tes3.effectRange.self,
-                min = 3,
-                max = 3,
-            }
-        },
-        validObjectTypes = {
-            [tes3.objectType.armor] = true,
-            [tes3.objectType.clothing] = true,
-        },
-    },
-    {
-        prefix = "Celestial",
-        value = 50,
-        castType = tes3.enchantmentType.constant,
-        effects = {
-            {
-                id = tes3.effect.fortifyAttribute,
-                attribute = tes3.attribute.luck,
-                rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
-            }
-        },
-        validObjectTypes = {
-            [tes3.objectType.armor] = true,
-            [tes3.objectType.clothing] = true,
-        },
-    },
-
     -- fortifySkill
 
     {
@@ -1778,6 +1873,7 @@ local modifiers = {
         },
         validObjectTypes = {
             [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
         },
         validArmorSlots = {
             [tes3.armorSlot.shield] = true
@@ -1799,11 +1895,12 @@ local modifiers = {
         },
         validObjectTypes = {
             [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
         },
     },
 
     {
-        prefix = "Soldier's",
+        prefix = "Fitted",
         value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -1824,7 +1921,7 @@ local modifiers = {
     },
 
     {
-        prefix = "Knight's",
+        prefix = "Fitted",
         value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -1845,7 +1942,7 @@ local modifiers = {
     },
 
     {
-        prefix = "Barbarian's",
+        prefix = "Balanced",
         value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -1866,9 +1963,8 @@ local modifiers = {
             [tes3.weaponType.bluntTwoWide] = true,
         }
     },
-
     {
-        prefix = "Fencer's",
+        prefix = "Balanced",
         value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -1884,32 +1980,12 @@ local modifiers = {
             [tes3.objectType.weapon] = true,
         },
         validWeaponTypes = {
-            [tes3.weaponType.longBladeOneHand] = true
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
         }
     },
     {
-        prefix = "Knight's",
-        value = 25,
-        castType = tes3.enchantmentType.constant,
-        effects = {
-            {
-                id = tes3.effect.fortifySkill,
-                skill = tes3.skill.longBlade,
-                rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
-            }
-        },
-        validObjectTypes = {
-            [tes3.objectType.weapon] = true,
-        },
-        validWeaponTypes = {
-            [tes3.weaponType.longBladeTwoClose] = true
-        }
-    },
-
-    {
-        prefix = "Berserker's",
+        prefix = "Balanced",
         value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -1929,9 +2005,8 @@ local modifiers = {
             [tes3.weaponType.axeTwoHand] = true
         }
     },
-
     {
-        prefix = "Lancer's",
+        prefix = "Balanced",
         value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -1952,7 +2027,7 @@ local modifiers = {
     },
 
     {
-        suffix = "the Sprinter",
+        prefix = "Runner's",
         value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -1990,7 +2065,7 @@ local modifiers = {
     },
 
     {
-        prefix = "Sorcerer's",
+        prefix = "Wizard's",
         value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -2066,7 +2141,7 @@ local modifiers = {
     },
 
     {
-        suffix = "the Shaman",
+        prefix = "Mystic's",
         value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -2104,26 +2179,7 @@ local modifiers = {
     },
 
     {
-        prefix = "Archangel's",
-        value = 50,
-        castType = tes3.enchantmentType.constant,
-        effects = {
-            {
-                id = tes3.effect.fortifySkill,
-                skill = tes3.skill.restoration,
-                rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
-            }
-        },
-        validObjectTypes = {
-            [tes3.objectType.armor] = true,
-            [tes3.objectType.clothing] = true,
-        },
-    },
-
-    {
-        suffix = "the Alchemist",
+        prefix = "Alchemist's",
         value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -2137,65 +2193,6 @@ local modifiers = {
         },
         validObjectTypes = {
             [tes3.objectType.armor] = true,
-            [tes3.objectType.clothing] = true,
-        },
-    },
-
-    {
-        suffix = "the Monk",
-        value = 25,
-        castType = tes3.enchantmentType.constant,
-        effects = {
-            {
-                id = tes3.effect.fortifySkill,
-                skill = tes3.skill.unarmored,
-                rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
-            }
-        },
-        validObjectTypes = {
-            [tes3.objectType.clothing] = true,
-        },
-    },
-
-    {
-        prefix = "Feral",
-        value = 50,
-        castType = tes3.enchantmentType.constant,
-        effects = {
-            {
-                id = tes3.effect.fortifySkill,
-                skill = tes3.skill.unarmored,
-                min = 3,
-                max = 3,
-            },
-            {
-                id = tes3.effect.fortifySkill,
-                skill = tes3.skill.handToHand,
-                min = 3,
-                max = 3,
-            },
-        },
-        validObjectTypes = {
-            [tes3.objectType.clothing] = true,
-        },
-    },
-
-    {
-        suffix = "the Thief",
-        value = 25,
-        castType = tes3.enchantmentType.constant,
-        effects = {
-            {
-                id = tes3.effect.fortifySkill,
-                skill = tes3.skill.security,
-                rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
-            }
-        },
-        validObjectTypes = {
             [tes3.objectType.clothing] = true,
         },
     },
@@ -2237,7 +2234,7 @@ local modifiers = {
     },
 
     {
-        suffix = "the Scout",
+        prefix = "Fitted",
         value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -2258,7 +2255,7 @@ local modifiers = {
     },
 
     {
-        suffix = "the Assassin",
+        prefix = "Balanced",
         value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -2279,7 +2276,7 @@ local modifiers = {
     },
 
     {
-        suffix = "the Bowyer",
+        prefix = "Balanced",
         value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -2296,11 +2293,12 @@ local modifiers = {
         },
         validWeaponTypes = {
             [tes3.weaponType.marksmanBow] = true,
+            [tes3.weaponType.marksmanCrossbow] = true,
         },
     },
 
     {
-        suffix = "the Merchant",
+        prefix = "Merchant's",
         value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -2318,33 +2316,7 @@ local modifiers = {
         },
     },
     {
-        prefix = "Cunning",
-        value = 50,
-        castType = tes3.enchantmentType.constant,
-        effects = {
-            {
-                id = tes3.effect.fortifySkill,
-                skill = tes3.skill.mercantile,
-                rangeType = tes3.effectRange.self,
-                min = 3,
-                max = 3,
-            },
-            {
-                id = tes3.effect.fortifySkill,
-                skill = tes3.skill.security,
-                rangeType = tes3.effectRange.self,
-                min = 3,
-                max = 3,
-            },
-        },
-        validObjectTypes = {
-            [tes3.objectType.armor] = true,
-            [tes3.objectType.clothing] = true,
-        },
-    },
-
-    {
-        suffix = "Silver Tongue",
+        prefix = "Wordsmith's",
         value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -2363,7 +2335,7 @@ local modifiers = {
     },
 
     {
-        prefix = "Boxer's",
+        prefix = "Pugilist's",
         value = 25,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -2390,6 +2362,564 @@ local modifiers = {
             [tes3.clothingSlot.rightGlove] = true,
         },
     },
+
+    --multi skill (each vanilla class)
+    {
+        suffix = "the Acrobat",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.acrobatics,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.athletics,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Agent",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.speechcraft,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.sneak,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Archer",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.marksman,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.lightArmor,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Assassin",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.shortBlade,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.alchemy,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Barbarian",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.axe,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.mediumArmor,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Bard",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.speechcraft,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.illusion,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Battlemage",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.conjuration,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.heavyArmor,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Crusader",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.bluntWeapon,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.destruction,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Healer",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.restoration,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.mysticism,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Knight",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.longBlade,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.heavyArmor,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Mage",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.destruction,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.alteration,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Monk",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.handToHand,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.unarmored,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Nightblade",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.sneak,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.illusion,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Pilgrim",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.speechcraft,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.mercantile,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Rogue",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.shortBlade,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.mercantile,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Scout",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.athletics,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.mediumArmor,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Sorcerer",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.enchant,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.conjuration,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Spellsword",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.longBlade,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.destruction,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Thief",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.sneak,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.security,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Warrior",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.longBlade,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.block,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        suffix = "the Witchhunter",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.conjuration,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.alchemy,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+
+    --Other multiskill
+    {
+        prefix = "Cunning",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.mercantile,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.security,
+                rangeType = tes3.effectRange.self,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+        },
+    },
+    {
+        prefix = "Feral",
+        value = 75,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.unarmored,
+                min = 3,
+                max = 3,
+            },
+            {
+                id = tes3.effect.fortifySkill,
+                skill = tes3.skill.handToHand,
+                min = 3,
+                max = 3,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+    },
+
+
+
 
     -- fortifyMaximumMagicka
     {
@@ -2609,7 +3139,7 @@ local modifiers = {
     --Resist Elements
 
     {
-        prefix = "Prismatic",
+        prefix = "Chromatic",
         value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -2638,7 +3168,7 @@ local modifiers = {
         },
     },
     {
-        prefix = "Chromatic",
+        prefix = "Prismatic",
         value = 75,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -2669,7 +3199,7 @@ local modifiers = {
 
     -- resistMagicka
     {
-        prefix = "Magickguard",
+        suffix = "Magickguard",
         value = 50,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -2813,6 +3343,8 @@ local modifiers = {
             [tes3.objectType.ammunition] = true
         },
     },
+
+
 
     -- summonScamp
     {

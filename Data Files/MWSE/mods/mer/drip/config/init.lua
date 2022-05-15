@@ -1,6 +1,6 @@
 local config = {}
 local cache
-config.materials = require("mer.drip.config.materials")
+config.materials = {}
 config.modifiers = {
     prefixes = {},
     suffixes = {},
@@ -12,7 +12,7 @@ config.armor = {}
 --Static Configs
 config.modName = "Drip"
 config.modDescription = [[
-Drip adds Diablo 2 style loot to Morrowind. Unique weapons, armor, clothing and accesories are dynamically generated, with hundreds of possible modifiers and over a million possible combinations.
+Drip adds Diablo 2 style loot to Morrowind. Unique weapons, armor, clothing and accesories are dynamically generated, with over a hundred unique modifiers and more than a million possible combinations.
 ]]
 config.configPath = "drip"
 config.modifierIcon = "Icons/drip/modifier.dds"
@@ -22,8 +22,9 @@ config.selfRepairPercentPerHour = 1
 config.mcmDefault = {
     logLevel = "INFO",
     enabled = true,
-    modifierChance = 1,--percent
-    secondaryModifierChance = 20
+    modifierChance = 4,--percent
+    secondaryModifierChance = 20,
+    wildChance = 6,
 }
 config.save = function(newConfig)
     cache = newConfig
