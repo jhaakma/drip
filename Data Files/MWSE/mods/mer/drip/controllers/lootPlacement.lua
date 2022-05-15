@@ -60,6 +60,7 @@ end
 
 
 local function addToRef(reference)
+    if reference.data.dripified then return end
     --If a reference has an inventory (such as an NPC or container)
     -- search for objects that can be Lootified
     local container = reference.object
@@ -120,9 +121,7 @@ local function onCellChanged(e)
             if validTypes[ref.baseObject.objectType] then
                 if ref.object.inventory then
                     if not ref.object.organic then
-                        if not ref.data.dripified then
-                            addToRef(ref)
-                        end
+                        addToRef(ref)
                     end
                 end
             end
