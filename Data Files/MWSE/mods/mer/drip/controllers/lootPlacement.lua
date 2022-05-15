@@ -129,7 +129,14 @@ local function onCellChanged(e)
         end
     end
 end
-event.register("cellChanged", onCellChanged)
+--event.register("cellChanged", onCellChanged)
+
+---@param e mobileActivatedEventData
+event.register("mobileActivated", function(e)
+    if e.reference.baseObject.objectType == tes3.objectType.npc then
+        addToRef(e.reference)
+    end
+end)
 
 --[[
     Add loot to leveled items

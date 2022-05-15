@@ -283,16 +283,20 @@ function Loot:replaceLootInInventory(ownerReference, stack)
         playSound = false,
     }
 
-    if ownerReference.mobile and ownerReference.object:hasItemEquipped(stack.object) then
-        logger:debug("Unequipping %s and equipping %s", stack.object.name, self.object.name)
-        ownerReference.mobile:unequip{ item = stack.object}
-        ownerReference.mobile:equip{ item = self.object }
-        ownerReference:updateEquipment()
+
+    if ownerReference.mobile then
+        if ownerReference.object:hasItemEquipped(stack.object) then
+            logger:debug("Has a mobile")
+            ownerReference.mobile:unequip{ item = stack.object}
+            logger:debug("Unequipping %s and equipping %s", stack.object.name, self.object.name)
+            ownerReference.mobile:equip{ item = self.object }
+            ownerReference:updateEquipment()
+        end
     end
 
     --Remove the object from the inventory
-    if stack.count > 0 then
-        tes3.removeItem{
+    if stack.count >= 0 then
+        mwscript.removeItem{
             reference = ownerReference,
             item = stack.object,
             count = stack.count,
@@ -300,7 +304,7 @@ function Loot:replaceLootInInventory(ownerReference, stack)
         }
     else
         --use "addItem" to remove if count is negative
-        tes3.addItem{
+        mwscript.addItem{
             reference = ownerReference,
             item = stack.object,
             count = stack.count,
