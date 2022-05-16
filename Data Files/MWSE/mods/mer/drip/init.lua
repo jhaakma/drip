@@ -6,7 +6,13 @@ local config = common.config
 local drip = {}
 
 function drip.registerMaterialPattern(str)
-    config.materials[str:lower()] = true
+    --Puts patterns with multiple words at the front so they get caught first
+    if string.find(str, " ") then
+
+        table.insert(config.materials, 1, str)
+    else
+        table.insert(config.materials, str:lower())
+    end
 end
 
 function drip.registerModifier(modifierData)

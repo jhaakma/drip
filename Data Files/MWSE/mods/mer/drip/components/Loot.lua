@@ -21,7 +21,7 @@ function Loot:new(lootData)
     local targetCastType = loot.modifiers[1].castType or tes3.enchantmentType.constant
     local modifiers = {}
     for i, modifier in ipairs(loot.modifiers) do
-        logger:trace("modifier: %s", modifier.prefix or modifier.suffix)
+        logger:debug("modifier: %s", modifier.prefix or modifier.suffix)
         if (not loot.modifiers[i].castType) or loot.modifiers[i].castType == targetCastType then
             table.insert(modifiers, modifier)
         end
@@ -30,26 +30,26 @@ function Loot:new(lootData)
     loot:applyModifications()
     loot:applyMultipliers()
 
+    --Roll for wild
+
+    --Try build name with wild parameter
+    --If name too long, cancel wild
+
+
+
     loot.object.enchantment = Loot:makeComplexEnchantment(loot.modifiers)
-    local name = loot:getLootName()
+
+    logger:debug("Checking for wild")
+    if loot:canHaveWild() and loot:rollForWild() then
+        loot:applyWild()
+    end
+
+    local name = loot:getLootName{ wild = loot.wild }
     if #name > 31 then
         logger:debug("Name '%s' excedes 31 characters, cancelling Loot creation", name)
         return nil
     end
     loot.object.name = name
-
-
-    logger:debug("Checking for wild")
-    if loot:canHaveWild() then
-        logger:debug("Loot can have wild, rolling")
-        --Roll for wild prefix
-        local roll = math.random(100)
-        if roll <= common.config.mcm.wildChance then
-            loot.wild = true
-            logger:debug("Rolled %d, adding wild prefix", roll)
-            loot:applyWild()
-        end
-    end
 
     loot:applyValueModifiers()
 
@@ -57,45 +57,49 @@ function Loot:new(lootData)
     return loot
 end
 
+function Loot:rollForWild()
+    local roll = math.random(100)
+    return roll <= common.config.mcm.wildChance
+end
 
 function Loot:canHaveWild()
-    --Check if name has room for "Wild " prefix
-    if string.len(self.object.name .. "Wild ") > 31 then
-        logger:trace("Name %s too long to have 'Wild ' prefix", self.object.name)
+    if #self:getLootName{ wild = true } > 31 then
+        logger:debug("Name is too long with wild parameter")
         return false
     end
+
     if not self.object.enchantment then
-        logger:trace("Object %s has no enchantment", self.object.name)
+        logger:debug("Object %s has no enchantment", self.object.name)
         return false
     end
     --Constant effects need min and max the same
     if self.object.enchantment.castType == tes3.enchantmentType.constant then
-        logger:trace("enchantment is constant, can't be wild")
+        logger:debug("enchantment is constant, can't be wild")
         return false
     end
     --Find an effect with min max
     for _, effect in ipairs(self.object.enchantment.effects) do
         if effect.min and effect.min > 0 then
-            logger:trace("min: %s", effect.min)
-            logger:trace("max: %s", effect.max)
-            logger:trace("Found effect with magnitude on %s", self.object.name)
+            logger:debug("min: %s", effect.min)
+            logger:debug("max: %s", effect.max)
+            logger:debug("Found effect with magnitude on %s", self.object.name)
             return true
         end
     end
-    logger:trace("No effects with magnitude on %s", self.object.name)
+    logger:debug("No effects with magnitude on %s", self.object.name)
     return false
 end
 
 function Loot:applyWild()
     if not self.object.enchantment then return false end
     logger:debug("Making %s Wild", self.object.name)
-    self.object.name = "Wild " .. self.object.name
     --Wildify the effects
     for _, effect in ipairs(self.object.enchantment.effects) do
         local wildMax = math.ceil((effect.min + effect.max) * 1.5)
         effect.min = 1
         effect.max = wildMax
     end
+    self.wild = true
 end
 
 function Loot:applyValueModifiers()
@@ -141,17 +145,34 @@ function Loot:applyMultipliers()
 end
 
 function Loot:removeMaterialPrefix(name)
-    local split = string.split(name, " ")
-    local prefix = split[1]:lower()
-    if config.materials[prefix] then
-        return string.sub(name, string.len(prefix) + 2)
-    else
-        return name
+    local lowerName = name:lower()
+    logger:trace("lowerName: %s", lowerName)
+    for _, material in ipairs(config.materials) do
+        if string.startswith(lowerName, (material .. " ")) then
+            logger:trace("Removing material prefix: %s", material)
+            return name:sub(#material + 2)
+        end
     end
+
+    return name
+    -- local split = string.split(name, " ")
+    -- local prefix = split[1]:lower()
+    -- if config.materials[prefix] then
+    --     return string.sub(name, string.len(prefix) + 2)
+    -- else
+    --     return name
+    -- end
 end
 
-function Loot:getLootName()
+function Loot:getLootName(e)
     logger:trace("Getting loot name")
+
+    local maxLength = 31
+    if e.wild then
+        logger:trace("Creating name with wild prefix")
+        maxLength = maxLength - string.len("Wild ")
+    end
+
     local baseName = self.baseObject.name
     local name
     local function appendPrefixSuffix()
@@ -175,13 +196,17 @@ function Loot:getLootName()
     local attempts = 0
     appendPrefixSuffix()
     --while attempts < 10 and #name > 31 do
-    while attempts < 10 do
+    while attempts < 10 and #name > maxLength do
         baseName = self:removeMaterialPrefix(baseName)
+        appendPrefixSuffix()
         attempts = attempts + 1
     end
-    appendPrefixSuffix()
 
-    logger:debug("Loot name: %s", name)
+    if e.wild then
+        name = string.format("Wild %s", name)
+    end
+
+    logger:trace("Loot name: %s", name)
     return name
 end
 
@@ -258,7 +283,7 @@ end
 function Loot:makeComplexEnchantment(modifiers)
     local enchantmentValues = self:getEnchantmentValues(modifiers)
     if #enchantmentValues.effects == 0 then return end
-    logger:trace("castType: %s", enchantmentValues.castType)
+    logger:debug("castType: %s", enchantmentValues.castType)
     local enchantment = tes3.createObject{
         objectType = tes3.objectType.enchantment,
         castType = enchantmentValues.castType or tes3.enchantmentType.constant,
@@ -274,7 +299,7 @@ end
 ---@param stack tes3itemStack
 function Loot:replaceLootInInventory(ownerReference, stack)
     local count = stack.count
-    logger:trace("stack.count: %s", stack.count)
+    logger:debug("stack.count: %s", stack.count)
     --Add loot to inventory
     tes3.addItem{
         reference = ownerReference,
@@ -282,7 +307,6 @@ function Loot:replaceLootInInventory(ownerReference, stack)
         count = count,
         playSound = false,
     }
-
 
     if ownerReference.mobile then
         if ownerReference.object:hasItemEquipped(stack.object) then

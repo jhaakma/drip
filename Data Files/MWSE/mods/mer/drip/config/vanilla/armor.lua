@@ -252,5 +252,16 @@ local armor = {
     "trollbone_cuirass",
     "trollbone_helm",
     "trollbone_shield",
+
+    --And some small mods
+    "_dnk_ceph_bts",
+    "_dnk_ceph_cuirass",
+    "_dnk_ceph_greaves",
+    "_dnk_ceph_gaunt_l",
+    "_dnk_ceph_p_l",
+    "_dnk_ceph_gaunt_r",
+    "_dnk_ceph_p_r",
+    "_dnk_cephal_helm",
+
 }
 return armor

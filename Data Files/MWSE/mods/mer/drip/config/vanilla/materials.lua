@@ -1,5 +1,6 @@
 --A list of material names to remove from the name of the base object
 local materials = {
+    "hlaalu guard",
     "adamantium",
     "armor",
     "bear",
@@ -25,6 +26,7 @@ local materials = {
     "goblin",
     "huntsman",
     "house",
+    "ice armor",
     "ice",
     "iron",
     "imperial",
@@ -46,5 +48,6 @@ local materials = {
     "war",
     "wolf",
     "wooden",
+    "cephalopod",
 }
 return materials

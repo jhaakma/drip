@@ -32,7 +32,6 @@ return {
     "rogue",
     "stalker",
     "telvanni",
-    "cephalopod",
     "thirr",
     "scrap",
     "direnni",
@@ -91,4 +90,6 @@ return {
     "tsaesci",
     "rusty",
     "bosmeri",
+    "telvanni guard",
+    "telvanni cephalopod",
 }

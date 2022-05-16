@@ -186,4 +186,5 @@ return {
     "imperial belt",
     "imperial skirt_clothing",
     "indoril_belt",
+    "_dnk_telv_rb"
 }
