@@ -40,6 +40,8 @@ DripModifierData = {}
 ---@field validClothingSlots table<number, boolean> A list of clothing slots that can have this modifier. use tes3.clothingSlot mapping as the key and set value to true. e.g "[tes3.clothingSlot.amulet] = true"
 ---@field icon string The path to a custom icon
 ---@field description string A a description of the effect.
+---@field multipliers table A list of object fields that will be multiplied by the value
+---@field modifications table A list of object fields that will be modified by the value
 DripModifier = {}
 
 ---@param data DripModifierData

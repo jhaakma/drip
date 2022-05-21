@@ -122,6 +122,26 @@ function Modifier:validForObject(object)
         end
     end
 
+    --Check check multiplier fields exist on object
+    if self.multipliers then
+        for k, v in pairs(self.multipliers) do
+            if not object[k] then
+                logger:error("%s does not have a multiplier field %s", object.name, k)
+                return false
+            end
+        end
+    end
+
+    ---Check modification fields exist on object
+    if self.modifications then
+        for k, v in pairs(self.modifications) do
+            if not object[k] then
+                logger:error("%s does not have a modification field %s", object.name, k)
+                return false
+            end
+        end
+    end
+
     return true
 end
 

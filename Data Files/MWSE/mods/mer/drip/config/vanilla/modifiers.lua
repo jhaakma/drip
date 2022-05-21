@@ -193,6 +193,34 @@ local modifiers = {
         icon = "Icons/diabloot/multiplier.dds",
     },
 
+    --Condition Muiltipliers
+
+    {
+        prefix = "Superior",
+        valueMulti = 1.25,
+        description = "2x Max Condition",
+        multipliers = {
+            maxCondition = 2,
+        },
+        validObjectTypes = {
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.weapon] = true,
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+            [tes3.weaponType.marksmanBow] = true,
+            [tes3.weaponType.marksmanCrossbow] = true,
+        },
+        icon = "Icons/diabloot/multiplier.dds",
+    },
     --Vanilla effects
 
     --drainAttribute
