@@ -22,9 +22,10 @@ config.selfRepairPercentPerHour = 1
 config.mcmDefault = {
     logLevel = "INFO",
     enabled = true,
-    modifierChance = 4,--percent
-    secondaryModifierChance = 20,
-    wildChance = 6,
+    modifierChance = 5,--percent
+    secondaryModifierChance = 25,
+    wildChance = 10,
+    wildMultiplier = 1.5,
 }
 config.save = function(newConfig)
     cache = newConfig

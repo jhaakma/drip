@@ -95,7 +95,7 @@ function Loot:applyWild()
     logger:debug("Making %s Wild", self.object.name)
     --Wildify the effects
     for _, effect in ipairs(self.object.enchantment.effects) do
-        local wildMax = math.ceil((effect.min + effect.max) * 1.5)
+        local wildMax = math.ceil((effect.min + effect.max) * common.config.mcm.wildMultiplier)
         effect.min = 1
         effect.max = wildMax
     end
@@ -114,7 +114,7 @@ function Loot:applyValueModifiers()
         end
     end
     if self.wild then
-        self.object.value = self.object.value * 1.5
+        self.object.value = self.object.value * 1.5 + 50
     end
 end
 
