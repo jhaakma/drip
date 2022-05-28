@@ -1,9 +1,8 @@
 local modifiers = {
-
-    --Weapon multipliers
+    --Sharp weapons only
     {
-        prefix = "Quality",
-        value = 50,
+        prefix = "Jagged",
+        value = 100,
         description = "+5 Max Damage",
         modifications = {
             chopMax = 5,
@@ -15,9 +14,15 @@ local modifiers = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
         },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+            [tes3.weaponType.marksmanThrown] = true,
+        },
     },
-
-    --Sharp weapons only
     {
         prefix = "Sharp",
         value = 100,
@@ -41,15 +46,16 @@ local modifiers = {
             [tes3.weaponType.marksmanThrown] = true,
         },
     },
+
+    --blunt weapon + max
     {
-        --blunt weapons only
+
         prefix = "Cruel",
         value = 100,
-        description = "+10 Max Damage",
+        description = "+5 Max Damage",
         modifications = {
-            chopMax = 10,
-            slashMax = 10,
-            thrustMax = 10,
+            chopMax = 5,
+            slashMax = 5,
         },
         icon = "Icons/diabloot/multiplier.dds",
         validObjectTypes = {
@@ -61,6 +67,26 @@ local modifiers = {
             [tes3.weaponType.bluntTwoWide] = true,
         },
     },
+    {
+
+        prefix = "Merciless",
+        value = 100,
+        description = "+10 Max Damage",
+        modifications = {
+            chopMax = 10,
+            slashMax = 10,
+        },
+        icon = "Icons/diabloot/multiplier.dds",
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+        },
+    },
+
 
     {
         prefix = "Ferocious",
@@ -245,7 +271,175 @@ local modifiers = {
             [tes3.objectType.ammunition] = true,
         },
     },
+    {
+        suffix = "Misfortune",
+        value = 50,
+        castType = tes3.enchantmentType.onStrike,
+        chargeCost = 10,
+        maxCharge = 100,
+        effects = {
+            {
+                id = tes3.effect.drainAttribute,
+                attribute = tes3.attribute.luck,
+                rangeType = tes3.effectRange.touch,
+                min = 5,
+                max = 10,
+                duration = 20,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.ammunition] = true,
+        },
+    },
+    {
+        suffix = "Maiming",
+        value = 50,
+        castType = tes3.enchantmentType.onStrike,
+        chargeCost = 10,
+        maxCharge = 100,
+        effects = {
+            {
+                id = tes3.effect.drainAttribute,
+                attribute = tes3.attribute.speed,
+                rangeType = tes3.effectRange.touch,
+                min = 3,
+                max = 7,
+                duration = 20,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.ammunition] = true,
+        },
+    },
+    {
+        suffix = "Weakening",
+        value = 100,
+        castType = tes3.enchantmentType.onStrike,
+        chargeCost = 20,
+        maxCharge = 100,
+        effects = {
+            {
+                id = tes3.effect.drainAttribute,
+                attribute = tes3.attribute.strength,
+                rangeType = tes3.effectRange.touch,
+                min = 3,
+                max = 7,
+                duration = 10,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.ammunition] = true,
+        },
+    },
 
+    --DrainHealth
+    {
+        suffix = "Wounding",
+        value = 100,
+        castType = tes3.enchantmentType.onStrike,
+        chargeCost = 20,
+        maxCharge = 100,
+        effects = {
+            {
+                id = tes3.effect.drainHealth,
+                rangeType = tes3.effectRange.touch,
+                min = 5,
+                max = 10,
+                duration = 5,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.ammunition] = true,
+        },
+    },
+    {
+        suffix = "Draining",
+        value = 100,
+        castType = tes3.enchantmentType.onStrike,
+        chargeCost = 20,
+        maxCharge = 100,
+        effects = {
+            {
+                id = tes3.effect.drainMagicka,
+                rangeType = tes3.effectRange.touch,
+                min = 5,
+                max = 10,
+                duration = 5,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.ammunition] = true,
+        },
+    },
+    {
+        suffix = "Exhaustion",
+        value = 75,
+        castType = tes3.enchantmentType.onStrike,
+        chargeCost = 20,
+        maxCharge = 100,
+        effects = {
+            {
+                id = tes3.effect.drainFatigue,
+                rangeType = tes3.effectRange.touch,
+                min = 5,
+                max = 10,
+                duration = 5,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.ammunition] = true,
+        },
+    },
+
+    --damageHealth
+    {
+        suffix = "Bleeding",
+        value = 100,
+        castType = tes3.enchantmentType.onStrike,
+        chargeCost = 20,
+        maxCharge = 100,
+        effects = {
+            {
+                id = tes3.effect.damageHealth,
+                rangeType = tes3.effectRange.touch,
+                min = 1,
+                max = 1,
+                duration = 10,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.ammunition] = true,
+        },
+    },
+    {
+        suffix = "Spirit Knife",
+        value = 100,
+        castType = tes3.enchantmentType.onUse,
+        chargeCost = 20,
+        maxCharge = 100,
+        effects = {
+            {
+                id = tes3.effect.damageHealth,
+                rangeType = tes3.effectRange.touch,
+                min = 1,
+                max = 20,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+        validClothingSlots = {
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
+    },
 
 
     -- waterBreathing
@@ -405,6 +599,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     --strong
     {
@@ -423,6 +627,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
 
     -- fireShield
@@ -442,6 +656,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
 
     -- lightningShield
@@ -461,6 +685,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
 
     -- frostShield
@@ -480,6 +714,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
 
     -- burden
@@ -510,7 +754,7 @@ local modifiers = {
     -- feather
     --weak
     {
-        suffix = "Lightstep",
+        prefix = "Pocketed",
         value = 75,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -522,13 +766,19 @@ local modifiers = {
             },
         },
         validObjectTypes = {
-            [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     --strong
     {
-        prefix = "Ulm Juicedaw's",
+        prefix = "Hoarder's",
         value = 150,
         castType = tes3.enchantmentType.constant,
         effects = {
@@ -543,6 +793,13 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
 
     -- jump
@@ -947,7 +1204,7 @@ local modifiers = {
                 rangeType = tes3.effectRange.touch,
                 min = 2,
                 max = 5,
-                duration = 5,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -957,7 +1214,7 @@ local modifiers = {
     },
     --strong
     {
-        prefix = "Foul",
+        prefix = "Toxic",
         value = 50,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 50,
@@ -966,9 +1223,9 @@ local modifiers = {
             {
                 id = tes3.effect.poison,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 10,
-                duration = 10,
+                min = 3,
+                max = 7,
+                duration = 20,
             },
         },
         validObjectTypes = {
@@ -976,6 +1233,54 @@ local modifiers = {
             [tes3.objectType.ammunition] = true
         },
     },
+
+    --weaknesstoFire/weaknesstoFrost/weaknesstoShock/weaknesstoMagicka
+    {
+        suffix = "Exposing",
+        value = 75,
+        castType = tes3.enchantmentType.onUse,
+        chargeCost = 10,
+        maxCharge = 100,
+        effects = {
+            {
+                id = tes3.effect.weaknesstoFire,
+                rangeType = tes3.effectRange.touch,
+                min = 5,
+                max = 10,
+                duration = 30,
+            },
+            {
+                id = tes3.effect.weaknesstoFrost,
+                rangeType = tes3.effectRange.touch,
+                min = 5,
+                max = 10,
+                duration = 30,
+            },
+            {
+                id = tes3.effect.weaknesstoShock,
+                rangeType = tes3.effectRange.touch,
+                min = 5,
+                max = 10,
+                duration = 30,
+            },
+            {
+                id = tes3.effect.weaknesstoMagicka,
+                rangeType = tes3.effectRange.touch,
+                min = 5,
+                max = 10,
+                duration = 30,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+        validClothingSlots = {
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
+    },
+
+
 
     -- disintegrateWeapon/disintegrateArmor
 
@@ -1117,6 +1422,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
 
     -- light
@@ -1136,6 +1453,39 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
+    },
+    {
+        prefix = "Illuminating",
+        value = 25,
+        castType = tes3.enchantmentType.onUse,
+        effects = {
+            {
+                id = tes3.effect.light,
+                rangeType = tes3.effectRange.target,
+                min = 10,
+                max = 20,
+                duration = 20,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.clothing] = true,
+        },
+        validClothingSlots = {
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
 
     -- sanctuary
@@ -1156,6 +1506,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
     --strong
     {
@@ -1174,6 +1536,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
 
     -- nightEye
@@ -1193,6 +1567,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
 
     -- charm
@@ -1400,6 +1786,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
 
     -- detectAnimal/detectEnchantment/detectKey
@@ -1431,6 +1827,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
 
 
@@ -1451,6 +1857,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
 
     -- reflect
@@ -1470,6 +1886,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
 
     -- cureCommonDisease
@@ -1624,8 +2050,9 @@ local modifiers = {
             {
                 id = tes3.effect.restoreHealth,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 20,
+                min = 5,
+                max = 10,
+                duration = 5,
             },
         },
         validObjectTypes = {
@@ -1647,8 +2074,8 @@ local modifiers = {
             {
                 id = tes3.effect.restoreHealth,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 10,
+                min = 3,
+                max = 7,
                 duration = 20,
             },
         },
@@ -1729,6 +2156,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Owl",
@@ -1747,6 +2184,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "Faith",
@@ -1765,6 +2212,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Nix-Hound",
@@ -1783,6 +2240,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Hare",
@@ -1801,6 +2268,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         prefix = "Ogrim's",
@@ -1819,6 +2296,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
     {
         prefix = "Scamp's",
@@ -1837,6 +2326,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
 
     {
@@ -1856,6 +2357,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
 
     --fortifyAttribute combos
@@ -1881,6 +2394,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
 
 
@@ -1925,6 +2450,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
 
     {
@@ -2195,6 +2732,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
 
     {
@@ -2214,6 +2763,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
 
     {
@@ -2233,6 +2794,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
 
     {
@@ -2252,6 +2825,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
 
     {
@@ -2271,6 +2856,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
 
     {
@@ -2290,6 +2887,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
 
     {
@@ -2309,6 +2918,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
 
     {
@@ -2328,6 +2949,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
 
     {
@@ -2347,6 +2980,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
 
     {
@@ -2366,6 +3011,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
 
     {
@@ -2528,6 +3185,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
     {
         prefix = "Wordsmith's",
@@ -2546,6 +3215,18 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+            [tes3.clothingSlot.ring] = true,
+            [tes3.clothingSlot.amulet] = true,
+        }
     },
 
     {
@@ -2602,6 +3283,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Agent",
@@ -2627,6 +3318,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Archer",
@@ -2680,6 +3381,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Barbarian",
@@ -2733,6 +3444,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Battlemage",
@@ -2786,6 +3507,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Healer",
@@ -2811,6 +3542,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Knight",
@@ -2864,6 +3605,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Monk",
@@ -2913,6 +3664,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Pilgrim",
@@ -2938,6 +3699,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Rogue",
@@ -2963,6 +3734,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Scout",
@@ -2990,6 +3771,16 @@ local modifiers = {
         },
         validWeightClasses = {
             [tes3.armorWeightClass.medium] = true,
+        },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
         }
     },
     {
@@ -3016,6 +3807,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Spellsword",
@@ -3041,6 +3842,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Thief",
@@ -3066,6 +3877,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Warrior",
@@ -3091,6 +3912,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Witchhunter",
@@ -3116,6 +3947,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
 
     --Other multiskill
@@ -3143,6 +3984,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Courtesan",
@@ -3175,6 +4026,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Diplomat",
@@ -3200,6 +4061,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Druid",
@@ -3233,6 +4104,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Duelist",
@@ -3258,6 +4139,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Gambler",
@@ -3283,6 +4174,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Brawler",
@@ -3319,6 +4220,16 @@ local modifiers = {
         validWeightClasses = {
             [tes3.armorWeightClass.light] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Jester",
@@ -3344,6 +4255,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Juggler",
@@ -3369,6 +4290,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         suffix = "the Poet",
@@ -3394,6 +4325,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
 
     {
@@ -3420,6 +4361,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         prefix = "Feral",
@@ -3442,6 +4393,16 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
 
     -- fortifyMaximumMagicka
@@ -3461,6 +4422,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         prefix = "Dragon's",
@@ -3478,6 +4449,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
 
     -- absorbAttribute
@@ -3565,6 +4546,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         prefix = "Crimson",
@@ -3582,6 +4573,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
 
     -- resistFrost
@@ -3601,6 +4602,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         prefix = "Azure",
@@ -3618,6 +4629,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
 
     -- resistShock
@@ -3637,6 +4658,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         prefix = "Amber",
@@ -3654,6 +4685,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
 
     --Resist Elements
@@ -3686,6 +4727,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         prefix = "Prismatic",
@@ -3715,6 +4766,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
 
     -- resistMagicka
@@ -3734,6 +4795,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
     {
         prefix = "Lord's",
@@ -3751,6 +4822,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
 
     -- resistCommonDisease/resistBlightDisease/resistPoison
@@ -3782,6 +4863,16 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.pants] = true,
+            [tes3.clothingSlot.shoes] = true,
+            [tes3.clothingSlot.shirt] = true,
+            [tes3.clothingSlot.belt] = true,
+            [tes3.clothingSlot.robe] = true,
+            [tes3.clothingSlot.rightGlove] = true,
+            [tes3.clothingSlot.leftGlove] = true,
+            [tes3.clothingSlot.skirt] = true,
+        }
     },
 
     -- resistNormalWeapons
@@ -3831,7 +4922,7 @@ local modifiers = {
         effects = {
             {
                 id = tes3.effect.turnUndead,
-                rangeType = tes3.effectRange.onTouch,
+                rangeType = tes3.effectRange.touch,
                 duration = 5,
                 min = 10,
                 max = 10,
@@ -3852,7 +4943,7 @@ local modifiers = {
         effects = {
             {
                 id = tes3.effect.turnUndead,
-                rangeType = tes3.effectRange.onTouch,
+                rangeType = tes3.effectRange.touch,
                 duration = 5,
                 min = 20,
                 max = 20,
@@ -4254,8 +5345,8 @@ local modifiers = {
         effects = {
             {
                 id = tes3.effect.commandCreature,
-                rangeType = tes3.effectRange.onTouch,
-                min = 1,
+                rangeType = tes3.effectRange.touch,
+                min = 5,
                 max = 10,
                 duration = 30,
             },
@@ -4279,8 +5370,8 @@ local modifiers = {
         effects = {
             {
                 id = tes3.effect.commandHumanoid,
-                rangeType = tes3.effectRange.onTouch,
-                min = 1,
+                rangeType = tes3.effectRange.touch,
+                min = 5,
                 max = 10,
                 duration = 20,
             },
@@ -4576,7 +5667,27 @@ local modifiers = {
                 max = 10,
             },
         },
-    }
+    },
+    {
+        prefix = "Wailing",
+        value = 75,
+        castType = tes3.enchantmentType.onStrike,
+        effects = {
+            {
+                id = tes3.effect.demoralizeCreature,
+                rangeType = tes3.effectRange.touch,
+                min = 15,
+                max = 15,
+            },
+            {
+                id = tes3.effect.demoralizeHumanoid,
+                rangeType = tes3.effectRange.touch,
+                min = 15,
+                max = 15,
+            },
+        },
+    },
+
 }
 
 
