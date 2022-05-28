@@ -13,7 +13,7 @@ local function applyTooltips(e)
         for _, modifierData in ipairs(data.modifiers) do
             local modifier = Modifier:new(modifierData)
             if modifier then
-                if modifier.description and modifier.icon then
+                if modifier.description then
                     logger:trace("Creating tooltip")
                     UI.createEffectBlock{
                         tooltip = e.tooltip,

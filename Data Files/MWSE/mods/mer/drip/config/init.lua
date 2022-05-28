@@ -1,4 +1,15 @@
-local config = {}
+local config = {
+    modName = "Drip",
+    configPath = "drip",
+    modifierIcon = "Icons/drip/modifier.dds",
+    modDescription = [[
+Drip adds Diablo 2 style loot to Morrowind. Unique weapons, armor, clothing and accesories are dynamically generated, with over a hundred unique modifiers and more than a million possible combinations.
+]],
+    selfRepairPercentPerHour = 1,
+    multiplierFieldDecimals= {
+        speed = 2,
+    }
+}
 local cache
 config.materials = {}
 config.modifiers = {
@@ -10,13 +21,6 @@ config.clothing = {}
 config.armor = {}
 
 --Static Configs
-config.modName = "Drip"
-config.modDescription = [[
-Drip adds Diablo 2 style loot to Morrowind. Unique weapons, armor, clothing and accesories are dynamically generated, with over a hundred unique modifiers and more than a million possible combinations.
-]]
-config.configPath = "drip"
-config.modifierIcon = "Icons/drip/modifier.dds"
-config.selfRepairPercentPerHour = 1
 
 --MCM Configs (Stored in Json, cached in memory)
 config.mcmDefault = {

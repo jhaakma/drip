@@ -1,4 +1,54 @@
 local modifiers = {
+    --Attack Speed
+    {
+        suffix = "Readiness",
+        valueMulti = 1.25,
+        description = "1.10x Attack Speed",
+        multipliers = {
+            speed = 1.10
+        },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+            [tes3.weaponType.marksmanBow] = true,
+            [tes3.weaponType.marksmanCrossbow] = true,
+        },
+    },
+    {
+        suffix = "Swiftness",
+        valueMulti = 1.5,
+        description = "1.25x Attack Speed",
+        multipliers = {
+            speed = 1.25
+        },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+            [tes3.weaponType.marksmanBow] = true,
+            [tes3.weaponType.marksmanCrossbow] = true,
+        },
+    },
+
     --Sharp weapons only
     {
         prefix = "Jagged",
@@ -9,7 +59,6 @@ local modifiers = {
             slashMax = 5,
             thrustMax = 5,
         },
-        icon = "Icons/diabloot/multiplier.dds",
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
@@ -32,7 +81,6 @@ local modifiers = {
             slashMax = 10,
             thrustMax = 10,
         },
-        icon = "Icons/diabloot/multiplier.dds",
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
@@ -57,7 +105,6 @@ local modifiers = {
             chopMax = 5,
             slashMax = 5,
         },
-        icon = "Icons/diabloot/multiplier.dds",
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
         },
@@ -76,7 +123,6 @@ local modifiers = {
             chopMax = 10,
             slashMax = 10,
         },
-        icon = "Icons/diabloot/multiplier.dds",
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
         },
@@ -100,7 +146,6 @@ local modifiers = {
             slashMax = 1.25,
             thrustMax = 1.25,
         },
-        icon = "Icons/diabloot/multiplier.dds",
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
@@ -118,7 +163,6 @@ local modifiers = {
             slashMax = 1.5,
             thrustMax = 1.5,
         },
-        icon = "Icons/diabloot/multiplier.dds",
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
@@ -136,7 +180,6 @@ local modifiers = {
             slashMax = 1.75,
             thrustMax = 1.75,
         },
-        icon = "Icons/diabloot/multiplier.dds",
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
@@ -154,7 +197,6 @@ local modifiers = {
             slashMax = 2,
             thrustMax = 2,
         },
-        icon = "Icons/diabloot/multiplier.dds",
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
@@ -175,7 +217,6 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.weapon] = true,
         },
-        icon = "Icons/diabloot/multiplier.dds",
     },
 
     {
@@ -190,7 +231,6 @@ local modifiers = {
             [tes3.objectType.armor] = true,
             [tes3.objectType.weapon] = true,
         },
-        icon = "Icons/diabloot/multiplier.dds",
     },
 
     --Armor Multipliers
@@ -204,7 +244,6 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.armor] = true,
         },
-        icon = "Icons/diabloot/multiplier.dds",
     },
     {
         prefix = "Glorious",
@@ -216,7 +255,6 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.armor] = true,
         },
-        icon = "Icons/diabloot/multiplier.dds",
     },
 
     --Condition Muiltipliers
@@ -245,7 +283,6 @@ local modifiers = {
             [tes3.weaponType.marksmanBow] = true,
             [tes3.weaponType.marksmanCrossbow] = true,
         },
-        icon = "Icons/diabloot/multiplier.dds",
     },
     --Vanilla effects
 
@@ -790,7 +827,6 @@ local modifiers = {
             },
         },
         validObjectTypes = {
-            [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
         },
         validClothingSlots = {
@@ -1043,7 +1079,7 @@ local modifiers = {
     },
     --Slow
     {
-        suffix = "Flames",
+        suffix = "Burning",
         value = 50,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 50,
@@ -1189,6 +1225,41 @@ local modifiers = {
         },
     },
 
+    --3 elements
+    {
+        suffix = "the Maelstrom",
+        value = 200,
+        castType = tes3.enchantmentType.onStrike,
+        chargeCost = 50,
+        maxCharge = 500,
+        effects = {
+            {
+                id = tes3.effect.fireDamage,
+                rangeType = tes3.effectRange.touch,
+                min = 1,
+                max = 5,
+                duration = 5
+            },
+            {
+                id = tes3.effect.frostDamage,
+                rangeType = tes3.effectRange.touch,
+                min = 1,
+                max = 5,
+                duration = 5
+            },
+            {
+                id = tes3.effect.shockDamage,
+                rangeType = tes3.effectRange.touch,
+                min = 1,
+                max = 5,
+                duration = 5
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+        },
+    },
+
 
     -- poison
     --weak
@@ -1279,8 +1350,6 @@ local modifiers = {
             [tes3.clothingSlot.amulet] = true,
         }
     },
-
-
 
     -- disintegrateWeapon/disintegrateArmor
 
@@ -1668,7 +1737,7 @@ local modifiers = {
     },
     --strong
     {
-        suffix = "Silence",
+        suffix = "Muting",
         value = 50,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 50,
@@ -2277,6 +2346,32 @@ local modifiers = {
             [tes3.clothingSlot.rightGlove] = true,
             [tes3.clothingSlot.leftGlove] = true,
             [tes3.clothingSlot.skirt] = true,
+        }
+    },
+    { --boots only
+        suffix = "Haste",
+        value = 100,
+        castType = tes3.enchantmentType.constant,
+        effects = {
+            {
+                id = tes3.effect.fortifyAttribute,
+                attribute = tes3.attribute.speed,
+                rangeType = tes3.effectRange.self,
+                min = 10,
+                max = 10,
+            },
+        },
+        validObjectTypes = {
+
+            [tes3.objectType.armor] = true,
+            [tes3.objectType.clothing] = true,
+
+        },
+        validClothingSlots = {
+            [tes3.clothingSlot.shoes] = true,
+        },
+        validArmorSlots = {
+            [tes3.armorSlot.boots] = true,
         }
     },
     {
@@ -4465,8 +4560,8 @@ local modifiers = {
 
     -- absorbHealth
     {
-        suffix = "the Vampire",
-        value = 100,
+        suffix = "the Leech",
+        value = 75,
         castType = tes3.enchantmentType.onStrike,
         chargeCost = 10,
         maxCharge = 500,
@@ -4477,6 +4572,26 @@ local modifiers = {
                 min = 2,
                 max = 5,
                 duration = 1,
+            },
+        },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.ammunition] = true
+        },
+    },
+    {
+        suffix = "the Vampire",
+        value = 150,
+        castType = tes3.enchantmentType.onStrike,
+        chargeCost = 10,
+        maxCharge = 500,
+        effects = {
+            {
+                id = tes3.effect.absorbHealth,
+                rangeType = tes3.effectRange.touch,
+                min = 3,
+                max = 7,
+                duration = 2,
             },
         },
         validObjectTypes = {
@@ -5689,6 +5804,5 @@ local modifiers = {
     },
 
 }
-
 
 return modifiers

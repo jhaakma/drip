@@ -132,12 +132,16 @@ function Loot:applyModifications()
     end
 end
 
+
 function Loot:applyMultipliers()
     for _, modifier in ipairs(self.modifiers) do
         if modifier.multipliers then
             for field, multiplier in pairs(modifier.multipliers) do
                 if self.object[field] and type(self.object[field] == "number") then
-                    self.object[field] = math.ceil(self.object[field] * multiplier)
+                    local newValue = self.object[field] * multiplier
+                    local rounding = config.multiplierFieldDecimals[field] or 0
+                    newValue = math.round(newValue, rounding)
+                    self.object[field] = newValue
                 end
             end
         end
