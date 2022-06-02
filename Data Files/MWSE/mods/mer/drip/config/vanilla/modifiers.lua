@@ -307,6 +307,17 @@ local modifiers = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true,
         },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+        },
     },
     {
         suffix = "Misfortune",
@@ -327,6 +338,17 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true,
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
     {
@@ -349,6 +371,17 @@ local modifiers = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true,
         },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+        },
     },
     {
         suffix = "Weakening",
@@ -369,6 +402,17 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true,
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
 
@@ -392,6 +436,17 @@ local modifiers = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true,
         },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+        },
     },
     {
         suffix = "Draining",
@@ -412,6 +467,17 @@ local modifiers = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true,
         },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+        },
     },
     {
         suffix = "Exhaustion",
@@ -431,6 +497,17 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true,
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
 
@@ -453,6 +530,17 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true,
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
     {
@@ -992,7 +1080,7 @@ local modifiers = {
     --weak
     {
         prefix = "Burgler's",
-        value = 25,
+        value = 50,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 10,
         maxCharge = 100,
@@ -1000,7 +1088,7 @@ local modifiers = {
             {
                 id = tes3.effect.open,
                 rangeType = tes3.effectRange.touch,
-                min = 10,
+                min = 5,
                 max = 20,
             },
         },
@@ -1015,7 +1103,7 @@ local modifiers = {
     --strong
     {
         prefix = "Locksmith's",
-        value = 50,
+        value = 100,
         castType = tes3.enchantmentType.onUse,
         chargeCost = 50,
         maxCharge = 500,
@@ -1023,8 +1111,8 @@ local modifiers = {
             {
                 id = tes3.effect.open,
                 rangeType = tes3.effectRange.touch,
-                min = 25,
-                max = 50,
+                min = 10,
+                max = 40,
             },
         },
         validObjectTypes = {
@@ -1056,6 +1144,17 @@ local modifiers = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
         },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+        },
     },
     --strong
     {
@@ -1075,6 +1174,17 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
     --Slow
@@ -1096,6 +1206,17 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
 
@@ -1119,6 +1240,17 @@ local modifiers = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
         },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+        },
     },
     --strong
     {
@@ -1138,6 +1270,17 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
     --Slow
@@ -1159,6 +1302,17 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
 
@@ -1182,6 +1336,17 @@ local modifiers = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
         },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+        },
     },
     --strong
     {
@@ -1201,6 +1366,17 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
     --Slow
@@ -1222,6 +1398,17 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
 
@@ -1257,6 +1444,18 @@ local modifiers = {
         },
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
+            [tes3.objectType.ammunition] = true
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
 
@@ -1282,6 +1481,17 @@ local modifiers = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
         },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+        },
     },
     --strong
     {
@@ -1302,6 +1512,17 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
 
@@ -1378,6 +1599,17 @@ local modifiers = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
         },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+        },
     },
     --strong
     {
@@ -1403,6 +1635,17 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
 
@@ -1634,6 +1877,17 @@ local modifiers = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
         },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+        },
     },
     --strong
     {
@@ -1652,6 +1906,17 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
 
@@ -1674,6 +1939,17 @@ local modifiers = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
         },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+        },
     },
     --strong
     {
@@ -1692,6 +1968,17 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
 
@@ -1715,6 +2002,17 @@ local modifiers = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
         },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+        },
     },
     {
         suffix = "Eye-Gouging",
@@ -1734,6 +2032,17 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
 
@@ -1757,6 +2066,17 @@ local modifiers = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
         },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+        },
     },
     -- soultrap
     {
@@ -1775,6 +2095,17 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
 
@@ -4314,6 +4645,17 @@ local modifiers = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
         },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+        },
     },
     {
         suffix = "the Vampire",
@@ -4333,6 +4675,17 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
 
@@ -4356,6 +4709,17 @@ local modifiers = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
         },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+        },
     },
 
     -- absorbFatigue
@@ -4377,6 +4741,17 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
 
@@ -4783,6 +5158,17 @@ local modifiers = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
         },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+        },
     },
 
     {
@@ -4803,6 +5189,17 @@ local modifiers = {
         validObjectTypes = {
             [tes3.objectType.weapon] = true,
             [tes3.objectType.ammunition] = true
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
 
@@ -5518,6 +5915,21 @@ local modifiers = {
                 max = 10,
             },
         },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.ammunition] = true
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
+        },
     },
     {
         prefix = "Wailing",
@@ -5536,6 +5948,21 @@ local modifiers = {
                 min = 15,
                 max = 15,
             },
+        },
+        validObjectTypes = {
+            [tes3.objectType.weapon] = true,
+            [tes3.objectType.ammunition] = true
+        },
+        validWeaponTypes = {
+            [tes3.weaponType.shortBladeOneHand] = true,
+            [tes3.weaponType.longBladeOneHand] = true,
+            [tes3.weaponType.longBladeTwoClose] = true,
+            [tes3.weaponType.bluntOneHand] = true,
+            [tes3.weaponType.bluntTwoClose] = true,
+            [tes3.weaponType.bluntTwoWide] = true,
+            [tes3.weaponType.spearTwoWide] = true,
+            [tes3.weaponType.axeOneHand] = true,
+            [tes3.weaponType.axeTwoHand] = true,
         },
     },
 
