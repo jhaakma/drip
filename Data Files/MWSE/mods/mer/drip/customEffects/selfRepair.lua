@@ -6,6 +6,7 @@ local logger = common.createLogger("SelfRepair")
 tes3.claimSpellEffectId("selfRepair", 8500)
 interop.registerModifier{
     suffix = "Self-Repair",
+    value = 50,
     castType = tes3.enchantmentType.constant,
     effects = {
         {

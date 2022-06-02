@@ -28,14 +28,9 @@ function Loot:new(lootData)
     loot:applyModifications()
     loot:applyMultipliers()
 
-    --Roll for wild
-
-    --Try build name with wild parameter
-    --If name too long, cancel wild
-
-
 
     loot.object.enchantment = Loot:makeComplexEnchantment(loot.modifiers)
+    loot:applyEnchantCapacityScaling()
 
     logger:debug("Checking for wild")
     if loot:canHaveWild() and loot:rollForWild() then
@@ -103,7 +98,8 @@ end
 function Loot:applyValueModifiers()
     for _, modifier in ipairs(self.modifiers) do
         if modifier.value then
-            self.object.value = self.object.value + modifier.value
+            local enchantCapacityMultiplier = self:getEnchantCapacityMultiplier()
+            self.object.value = self.object.value + (modifier.value * enchantCapacityMultiplier)
         end
     end
     for _, modifier in ipairs(self.modifiers) do
@@ -130,6 +126,34 @@ function Loot:applyModifications()
     end
 end
 
+function Loot:getEnchantCapacityMultiplier()
+    local enchantCapacity = math.min(self.baseObject.enchantCapacity, config.maxEnchantCapacty)
+    local enchantCapacityEffect = math.remap(enchantCapacity, config.minEnchantCapacity, config.maxEnchantCapacty, 1, config.maxEnchantEffect)
+    logger:debug("%s enchant capacity: %s, effect: %s", self.baseObject.name, enchantCapacity, enchantCapacityEffect)
+    return enchantCapacityEffect
+end
+
+--[[
+    For each effect in each modifier, scale the min and max values by the enchant capacity of the base object
+]]
+function Loot:applyEnchantCapacityScaling()
+    local enchantCapacityEffect = self:getEnchantCapacityMultiplier()
+    ---@param modifier DripModifier
+    if self.object.enchantment then
+        ---@param effect tes3effect
+        for _, effect in ipairs(self.object.enchantment.effects) do
+            if effect.min and effect.max and effect.min > 0 then
+                logger:debug("new min: %s", effect.min * enchantCapacityEffect)
+                effect.min = math.ceil(effect.min * enchantCapacityEffect)
+                logger:debug("new max: %s", effect.max * enchantCapacityEffect)
+                effect.max = math.ceil(effect.max * enchantCapacityEffect)
+            end
+            if effect.duration then
+                effect.duration = math.ceil(effect.duration * enchantCapacityEffect)
+            end
+        end
+    end
+end
 
 function Loot:applyMultipliers()
     for _, modifier in ipairs(self.modifiers) do
@@ -157,13 +181,6 @@ function Loot:removeMaterialPrefix(name)
     end
 
     return name
-    -- local split = string.split(name, " ")
-    -- local prefix = split[1]:lower()
-    -- if config.materials[prefix] then
-    --     return string.sub(name, string.len(prefix) + 2)
-    -- else
-    --     return name
-    -- end
 end
 
 function Loot:getLootName(e)
@@ -215,9 +232,7 @@ end
 ---@param effects DripModifierEffect[]
 function Loot:mergeEffects(effects)
     --Compare effects in list to find duplicates
-
     local duplicates = {}
-
     for i, effectOuter in ipairs(effects) do
         for j, effectInner in ipairs(effects) do
             if j > i then --only look at effects after this one to avoid checking twice

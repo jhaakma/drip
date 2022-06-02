@@ -8,17 +8,22 @@ Drip adds Diablo 2 style loot to Morrowind. Unique weapons, armor, clothing and 
     selfRepairPercentPerHour = 1,
     multiplierFieldDecimals= {
         speed = 2,
-    }
+    },
+    minEnchantCapacity = 10,
+    maxEnchantCapacty = 500,
+    maxEnchantEffect = 5,
+    --registered configs
+    materials = {},
+    modifiers = {
+        prefixes = {},
+        suffixes = {},
+    },
+    weapons = {},
+    clothing = {},
+    armor = {},
 }
 local cache
-config.materials = {}
-config.modifiers = {
-    prefixes = {},
-    suffixes = {},
-}
-config.weapons = {}
-config.clothing = {}
-config.armor = {}
+
 
 --Static Configs
 

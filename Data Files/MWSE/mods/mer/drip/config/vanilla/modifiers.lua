@@ -298,9 +298,9 @@ local modifiers = {
                 id = tes3.effect.drainAttribute,
                 attribute = tes3.attribute.intelligence,
                 rangeType = tes3.effectRange.touch,
-                min = 3,
-                max = 7,
-                duration = 20,
+                min = 1,
+                max = 4,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -330,9 +330,9 @@ local modifiers = {
                 id = tes3.effect.drainAttribute,
                 attribute = tes3.attribute.luck,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 10,
-                duration = 20,
+                min = 2,
+                max = 5,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -362,9 +362,9 @@ local modifiers = {
                 id = tes3.effect.drainAttribute,
                 attribute = tes3.attribute.speed,
                 rangeType = tes3.effectRange.touch,
-                min = 3,
-                max = 7,
-                duration = 20,
+                min = 1,
+                max = 4,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -394,9 +394,9 @@ local modifiers = {
                 id = tes3.effect.drainAttribute,
                 attribute = tes3.attribute.strength,
                 rangeType = tes3.effectRange.touch,
-                min = 3,
-                max = 7,
-                duration = 10,
+                min = 1,
+                max = 4,
+                duration = 5,
             },
         },
         validObjectTypes = {
@@ -427,8 +427,8 @@ local modifiers = {
             {
                 id = tes3.effect.drainHealth,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 10,
+                min = 2,
+                max = 5,
                 duration = 5,
             },
         },
@@ -458,8 +458,8 @@ local modifiers = {
             {
                 id = tes3.effect.drainMagicka,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 10,
+                min = 2,
+                max = 5,
                 duration = 5,
             },
         },
@@ -489,8 +489,8 @@ local modifiers = {
             {
                 id = tes3.effect.drainFatigue,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 10,
+                min = 2,
+                max = 5,
                 duration = 5,
             },
         },
@@ -524,7 +524,7 @@ local modifiers = {
                 rangeType = tes3.effectRange.touch,
                 min = 1,
                 max = 1,
-                duration = 10,
+                duration = 5,
             },
         },
         validObjectTypes = {
@@ -554,7 +554,7 @@ local modifiers = {
                 id = tes3.effect.damageHealth,
                 rangeType = tes3.effectRange.touch,
                 min = 1,
-                max = 20,
+                max = 10,
             },
         },
         validObjectTypes = {
@@ -579,7 +579,7 @@ local modifiers = {
             {
                 id = tes3.effect.waterBreathing,
                 rangeType = tes3.effectRange.self,
-                duration = 30,
+                duration = 15,
             },
         },
         validObjectTypes = {
@@ -601,7 +601,7 @@ local modifiers = {
             {
                 id = tes3.effect.waterBreathing,
                 rangeType = tes3.effectRange.self,
-                duration = 60,
+                duration = 25,
             },
         },
         validObjectTypes = {
@@ -626,7 +626,7 @@ local modifiers = {
             {
                 id = tes3.effect.swiftSwim,
                 rangeType = tes3.effectRange.self,
-                duration = 30,
+                duration = 15,
             },
         },
         validObjectTypes = {
@@ -648,7 +648,7 @@ local modifiers = {
             {
                 id = tes3.effect.swiftSwim,
                 rangeType = tes3.effectRange.self,
-                duration = 60,
+                duration = 25,
             },
         },
         validObjectTypes = {
@@ -672,7 +672,7 @@ local modifiers = {
             {
                 id = tes3.effect.waterWalking,
                 rangeType = tes3.effectRange.self,
-                duration = 30,
+                duration = 15,
             },
         },
         validObjectTypes = {
@@ -694,7 +694,7 @@ local modifiers = {
             {
                 id = tes3.effect.waterWalking,
                 rangeType = tes3.effectRange.self,
-                duration = 60,
+                duration = 25,
             },
         },
         validObjectTypes = {
@@ -716,8 +716,8 @@ local modifiers = {
             {
                 id = tes3.effect.shield,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -744,8 +744,8 @@ local modifiers = {
             {
                 id = tes3.effect.shield,
                 rangeType = tes3.effectRange.self,
-                min = 20,
-                max = 20,
+                min = 5,
+                max = 5,
             },
         },
         validObjectTypes = {
@@ -773,8 +773,8 @@ local modifiers = {
             {
                 id = tes3.effect.fireShield,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             },
         },
         validObjectTypes = {
@@ -802,8 +802,8 @@ local modifiers = {
             {
                 id = tes3.effect.lightningShield,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             },
         },
         validObjectTypes = {
@@ -831,8 +831,8 @@ local modifiers = {
             {
                 id = tes3.effect.frostShield,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             },
         },
         validObjectTypes = {
@@ -862,9 +862,9 @@ local modifiers = {
             {
                 id = tes3.effect.burden,
                 rangeType = tes3.effectRange.touch,
-                min = 20,
-                max = 20,
-                duration = 30,
+                min = 5,
+                max = 5,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -886,8 +886,8 @@ local modifiers = {
             {
                 id = tes3.effect.feather,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             },
         },
         validObjectTypes = {
@@ -910,8 +910,8 @@ local modifiers = {
             {
                 id = tes3.effect.feather,
                 rangeType = tes3.effectRange.self,
-                min = 25,
-                max = 25,
+                min = 10,
+                max = 10,
             },
         },
         validObjectTypes = {
@@ -938,9 +938,9 @@ local modifiers = {
             {
                 id = tes3.effect.jump,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 15,
-                duration = 10,
+                min = 5,
+                max = 10,
+                duration = 5,
             },
         },
         validObjectTypes = {
@@ -962,9 +962,9 @@ local modifiers = {
             {
                 id = tes3.effect.jump,
                 rangeType = tes3.effectRange.self,
-                min = 25,
-                max = 25,
-                duration = 20,
+                min = 10,
+                max = 10,
+                duration = 5,
             },
         },
         validObjectTypes = {
@@ -988,9 +988,9 @@ local modifiers = {
             {
                 id = tes3.effect.levitate,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
-                duration = 20,
+                min = 3,
+                max = 3,
+                duration = 5,
             },
         },
         validObjectTypes = {
@@ -1012,9 +1012,9 @@ local modifiers = {
             {
                 id = tes3.effect.levitate,
                 rangeType = tes3.effectRange.self,
-                min = 25,
-                max = 25,
-                duration = 30,
+                min = 10,
+                max = 10,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -1038,9 +1038,9 @@ local modifiers = {
             {
                 id = tes3.effect.slowFall,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
-                duration = 20,
+                min = 5,
+                max = 5,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -1088,8 +1088,8 @@ local modifiers = {
             {
                 id = tes3.effect.open,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 20,
+                min = 2,
+                max = 10,
             },
         },
         validObjectTypes = {
@@ -1111,8 +1111,8 @@ local modifiers = {
             {
                 id = tes3.effect.open,
                 rangeType = tes3.effectRange.touch,
-                min = 10,
-                max = 40,
+                min = 2,
+                max = 10,
             },
         },
         validObjectTypes = {
@@ -1136,8 +1136,8 @@ local modifiers = {
             {
                 id = tes3.effect.fireDamage,
                 rangeType = tes3.effectRange.touch,
-                min = 3,
-                max = 7,
+                min = 1,
+                max = 4,
             },
         },
         validObjectTypes = {
@@ -1167,8 +1167,8 @@ local modifiers = {
             {
                 id = tes3.effect.fireDamage,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 20,
+                min = 2,
+                max = 10,
             },
         },
         validObjectTypes = {
@@ -1200,7 +1200,7 @@ local modifiers = {
                 rangeType = tes3.effectRange.touch,
                 min = 2,
                 max = 5,
-                duration = 10,
+                duration = 5,
             },
         },
         validObjectTypes = {
@@ -1232,8 +1232,8 @@ local modifiers = {
             {
                 id = tes3.effect.shockDamage,
                 rangeType = tes3.effectRange.touch,
-                min = 3,
-                max = 7,
+                min = 1,
+                max = 4,
             },
         },
         validObjectTypes = {
@@ -1263,8 +1263,8 @@ local modifiers = {
             {
                 id = tes3.effect.shockDamage,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 20,
+                min = 2,
+                max = 10,
             },
         },
         validObjectTypes = {
@@ -1296,7 +1296,7 @@ local modifiers = {
                 rangeType = tes3.effectRange.touch,
                 min = 2,
                 max = 5,
-                duration = 10,
+                duration = 5,
             },
         },
         validObjectTypes = {
@@ -1328,8 +1328,8 @@ local modifiers = {
             {
                 id = tes3.effect.frostDamage,
                 rangeType = tes3.effectRange.touch,
-                min = 3,
-                max = 7,
+                min = 1,
+                max = 4,
             },
         },
         validObjectTypes = {
@@ -1359,8 +1359,8 @@ local modifiers = {
             {
                 id = tes3.effect.frostDamage,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 20,
+                min = 2,
+                max = 10,
             },
         },
         validObjectTypes = {
@@ -1392,7 +1392,7 @@ local modifiers = {
                 rangeType = tes3.effectRange.touch,
                 min = 2,
                 max = 5,
-                duration = 10,
+                duration = 5,
             },
         },
         validObjectTypes = {
@@ -1424,21 +1424,21 @@ local modifiers = {
                 id = tes3.effect.fireDamage,
                 rangeType = tes3.effectRange.touch,
                 min = 1,
-                max = 5,
+                max = 3,
                 duration = 5
             },
             {
                 id = tes3.effect.frostDamage,
                 rangeType = tes3.effectRange.touch,
                 min = 1,
-                max = 5,
+                max = 3,
                 duration = 5
             },
             {
                 id = tes3.effect.shockDamage,
                 rangeType = tes3.effectRange.touch,
                 min = 1,
-                max = 5,
+                max = 3,
                 duration = 5
             },
         },
@@ -1472,8 +1472,8 @@ local modifiers = {
             {
                 id = tes3.effect.poison,
                 rangeType = tes3.effectRange.touch,
-                min = 2,
-                max = 5,
+                min = 1,
+                max = 3,
                 duration = 10,
             },
         },
@@ -1504,9 +1504,9 @@ local modifiers = {
             {
                 id = tes3.effect.poison,
                 rangeType = tes3.effectRange.touch,
-                min = 3,
-                max = 7,
-                duration = 20,
+                min = 1,
+                max = 5,
+                duration = 15,
             },
         },
         validObjectTypes = {
@@ -1537,30 +1537,30 @@ local modifiers = {
             {
                 id = tes3.effect.weaknesstoFire,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 10,
-                duration = 30,
+                min = 1,
+                max = 4,
+                duration = 15,
             },
             {
                 id = tes3.effect.weaknesstoFrost,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 10,
-                duration = 30,
+                min = 1,
+                max = 4,
+                duration = 15,
             },
             {
                 id = tes3.effect.weaknesstoShock,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 10,
-                duration = 30,
+                min = 1,
+                max = 4,
+                duration = 15,
             },
             {
                 id = tes3.effect.weaknesstoMagicka,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 10,
-                duration = 30,
+                min = 1,
+                max = 4,
+                duration = 15,
             },
         },
         validObjectTypes = {
@@ -1585,14 +1585,14 @@ local modifiers = {
             {
                 id = tes3.effect.disintegrateWeapon,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 10,
+                min = 2,
+                max = 5,
             },
             {
                 id = tes3.effect.disintegrateArmor,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 10,
+                min = 2,
+                max = 5,
             },
         },
         validObjectTypes = {
@@ -1622,14 +1622,14 @@ local modifiers = {
             {
                 id = tes3.effect.disintegrateWeapon,
                 rangeType = tes3.effectRange.touch,
-                min = 10,
-                max = 20,
+                min = 5,
+                max = 10,
             },
             {
                 id = tes3.effect.disintegrateArmor,
                 rangeType = tes3.effectRange.touch,
-                min = 10,
-                max = 20,
+                min = 5,
+                max = 10,
             },
         },
         validObjectTypes = {
@@ -1660,7 +1660,7 @@ local modifiers = {
             {
                 id = tes3.effect.invisibility,
                 rangeType = tes3.effectRange.self,
-                duration = 10,
+                duration = 5,
             },
         },
         validObjectTypes = {
@@ -1681,7 +1681,7 @@ local modifiers = {
             {
                 id = tes3.effect.invisibility,
                 rangeType = tes3.effectRange.self,
-                duration = 30,
+                duration = 15,
             },
         },
         validObjectTypes = {
@@ -1704,9 +1704,9 @@ local modifiers = {
             {
                 id = tes3.effect.chameleon,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 10,
-                duration = 15,
+                min = 2,
+                max = 5,
+                duration = 5,
             },
         },
         validObjectTypes = {
@@ -1726,8 +1726,8 @@ local modifiers = {
             {
                 id = tes3.effect.chameleon,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 2,
+                max = 2,
             },
         },
         validObjectTypes = {
@@ -1745,8 +1745,8 @@ local modifiers = {
             {
                 id = tes3.effect.light,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -1762,9 +1762,9 @@ local modifiers = {
             {
                 id = tes3.effect.light,
                 rangeType = tes3.effectRange.target,
-                min = 10,
-                max = 20,
-                duration = 20,
+                min = 5,
+                max = 10,
+                duration = 15,
             },
         },
         validObjectTypes = {
@@ -1786,8 +1786,8 @@ local modifiers = {
             {
                 id = tes3.effect.sanctuary,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -1804,8 +1804,8 @@ local modifiers = {
             {
                 id = tes3.effect.sanctuary,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -1823,8 +1823,8 @@ local modifiers = {
             {
                 id = tes3.effect.nightEye,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -1844,9 +1844,9 @@ local modifiers = {
             {
                 id = tes3.effect.charm,
                 rangeType = tes3.effectRange.touch,
-                min = 20,
-                max = 30,
-                duration = 10,
+                min = 5,
+                max = 10,
+                duration = 5,
             },
         },
         validObjectTypes = {
@@ -1870,7 +1870,7 @@ local modifiers = {
             {
                 id = tes3.effect.paralyze,
                 rangeType = tes3.effectRange.touch,
-                duration = 5,
+                duration = 3,
             },
         },
         validObjectTypes = {
@@ -1900,7 +1900,7 @@ local modifiers = {
             {
                 id = tes3.effect.paralyze,
                 rangeType = tes3.effectRange.touch,
-                duration = 15,
+                duration = 8,
             },
         },
         validObjectTypes = {
@@ -1932,7 +1932,7 @@ local modifiers = {
             {
                 id = tes3.effect.silence,
                 rangeType = tes3.effectRange.touch,
-                duration = 10,
+                duration = 5,
             },
         },
         validObjectTypes = {
@@ -1962,7 +1962,7 @@ local modifiers = {
             {
                 id = tes3.effect.silence,
                 rangeType = tes3.effectRange.touch,
-                duration = 20,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -1993,9 +1993,9 @@ local modifiers = {
             {
                 id = tes3.effect.blind,
                 rangeType = tes3.effectRange.touch,
-                duration = 5,
                 min = 1,
-                max = 10,
+                max = 5,
+                duration = 3,
             },
         },
         validObjectTypes = {
@@ -2024,9 +2024,9 @@ local modifiers = {
             {
                 id = tes3.effect.blind,
                 rangeType = tes3.effectRange.touch,
-                duration = 10,
-                min = 1,
-                max = 20,
+                min = 2,
+                max = 7,
+                duration = 6,
             },
         },
         validObjectTypes = {
@@ -2059,7 +2059,7 @@ local modifiers = {
                 rangeType = tes3.effectRange.touch,
                 duration = 5,
                 min = 1,
-                max = 10,
+                max = 5,
             },
         },
         validObjectTypes = {
@@ -2089,7 +2089,7 @@ local modifiers = {
             {
                 id = tes3.effect.soultrap,
                 rangeType = tes3.effectRange.touch,
-                duration = 10,
+                duration = 5,
             },
         },
         validObjectTypes = {
@@ -2118,8 +2118,8 @@ local modifiers = {
             {
                 id = tes3.effect.telekinesis,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             },
         },
         validObjectTypes = {
@@ -2147,20 +2147,20 @@ local modifiers = {
             {
                 id = tes3.effect.detectAnimal,
                 rangeType = tes3.effectRange.self,
-                min = 40,
-                max = 40,
+                min = 5,
+                max = 5,
             },
             {
                 id = tes3.effect.detectEnchantment,
                 rangeType = tes3.effectRange.self,
-                min = 20,
-                max = 20,
+                min = 5,
+                max = 5,
             },
             {
                 id = tes3.effect.detectKey,
                 rangeType = tes3.effectRange.self,
-                min = 20,
-                max = 20,
+                min = 5,
+                max = 5,
             },
         },
         validObjectTypes = {
@@ -2189,8 +2189,8 @@ local modifiers = {
             {
                 id = tes3.effect.spellAbsorption,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -2218,8 +2218,8 @@ local modifiers = {
             {
                 id = tes3.effect.reflect,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -2341,7 +2341,7 @@ local modifiers = {
                 rangeType = tes3.effectRange.self,
                 min = 1,
                 max = 1,
-                duration = 10
+                duration = 5
             },
             {
                 id = tes3.effect.restoreAttribute,
@@ -2349,7 +2349,7 @@ local modifiers = {
                 rangeType = tes3.effectRange.self,
                 min = 1,
                 max = 1,
-                duration = 10
+                duration = 5
             },
             {
                 id = tes3.effect.restoreAttribute,
@@ -2357,7 +2357,7 @@ local modifiers = {
                 rangeType = tes3.effectRange.self,
                 min = 1,
                 max = 1,
-                duration = 10
+                duration = 5
             },
             {
                 id = tes3.effect.restoreAttribute,
@@ -2365,7 +2365,7 @@ local modifiers = {
                 rangeType = tes3.effectRange.self,
                 min = 1,
                 max = 1,
-                duration = 10
+                duration = 5
             },
         },
         validObjectTypes = {
@@ -2390,9 +2390,9 @@ local modifiers = {
             {
                 id = tes3.effect.restoreHealth,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 10,
-                duration = 5,
+                min = 2,
+                max = 5,
+                duration = 3,
             },
         },
         validObjectTypes = {
@@ -2414,9 +2414,9 @@ local modifiers = {
             {
                 id = tes3.effect.restoreHealth,
                 rangeType = tes3.effectRange.self,
-                min = 3,
-                max = 7,
-                duration = 20,
+                min = 1,
+                max = 4,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -2439,9 +2439,9 @@ local modifiers = {
             {
                 id = tes3.effect.restoreMagicka,
                 rangeType = tes3.effectRange.self,
-                duration = 10,
                 min = 1,
                 max = 2,
+                duration = 5,
             },
         },
         validObjectTypes = {
@@ -2464,9 +2464,9 @@ local modifiers = {
             {
                 id = tes3.effect.restoreFatigue,
                 rangeType = tes3.effectRange.self,
-                duration = 10,
-                min = 3,
-                max = 7,
+                min = 1,
+                max = 4,
+                duration = 5,
             },
         },
         validObjectTypes = {
@@ -2488,8 +2488,8 @@ local modifiers = {
                 id = tes3.effect.fortifyAttribute,
                 attribute = tes3.attribute.strength,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -2516,8 +2516,8 @@ local modifiers = {
                 id = tes3.effect.fortifyAttribute,
                 attribute = tes3.attribute.intelligence,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -2544,8 +2544,8 @@ local modifiers = {
                 id = tes3.effect.fortifyAttribute,
                 attribute = tes3.attribute.willpower,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -2572,8 +2572,8 @@ local modifiers = {
                 id = tes3.effect.fortifyAttribute,
                 attribute = tes3.attribute.agility,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -2600,8 +2600,8 @@ local modifiers = {
                 id = tes3.effect.fortifyAttribute,
                 attribute = tes3.attribute.speed,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -2628,8 +2628,8 @@ local modifiers = {
                 id = tes3.effect.fortifyAttribute,
                 attribute = tes3.attribute.speed,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             },
         },
         validObjectTypes = {
@@ -2654,8 +2654,8 @@ local modifiers = {
                 id = tes3.effect.fortifyAttribute,
                 attribute = tes3.attribute.endurance,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -2672,8 +2672,8 @@ local modifiers = {
                 id = tes3.effect.fortifyAttribute,
                 attribute = tes3.attribute.personality,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -2691,8 +2691,8 @@ local modifiers = {
                 id = tes3.effect.fortifyAttribute,
                 attribute = tes3.attribute.luck,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -2710,14 +2710,14 @@ local modifiers = {
             {
                 id = tes3.effect.fortifyAttribute,
                 attribute = tes3.attribute.personality,
-                min = 3,
-                max = 3,
+                min = 2,
+                max = 2,
             },
             {
                 id = tes3.effect.fortifyAttribute,
                 attribute = tes3.attribute.endurance,
-                min = 3,
-                max = 3,
+                min = 2,
+                max = 2,
             },
         },
         validObjectTypes = {
@@ -2738,8 +2738,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.block,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -2760,8 +2760,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.armorer,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -2779,8 +2779,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.mediumArmor,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -2799,8 +2799,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.mediumArmor,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             }
         },
         validObjectTypes = {
@@ -2820,8 +2820,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.heavyArmor,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -2840,8 +2840,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.heavyArmor,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             }
         },
         validObjectTypes = {
@@ -2861,8 +2861,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.bluntWeapon,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -2883,8 +2883,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.bluntWeapon,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             }
         },
         validObjectTypes = {
@@ -2905,8 +2905,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.longBlade,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -2926,8 +2926,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.longBlade,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             }
         },
         validObjectTypes = {
@@ -2947,8 +2947,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.axe,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -2968,8 +2968,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.axe,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             }
         },
         validObjectTypes = {
@@ -2989,8 +2989,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.spear,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -3009,8 +3009,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.spear,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             }
         },
         validObjectTypes = {
@@ -3030,8 +3030,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.athletics,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -3049,8 +3049,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.enchant,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -3068,8 +3068,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.destruction,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -3087,8 +3087,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.alteration,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -3106,8 +3106,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.illusion,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -3125,8 +3125,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.conjuration,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -3144,8 +3144,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.mysticism,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -3163,8 +3163,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.restoration,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -3182,8 +3182,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.alchemy,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -3201,8 +3201,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.sneak,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -3220,8 +3220,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.acrobatics,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -3238,8 +3238,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.lightArmor,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -3258,8 +3258,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.lightArmor,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             }
         },
         validObjectTypes = {
@@ -3279,8 +3279,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.shortBlade,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -3299,8 +3299,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.shortBlade,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             }
         },
         validObjectTypes = {
@@ -3320,8 +3320,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.marksman,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -3341,8 +3341,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.marksman,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             }
         },
         validObjectTypes = {
@@ -3363,8 +3363,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.mercantile,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -3381,8 +3381,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.speechcraft,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -3400,8 +3400,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.handToHand,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -4166,22 +4166,22 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.speechcraft,
                 rangeType = tes3.effectRange.self,
-                min = 2,
-                max = 2,
+                min = 3,
+                max = 3,
             },
             {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.mercantile,
                 rangeType = tes3.effectRange.self,
-                min = 2,
-                max = 2,
+                min = 3,
+                max = 3,
             },
             {
                 id = tes3.effect.fortifyAttribute,
                 attribute = tes3.attribute.personality,
                 rangeType = tes3.effectRange.self,
-                min = 2,
-                max = 2,
+                min = 3,
+                max = 3,
             }
         },
         validObjectTypes = {
@@ -4243,23 +4243,23 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.alteration,
                 rangeType = tes3.effectRange.self,
-                min = 2,
-                max = 2,
+                min = 3,
+                max = 3,
             },
             {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.mysticism,
                 rangeType = tes3.effectRange.self,
-                min = 2,
-                max = 2,
+                min = 3,
+                max = 3,
             },
 
             {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.illusion,
                 rangeType = tes3.effectRange.self,
-                min = 2,
-                max = 2,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -4321,15 +4321,15 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.mercantile,
                 rangeType = tes3.effectRange.self,
-                min = 2,
-                max = 2,
+                min = 3,
+                max = 3,
             },
             {
                 id = tes3.effect.fortifyAttribute,
                 attribute = tes3.attribute.luck,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -4356,23 +4356,23 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.unarmored,
                 rangeType = tes3.effectRange.self,
-                min = 2,
-                max = 2,
+                min = 3,
+                max = 3,
             },
             {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.handToHand,
                 rangeType = tes3.effectRange.self,
-                min = 2,
-                max = 2,
+                min = 3,
+                max = 3,
             },
 
             {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.lightArmor,
                 rangeType = tes3.effectRange.self,
-                min = 2,
-                max = 2,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -4472,8 +4472,8 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.speechcraft,
                 rangeType = tes3.effectRange.self,
-                min = 4,
-                max = 4,
+                min = 3,
+                max = 3,
             },
             {
                 id = tes3.effect.fortifyAttribute,
@@ -4508,15 +4508,15 @@ local modifiers = {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.mercantile,
                 rangeType = tes3.effectRange.self,
-                min = 3,
-                max = 3,
+                min = 2,
+                max = 2,
             },
             {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.security,
                 rangeType = tes3.effectRange.self,
-                min = 3,
-                max = 3,
+                min = 2,
+                max = 2,
             },
         },
         validObjectTypes = {
@@ -4542,14 +4542,14 @@ local modifiers = {
             {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.unarmored,
-                min = 3,
-                max = 3,
+                min = 2,
+                max = 2,
             },
             {
                 id = tes3.effect.fortifySkill,
                 skill = tes3.skill.handToHand,
-                min = 3,
-                max = 3,
+                min = 2,
+                max = 2,
             },
         },
         validObjectTypes = {
@@ -4576,8 +4576,8 @@ local modifiers = {
             {
                 id = tes3.effect.fortifyMaximumMagicka,
                 rangeType = tes3.effectRange.self,
-                min = 2,
-                max = 2,
+                min = 1,
+                max = 1,
             },
         },
         validObjectTypes = {
@@ -4603,8 +4603,8 @@ local modifiers = {
             {
                 id = tes3.effect.fortifyMaximumMagicka,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -4636,9 +4636,9 @@ local modifiers = {
             {
                 id = tes3.effect.absorbHealth,
                 rangeType = tes3.effectRange.touch,
-                min = 2,
-                max = 5,
-                duration = 1,
+                min = 1,
+                max = 3,
+                duration = 3,
             },
         },
         validObjectTypes = {
@@ -4667,9 +4667,9 @@ local modifiers = {
             {
                 id = tes3.effect.absorbHealth,
                 rangeType = tes3.effectRange.touch,
-                min = 3,
-                max = 7,
-                duration = 2,
+                min = 1,
+                max = 4,
+                duration = 5,
             },
         },
         validObjectTypes = {
@@ -4700,9 +4700,9 @@ local modifiers = {
             {
                 id = tes3.effect.absorbMagicka,
                 rangeType = tes3.effectRange.touch,
-                min = 2,
-                max = 5,
-                duration = 1,
+                min = 1,
+                max = 3,
+                duration = 5,
             },
         },
         validObjectTypes = {
@@ -4733,9 +4733,9 @@ local modifiers = {
             {
                 id = tes3.effect.absorbFatigue,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 10,
-                duration = 1,
+                min = 1,
+                max = 3,
+                duration = 3,
             },
         },
         validObjectTypes = {
@@ -4764,8 +4764,8 @@ local modifiers = {
             {
                 id = tes3.effect.resistFire,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -4791,8 +4791,8 @@ local modifiers = {
             {
                 id = tes3.effect.resistFire,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             },
         },
         validObjectTypes = {
@@ -4820,8 +4820,8 @@ local modifiers = {
             {
                 id = tes3.effect.resistFrost,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -4847,8 +4847,8 @@ local modifiers = {
             {
                 id = tes3.effect.resistFrost,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             },
         },
         validObjectTypes = {
@@ -4876,8 +4876,8 @@ local modifiers = {
             {
                 id = tes3.effect.resistShock,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -4903,8 +4903,8 @@ local modifiers = {
             {
                 id = tes3.effect.resistShock,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             },
         },
         validObjectTypes = {
@@ -4933,20 +4933,20 @@ local modifiers = {
             {
                 id = tes3.effect.resistFire,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
             {
                 id = tes3.effect.resistFrost,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
             {
                 id = tes3.effect.resistShock,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -4972,20 +4972,20 @@ local modifiers = {
             {
                 id = tes3.effect.resistFire,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             },
             {
                 id = tes3.effect.resistFrost,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             },
             {
                 id = tes3.effect.resistShock,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             },
         },
         validObjectTypes = {
@@ -5069,20 +5069,20 @@ local modifiers = {
             {
                 id = tes3.effect.resistCommonDisease,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
             {
                 id = tes3.effect.resistBlightDisease,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
             {
                 id = tes3.effect.resistPoison,
                 rangeType = tes3.effectRange.self,
-                min = 5,
-                max = 5,
+                min = 3,
+                max = 3,
             },
         },
         validObjectTypes = {
@@ -5110,8 +5110,8 @@ local modifiers = {
             {
                 id = tes3.effect.resistNormalWeapons,
                 rangeType = tes3.effectRange.self,
-                min = 20,
-                max = 20,
+                min = 5,
+                max = 5,
             },
         },
         validObjectTypes = {
@@ -5129,8 +5129,8 @@ local modifiers = {
             {
                 id = tes3.effect.resistParalysis,
                 rangeType = tes3.effectRange.self,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             },
         },
         validObjectTypes = {
@@ -5149,9 +5149,9 @@ local modifiers = {
             {
                 id = tes3.effect.turnUndead,
                 rangeType = tes3.effectRange.touch,
+                min = 5,
+                max = 5,
                 duration = 5,
-                min = 10,
-                max = 10,
             },
         },
         validObjectTypes = {
@@ -5181,9 +5181,9 @@ local modifiers = {
             {
                 id = tes3.effect.turnUndead,
                 rangeType = tes3.effectRange.touch,
-                duration = 5,
-                min = 20,
-                max = 20,
+                min = 10,
+                max = 10,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5216,7 +5216,7 @@ local modifiers = {
             {
                 id = tes3.effect.summonScamp,
                 rangeType = tes3.effectRange.self,
-                duration = 20,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5240,7 +5240,7 @@ local modifiers = {
             {
                 id = tes3.effect.summonClannfear,
                 rangeType = tes3.effectRange.self,
-                duration = 20,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5263,7 +5263,7 @@ local modifiers = {
             {
                 id = tes3.effect.summonDaedroth,
                 rangeType = tes3.effectRange.self,
-                duration = 20,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5287,7 +5287,7 @@ local modifiers = {
             {
                 id = tes3.effect.summonDremora,
                 rangeType = tes3.effectRange.self,
-                duration = 20,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5311,7 +5311,7 @@ local modifiers = {
             {
                 id = tes3.effect.summonAncestralGhost,
                 rangeType = tes3.effectRange.self,
-                duration = 20,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5335,7 +5335,7 @@ local modifiers = {
             {
                 id = tes3.effect.summonSkeletalMinion,
                 rangeType = tes3.effectRange.self,
-                duration = 20,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5359,7 +5359,7 @@ local modifiers = {
             {
                 id = tes3.effect.summonBonewalker,
                 rangeType = tes3.effectRange.self,
-                duration = 20,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5383,7 +5383,7 @@ local modifiers = {
             {
                 id = tes3.effect.summonGreaterBonewalker,
                 rangeType = tes3.effectRange.self,
-                duration = 20,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5407,7 +5407,7 @@ local modifiers = {
             {
                 id = tes3.effect.summonBonelord,
                 rangeType = tes3.effectRange.self,
-                duration = 20,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5430,7 +5430,7 @@ local modifiers = {
             {
                 id = tes3.effect.summonWingedTwilight,
                 rangeType = tes3.effectRange.self,
-                duration = 20,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5454,7 +5454,7 @@ local modifiers = {
             {
                 id = tes3.effect.summonHunger,
                 rangeType = tes3.effectRange.self,
-                duration = 20,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5478,7 +5478,7 @@ local modifiers = {
             {
                 id = tes3.effect.summonGoldenSaint,
                 rangeType = tes3.effectRange.self,
-                duration = 20,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5502,7 +5502,7 @@ local modifiers = {
             {
                 id = tes3.effect.summonFlameAtronach,
                 rangeType = tes3.effectRange.self,
-                duration = 20,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5525,7 +5525,7 @@ local modifiers = {
             {
                 id = tes3.effect.summonFrostAtronach,
                 rangeType = tes3.effectRange.self,
-                duration = 20,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5549,7 +5549,7 @@ local modifiers = {
             {
                 id = tes3.effect.summonStormAtronach,
                 rangeType = tes3.effectRange.self,
-                duration = 20,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5571,7 +5571,7 @@ local modifiers = {
             {
                 id = tes3.effect.summonCenturionSphere,
                 rangeType = tes3.effectRange.self,
-                duration = 20,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5594,9 +5594,9 @@ local modifiers = {
             {
                 id = tes3.effect.commandCreature,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 10,
-                duration = 30,
+                min = 2,
+                max = 5,
+                duration = 15,
             },
         },
         validObjectTypes = {
@@ -5619,9 +5619,9 @@ local modifiers = {
             {
                 id = tes3.effect.commandHumanoid,
                 rangeType = tes3.effectRange.touch,
-                min = 5,
-                max = 10,
-                duration = 20,
+                min = 2,
+                max = 5,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5645,7 +5645,7 @@ local modifiers = {
             {
                 id = tes3.effect.boundDagger,
                 rangeType = tes3.effectRange.self,
-                duration = 30,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5667,7 +5667,7 @@ local modifiers = {
             {
                 id = tes3.effect.boundLongsword,
                 rangeType = tes3.effectRange.self,
-                duration = 30,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5690,7 +5690,7 @@ local modifiers = {
             {
                 id = tes3.effect.boundMace,
                 rangeType = tes3.effectRange.self,
-                duration = 30,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5713,7 +5713,7 @@ local modifiers = {
             {
                 id = tes3.effect.boundBattleAxe,
                 rangeType = tes3.effectRange.self,
-                duration = 30,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5736,7 +5736,7 @@ local modifiers = {
             {
                 id = tes3.effect.boundSpear,
                 rangeType = tes3.effectRange.self,
-                duration = 30,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5759,7 +5759,7 @@ local modifiers = {
             {
                 id = tes3.effect.boundLongbow,
                 rangeType = tes3.effectRange.self,
-                duration = 30,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5782,7 +5782,7 @@ local modifiers = {
             {
                 id = tes3.effect.boundCuirass,
                 rangeType = tes3.effectRange.self,
-                duration = 30,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5807,7 +5807,7 @@ local modifiers = {
             {
                 id = tes3.effect.boundHelm,
                 rangeType = tes3.effectRange.self,
-                duration = 30,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5832,7 +5832,7 @@ local modifiers = {
             {
                 id = tes3.effect.boundBoots,
                 rangeType = tes3.effectRange.self,
-                duration = 30,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5857,7 +5857,7 @@ local modifiers = {
             {
                 id = tes3.effect.boundShield,
                 rangeType = tes3.effectRange.self,
-                duration = 30,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5882,7 +5882,7 @@ local modifiers = {
             {
                 id = tes3.effect.boundGloves,
                 rangeType = tes3.effectRange.self,
-                duration = 30,
+                duration = 10,
             },
         },
         validObjectTypes = {
@@ -5905,14 +5905,14 @@ local modifiers = {
             {
                 id = tes3.effect.demoralizeCreature,
                 rangeType = tes3.effectRange.touch,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             },
             {
                 id = tes3.effect.demoralizeHumanoid,
                 rangeType = tes3.effectRange.touch,
-                min = 10,
-                max = 10,
+                min = 5,
+                max = 5,
             },
         },
         validObjectTypes = {
