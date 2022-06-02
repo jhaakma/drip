@@ -5,8 +5,6 @@ local logger = common.createLogger("Loot")
 ---@type dripLoot
 local Loot = {}
 
-
-
 ---@param lootData dripLootData
 function Loot:new(lootData)
     logger:debug("Creating new loot for %s", lootData.baseObject.name)
