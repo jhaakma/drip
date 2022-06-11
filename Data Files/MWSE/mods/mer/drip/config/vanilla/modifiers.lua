@@ -627,6 +627,8 @@ local modifiers = {
                 id = tes3.effect.swiftSwim,
                 rangeType = tes3.effectRange.self,
                 duration = 15,
+                min = 5,
+                max = 5,
             },
         },
         validObjectTypes = {
@@ -649,6 +651,8 @@ local modifiers = {
                 id = tes3.effect.swiftSwim,
                 rangeType = tes3.effectRange.self,
                 duration = 25,
+                min = 10,
+                max = 10,
             },
         },
         validObjectTypes = {
