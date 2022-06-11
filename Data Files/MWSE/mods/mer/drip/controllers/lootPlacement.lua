@@ -93,10 +93,36 @@ end
 
 ---@param e mobileActivatedEventData
 event.register("mobileActivated", function(e)
+    if not common.config.mcm.enabled then return end
     if e.reference.baseObject.objectType == tes3.objectType.npc then
         addToRef(e.reference)
     end
 end)
+
+--Checks whether the spawner has been dripified, and if it's the first item, delay a frame to set the flag
+---@param spawner tes3reference
+local function checkSpawnerDripified(spawner)
+    if not spawner then return end
+    if not spawner.supportsLuaData then return end
+    if not spawner.data.dripifiedSpawnerState then
+        logger:debug("checkSpawnerDripified: Spawner %s has not beed dripified, setting state to 1 and delaying a frame to set to 2", spawner)
+        spawner.data.dripifiedSpawnerState = 1
+        local safeRef = tes3.makeSafeObjectHandle(spawner)
+        timer.delayOneFrame(function()
+            if safeRef:valid() then
+                logger:debug("checkSpawnerDripified: Setting spawner %s state to 2", spawner)
+                safeRef:getObject().data.dripifiedSpawnerState = 2
+            end
+        end)
+        return false
+    elseif spawner.data.dripifiedSpawnerState == 1 then
+        logger:debug("checkSpawnerDripified: Spawner %s has been partially dripified", spawner)
+        return false
+    elseif spawner.data.dripifiedSpawnerState == 2 then
+        logger:debug("checkSpawnerDripified: Spawner %s has already been dripified", spawner)
+        return true
+    end
+end
 
 --[[
     Add loot to leveled items
@@ -107,6 +133,7 @@ local function onLeveledItemPicked(e)
     if not e.pick then return end
     local objectIds = common.getAllLootObjectIds()
     if objectIds[e.pick.id:lower()] then
+        if checkSpawnerDripified(e.spawner) == true then return end
         local object = e.pick
         local modifiers = rollForModifiers(object)
         if modifiers then
