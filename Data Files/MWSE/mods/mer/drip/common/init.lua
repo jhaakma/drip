@@ -25,4 +25,9 @@ Common.getAllLootObjectIds = function()
     return objectIds
 end
 
+Common.canBeDripified = function(object)
+    local objIds = Common.getAllLootObjectIds()
+    return objIds[object.id:lower()] ~= nil
+end
+
 return Common

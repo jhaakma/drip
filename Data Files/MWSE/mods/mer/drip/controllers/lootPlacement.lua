@@ -61,17 +61,16 @@ end
 
 local function addToRef(reference)
     if reference.data.dripified then return end
+    reference.data.dripified = true
     --If a reference has an inventory (such as an NPC or container)
     -- search for objects that can be Lootified
     local container = reference.object
     local inventory = container.inventory
-    reference.data.dripified = true
     logger:debug("\n\nDripifying %s", container.name)
-    local objectIds = common.getAllLootObjectIds()
     ---@param stack tes3itemStack
     for _, stack in pairs(inventory) do
         --Check if it's a lootifiable object
-        if objectIds[stack.object.id:lower()] then
+        if common.canBeDripified(stack.object)  then
             local modifiers = rollForModifiers(stack.object)
             if modifiers and #modifiers > 0 then
                 logger:debug("Converting %s to loot", stack.object.name)
@@ -83,21 +82,6 @@ local function addToRef(reference)
                     logger:debug("Converted to %s", loot.object.name)
                     logger:debug("Replacing existing object with enchanted version")
                     loot:replaceLootInInventory(reference, stack)
-                elseif #modifiers > 1 then
-                    logger:trace("Trying with one less modifier")
-                    table.remove(modifiers, 1)
-                    logger:trace("Converting %s to loot", stack.object.name)
-                    local loot = Loot:new{
-                        baseObject = stack.object,
-                        modifiers = modifiers,
-                    }
-                    if loot then
-                        logger:debug("Converted to %s", loot.object.name)
-                        logger:debug("Replacing existing object with enchanted version")
-                        loot:replaceLootInInventory(reference, stack)
-                    else
-                        logger:trace("Failed to convert %s to loot", stack.object.name)
-                    end
                 else
                     logger:trace("Failed to convert %s to loot", stack.object.name)
                 end
@@ -106,29 +90,6 @@ local function addToRef(reference)
     end
 end
 
-
---[[
-    Add loot to NPCs
-]]
-local validTypes = {
-    [tes3.objectType.npc] = true,
-}
----@param e cellChangedEventData
-local function onCellChanged(e)
-    if not common.config.mcm.enabled then return end
-    for _, cell in pairs(tes3.getActiveCells()) do
-        for ref in cell:iterateReferences() do
-            if validTypes[ref.baseObject.objectType] then
-                if ref.object.inventory then
-                    if not ref.object.organic then
-                        addToRef(ref)
-                    end
-                end
-            end
-        end
-    end
-end
---event.register("cellChanged", onCellChanged)
 
 ---@param e mobileActivatedEventData
 event.register("mobileActivated", function(e)
