@@ -75,8 +75,8 @@ event.register("magicEffectsResolved", function()
         canCastTouch = true,
         illegalDaedra = false,
         isHarmful = false,
-        targetsAttributes = true,
-        targetsSkills = true,
+        targetsAttributes = false,
+        targetsSkills = false,
         usesNegativeLighting = false,
 
         onTick = function(e)

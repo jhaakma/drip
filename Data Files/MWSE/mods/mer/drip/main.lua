@@ -1,6 +1,7 @@
 
 --Register effects first so the tes3.effect exists
 require("mer.drip.customEffects.selfRepair")
+require("mer.drip.customEffects.thorns")
 --require("mer.drip.customEffects.infectious")
 
 require("mer.drip.mcm")

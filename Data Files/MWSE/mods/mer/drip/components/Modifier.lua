@@ -1,7 +1,8 @@
 local common = require("mer.drip.common")
+local modifierConfig = common.config.modifiers
 local logger = common.createLogger("Modifier")
 
----@class DripModifier
+---@type DripModifier
 local Modifier = {}
 
 function Modifier:validate(modifierData)
@@ -48,7 +49,6 @@ function Modifier:new(data)
     return modifier
 end
 
----@param object tes3weapon | tes3clothing | tes3armor
 function Modifier:validForObject(object)
     logger:trace("Checking if modifier is valid for object %s", object.id)
 
@@ -143,6 +143,21 @@ function Modifier:validForObject(object)
     end
 
     return true
+end
+
+function Modifier:getRandomModifier(object, list)
+    list = list or math.random() < 0.5 and modifierConfig.prefixes or modifierConfig.suffixes
+    local attempts = 0
+    local MAX_ATTEMPTS = 100
+    local modifier
+    while attempts < MAX_ATTEMPTS do
+        modifier = Modifier:new(table.choice(list))
+        if modifier and modifier:validForObject(object) then
+            return modifier
+        end
+        attempts = attempts + 1
+    end
+    logger:trace("Failed to find a modifier for %s", object.name)
 end
 
 return Modifier

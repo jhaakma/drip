@@ -5,7 +5,6 @@
 ---@field baseObject tes3weapon|tes3armor|tes3clothing
 ---@field ownerReference tes3reference The ref holding this item. Required for adding itemData to the new object
 
-
 ---@class dripLoot
 ---@field modifiers table<DripModifier>
 ---@field baseObject tes3weapon|tes3armor|tes3clothing #The object that this loot is cloned from

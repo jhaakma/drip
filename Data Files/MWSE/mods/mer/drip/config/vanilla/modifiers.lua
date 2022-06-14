@@ -3039,9 +3039,15 @@ local modifiers = {
             }
         },
         validObjectTypes = {
-            [tes3.objectType.armor] = true,
             [tes3.objectType.clothing] = true,
+            [tes3.objectType.armor] = true,
         },
+        validClothingSlots = {
+            [tes3.clothingSlot.shoes] = true,
+        },
+        validArmorSlots = {
+            [tes3.armorSlot.boots] = true,
+        }
     },
 
     {

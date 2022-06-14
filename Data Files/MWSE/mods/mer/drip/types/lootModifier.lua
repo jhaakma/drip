@@ -48,3 +48,7 @@ DripModifier = {}
 function DripModifier:new(data) end
 ---@param object tes3weapon | tes3clothing | tes3armor
 function DripModifier:validForObject(object) end
+
+---@param object tes3weapon | tes3clothing | tes3armor
+---@param list DripModifierData[]
+function DripModifier:getRandomModifier(object, list) end

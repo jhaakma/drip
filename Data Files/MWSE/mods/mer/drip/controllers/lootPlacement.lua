@@ -4,26 +4,10 @@ local Loot = require("mer.drip.components.Loot")
 local Modifier = require("mer.drip.components.Modifier")
 local modifierConfig = common.config.modifiers
 
-
-local function getRandomModifier(object, list)
-    local attempts = 0
-    local MAX_ATTEMPTS = 100
-    local modifier
-    while attempts < MAX_ATTEMPTS do
-        modifier = Modifier:new(table.choice(list))
-        if modifier and modifier:validForObject(object) then
-            return modifier
-        end
-        attempts = attempts + 1
-    end
-    logger:trace("Failed to find a modifier for %s", object.name)
-end
-
-
 local function getFirstModifier(object)
     if math.random(100) <= common.config.mcm.modifierChance then
         local list = math.random() < 0.5 and modifierConfig.prefixes or modifierConfig.suffixes
-        return getRandomModifier(object, list)
+        return Modifier:getRandomModifier(object, list)
     end
 end
 
@@ -44,9 +28,9 @@ local function rollForModifiers(object)
     --If wild is the second modifier, we already have another to apply the wild to
     if firstModifier.wild or math.random(100) < common.config.mcm.secondaryModifierChance then
         if firstModifier.prefix then
-            secondModifier = getRandomModifier(object, modifierConfig.suffixes)
+            secondModifier = Modifier:getRandomModifier(object, modifierConfig.suffixes)
         else
-            secondModifier = getRandomModifier(object, modifierConfig.prefixes)
+            secondModifier = Modifier:getRandomModifier(object, modifierConfig.prefixes)
         end
     end
     if secondModifier then

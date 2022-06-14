@@ -1,6 +1,7 @@
 local common = require("mer.drip.common")
 local logger = common.createLogger("Interop")
 local Modifier = require("mer.drip.components.Modifier")
+local Loot = require("mer.drip.components.Loot")
 local config = common.config
 
 local drip = {}
@@ -46,6 +47,25 @@ end
 function drip.registerClothing(clothingId)
     logger:trace("registering clothing id %s", clothingId)
     config.clothing[clothingId:lower()] = true
+end
+
+---@class DripDripifyObjectData
+---@field public item tes3item *Required*
+---@field public itemData tes3itemData
+---@field public owner tes3reference
+---@field public
+
+function drip.dripifyObject(e)
+    local object = e.object
+    assert(object, "object is nil")
+    local owner = e.owner
+    assert(owner, "owner is nil")
+
+    logger:trace("dripifying object %s", object)
+end
+
+function drip.dripifyReference(e)
+    logger:trace("dripifying reference %s", e.reference)
 end
 
 return drip
