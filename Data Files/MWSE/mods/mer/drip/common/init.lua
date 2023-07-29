@@ -25,9 +25,10 @@ Common.getAllLootObjectIds = function()
     return objectIds
 end
 
-Common.canBeDripified = function(object)
+---@param obj tes3object
+Common.canBeDripified = function(obj)
     local objIds = Common.getAllLootObjectIds()
-    return objIds[object.id:lower()] ~= nil
+    return objIds[obj.id:lower()] ~= nil
 end
 
 return Common

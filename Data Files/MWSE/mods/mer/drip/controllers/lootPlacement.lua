@@ -2,45 +2,6 @@ local common = require("mer.drip.common")
 local logger = common.createLogger("LootPlacement")
 local Loot = require("mer.drip.components.Loot")
 local Modifier = require("mer.drip.components.Modifier")
-local modifierConfig = common.config.modifiers
-
-local function getFirstModifier(object)
-    if math.random(100) <= common.config.mcm.modifierChance then
-        local list = math.random() < 0.5 and modifierConfig.prefixes or modifierConfig.suffixes
-        return Modifier:getRandomModifier(object, list)
-    end
-end
-
-local function rollForModifiers(object)
-    --Roll for fist modifier, and if it succeeds, roll for second modifier
-    --First modifier has 50/50 chance of being prefix or suffix
-    local modifiers = {}
-
-    logger:trace("Object: %s", object.name)
-
-    local firstModifier = getFirstModifier(object)
-    if not firstModifier then
-        return
-    end
-    table.insert(modifiers, firstModifier)
-    local secondModifier
-    --If first modifier was wild, guarantee a second.
-    --If wild is the second modifier, we already have another to apply the wild to
-    if firstModifier.wild or math.random(100) < common.config.mcm.secondaryModifierChance then
-        if firstModifier.prefix then
-            secondModifier = Modifier:getRandomModifier(object, modifierConfig.suffixes)
-        else
-            secondModifier = Modifier:getRandomModifier(object, modifierConfig.prefixes)
-        end
-    end
-    if secondModifier then
-        table.insert(modifiers, secondModifier)
-    end
-
-    if #modifiers > 0 then
-        return modifiers
-    end
-end
 
 
 local function addToRef(reference)
@@ -55,7 +16,7 @@ local function addToRef(reference)
     for _, stack in pairs(inventory) do
         --Check if it's a lootifiable object
         if common.canBeDripified(stack.object)  then
-            local modifiers = rollForModifiers(stack.object)
+            local modifiers = Modifier.rollForModifiers(stack.object)
             if modifiers and #modifiers > 0 then
                 logger:debug("Converting %s to loot", stack.object.name)
                 local loot = Loot:new{
@@ -92,6 +53,10 @@ local function checkSpawnerDripified(spawner)
         logger:debug("checkSpawnerDripified: Spawner %s has not beed dripified, setting state to 1 and delaying a frame to set to 2", spawner)
         spawner.data.dripifiedSpawnerState = 1
         local safeRef = tes3.makeSafeObjectHandle(spawner)
+        if not safeRef then
+            logger:error("checkSpawnerDripified: Failed to make safe handle for spawner %s", spawner)
+            return
+        end
         timer.delayOneFrame(function()
             if safeRef:valid() then
                 logger:debug("checkSpawnerDripified: Setting spawner %s state to 2", spawner)
@@ -115,21 +80,20 @@ end
 local function onLeveledItemPicked(e)
     if not common.config.mcm.enabled then return end
     if not e.pick then return end
-    local objectIds = common.getAllLootObjectIds()
-    if objectIds[e.pick.id:lower()] then
+    if common.canBeDripified(e.pick)  then
         if checkSpawnerDripified(e.spawner) == true then return end
         local object = e.pick
-        local modifiers = rollForModifiers(object)
+        local modifiers = Modifier.rollForModifiers(object)
         if modifiers then
             logger:debug("Converting leveled item %s to loot", object.name)
             local loot = Loot:new{
-                baseObject = object,
+                baseObject = object, ---@diagnostic disable-line: assign-type-mismatch
                 modifiers = modifiers,
             }
             if loot then
                 logger:debug("Converted to %s", loot.object.name)
                 logger:debug("Replacing existing object with enchanted version")
-                e.pick = loot.object
+                e.pick = loot.object ---@diagnostic disable-line: assign-type-mismatch
                 loot:persist()
             end
         end

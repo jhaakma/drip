@@ -49,23 +49,30 @@ function drip.registerClothing(clothingId)
     config.clothing[clothingId:lower()] = true
 end
 
----@class DripDripifyObjectData
----@field public item tes3item *Required*
----@field public itemData tes3itemData
----@field public owner tes3reference
----@field public
-
-function drip.dripifyObject(e)
-    local object = e.object
-    assert(object, "object is nil")
-    local owner = e.owner
-    assert(owner, "owner is nil")
-
-    logger:trace("dripifying object %s", object)
-end
-
-function drip.dripifyReference(e)
-    logger:trace("dripifying reference %s", e.reference)
+--[[
+    Dripify an object using the standard DRIP
+    chances. If the object is dripified, returns
+    the loot. Otherwise, returns nil.
+]]
+---@param object tes3object|tes3misc
+---@return Drip.Loot|nil
+function drip.dripify(object)
+    if common.canBeDripified(object) then
+        local modifiers = Modifier.rollForModifiers(object)
+        if modifiers and #modifiers > 0 then
+            logger:debug("Converting %s to loot", object.name)
+            local loot = Loot:new{
+                baseObject = object,
+                modifiers = modifiers,
+            }
+            if loot then
+                logger:debug("Converted to %s", loot.object.name)
+                return loot
+            end
+        end
+    end
+    logger:debug("Failed to dripify %s", object.name)
+    return nil
 end
 
 return drip

@@ -2,10 +2,60 @@ local common = require("mer.drip.common")
 local modifierConfig = common.config.modifiers
 local logger = common.createLogger("Modifier")
 
----@type DripModifier
-local Modifier = {}
+---@class Drip.Modifier.Effect
+---@field id string The effect id. Use tes3.effect mapping.
+---@field duration number The duration of the effect.
+---@field min number The minimum magnitude of the effect.
+---@field max number The maximum magnitude of the effect.
+---@field rangeType number The range type derived from tes3.effectRange
+---@field attribute number The attribute id. Use tes3.attribute mapping.
+---@field skill number The skill id. Use tes3.skill mapping.
 
-function Modifier:validate(modifierData)
+---@class Drip.Modifier.Data
+---@field prefix string The prefix appended to the loot name. A modifier should have at least a prefix or a suffix.
+---@field suffix string The suffix appended to the loot name. A modifier should have at least a prefix or a suffix.
+---@field castType number **Required** The cast type of the enchantment. Use tes3.enchantmentType mapping.
+---@field chargeCost number The cost of the enchantment. Required when castType is not constant.
+---@field maxCharge number The maximum charge of the enchantment. Required when castType is not constant.
+---@field effects table<Drip.Modifier.Effect> **Required** The effects to be enchanted onto the loot.
+---@field validObjectTypes table<number, boolean> A list of objectTypes that can have this modifier. use tes3.objectType mapping as the key and set value to true. e.g "[tes3.objectType.weapon] = true"
+---@field validWeaponTypes table<number, boolean> A list of weaponTypes that can have this modifier. use tes3.weaponType mapping as the key and set value to true. e.g "[tes3.weaponType.shortBlade] = true"
+---@field validWeightClasses table<number, boolean> A list of armor weight classes that can have this modifier. use tes3.armorWeightClass mapping as the key and set value to true. e.g "[tes3.armorWeightClass.heavy] = true"
+---@field validArmorSlots table<number, boolean> A list of armor slots that can have this modifier. use tes3.armorSlot mapping as the key and set value to true. e.g "[tes3.armorSlot.helmet] = true"\
+---@field validClothingSlots table<number, boolean> A list of clothing slots that can have this modifier. use tes3.clothingSlot mapping as the key and set value to true. e.g "[tes3.clothingSlot.amulet] = true"
+---@field icon string The path to a custom icon
+---@field description string A a description of the effect.
+---@field valueMulti number The multiplier for the value of the loot. e.g 1.5 will increase the value by 50%
+---@field value number Adds a flat value to the loot value.
+---@field multipliers table A list of object fields that will be multiplied by the value
+---@field modifications table A list of object fields that will be modified by the value
+
+---@class Drip.Modifier : Drip.Modifier.Data
+local Modifier = {
+    ---@type boolean Whether this modifier is a wild modifier
+    wild = nil
+}
+
+---------------------------------------------------
+-- Static Methods
+---------------------------------------------------
+
+--Constructor
+---@param data Drip.Modifier.Data
+function Modifier:new(data)
+    local isValid, errorMsg = Modifier.validate(data)
+    if not isValid then
+        logger:debug("Invalid modifier data: %s", errorMsg)
+        return nil
+    end
+    if data == nil then return end
+    local modifier = setmetatable(data, self)
+    self.__index = self
+
+    return modifier
+end
+
+function Modifier.validate(modifierData)
     if not modifierData then return nil end
     local dripModifierFields = {
         prefix =  "string",
@@ -35,19 +85,66 @@ function Modifier:validate(modifierData)
     return true
 end
 
----@param data DripModifierData
-function Modifier:new(data)
-    local isValid, errorMsg = self:validate(data)
-    if not isValid then
-        logger:debug("Invalid modifier data: %s", errorMsg)
-        return nil
+function Modifier.getRandomModifier(object, list)
+    list = list or math.random() < 0.5 and modifierConfig.prefixes or modifierConfig.suffixes
+    local attempts = 0
+    local MAX_ATTEMPTS = 100
+    local modifier
+    while attempts < MAX_ATTEMPTS do
+        modifier = Modifier:new(table.choice(list))
+        if modifier and modifier:validForObject(object) then
+            return modifier
+        end
+        attempts = attempts + 1
     end
-    if data == nil then return end
-    local modifier = setmetatable(data, self)
-    self.__index = self
-
-    return modifier
+    logger:trace("Failed to find a modifier for %s", object.name)
 end
+
+
+function Modifier.getFirstModifier(object)
+    if math.random(100) <= common.config.mcm.modifierChance then
+        local list = math.random() < 0.5 and modifierConfig.prefixes or modifierConfig.suffixes
+        return Modifier.getRandomModifier(object, list)
+    end
+end
+
+--[[
+    Generate a random set of modifiers for the given object
+]]
+function Modifier.rollForModifiers(object)
+    --Roll for fist modifier, and if it succeeds, roll for second modifier
+    --First modifier has 50/50 chance of being prefix or suffix
+    local modifiers = {}
+
+    logger:trace("Object: %s", object.name)
+
+    local firstModifier = Modifier.getFirstModifier(object)
+    if not firstModifier then
+        return
+    end
+    table.insert(modifiers, firstModifier)
+    local secondModifier
+    --If first modifier was wild, guarantee a second.
+    --If wild is the second modifier, we already have another to apply the wild to
+    if firstModifier.wild or math.random(100) < common.config.mcm.secondaryModifierChance then
+        if firstModifier.prefix then
+            secondModifier = Modifier.getRandomModifier(object, modifierConfig.suffixes)
+        else
+            secondModifier = Modifier.getRandomModifier(object, modifierConfig.prefixes)
+        end
+    end
+    if secondModifier then
+        table.insert(modifiers, secondModifier)
+    end
+
+    if #modifiers > 0 then
+        return modifiers
+    end
+end
+
+---------------------------------------------------
+-- Instance Methods
+---------------------------------------------------
 
 function Modifier:validForObject(object)
     logger:trace("Checking if modifier is valid for object %s", object.id)
@@ -143,21 +240,6 @@ function Modifier:validForObject(object)
     end
 
     return true
-end
-
-function Modifier:getRandomModifier(object, list)
-    list = list or math.random() < 0.5 and modifierConfig.prefixes or modifierConfig.suffixes
-    local attempts = 0
-    local MAX_ATTEMPTS = 100
-    local modifier
-    while attempts < MAX_ATTEMPTS do
-        modifier = Modifier:new(table.choice(list))
-        if modifier and modifier:validForObject(object) then
-            return modifier
-        end
-        attempts = attempts + 1
-    end
-    logger:trace("Failed to find a modifier for %s", object.name)
 end
 
 return Modifier
