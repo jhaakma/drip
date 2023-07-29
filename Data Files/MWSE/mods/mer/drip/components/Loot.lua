@@ -2,10 +2,19 @@ local common = require("mer.drip.common")
 local config = common.config
 local logger = common.createLogger("Loot")
 
----@type dripLoot
-local Loot = {}
+---@class Drip.Loot.Data
+---@field baseObject tes3object|tes3weapon|tes3armor|tes3clothing
+---@field modifiers Drip.Modifier[]
 
----@param lootData dripLootData
+---@class Drip.Loot : Drip.Loot.Data
+local Loot = {
+    ---@type tes3object|tes3weapon|tes3armor|tes3clothing
+    object = nil,
+    ---@type Drip.Modifier.Data[]
+    modifiers = nil,
+}
+
+---@param lootData Drip.Loot.Data
 function Loot:new(lootData)
     logger:debug("Creating new loot for %s", lootData.baseObject.name)
     local loot = setmetatable(lootData, self)
@@ -28,15 +37,15 @@ function Loot:new(lootData)
     loot:applyModifications()
     loot:applyMultipliers()
 
-
-    loot.object.enchantment = Loot:makeComplexEnchantment(loot.modifiers)
-    loot:applyEnchantCapacityScaling()
-
-    logger:debug("Checking for wild")
-    if loot:canHaveWild() and loot:rollForWild() then
-        loot:applyWild()
+    local enchantment = Loot:makeComplexEnchantment(loot.modifiers)
+    if enchantment then
+        loot.object.enchantment = enchantment
+        loot:applyEnchantCapacityScaling()
+        logger:debug("Checking for wild")
+        if loot:canHaveWild() and loot:rollForWild() then
+            loot:applyWild()
+        end
     end
-
     local name = loot:getLootName{ wild = loot.wild }
     if #name > 31 then
         logger:debug("Name '%s' excedes 31 characters, cancelling Loot creation", name)
@@ -138,7 +147,6 @@ end
 ]]
 function Loot:applyEnchantCapacityScaling()
     local enchantCapacityEffect = self:getEnchantCapacityMultiplier()
-    ---@param modifier DripModifier
     if self.object.enchantment then
         ---@param effect tes3effect
         for _, effect in ipairs(self.object.enchantment.effects) do
@@ -204,9 +212,8 @@ function Loot:getLootName(e)
             end
             if modifier.suffix then
                 logger:trace("Appending suffix '%s'", modifier.suffix)
-                name = string.format("%s of %s%s",
+                name = string.format("%s of %s",
                     name,
-                    modifier.the and "the " or "",
                     modifier.suffix)
                 logger:trace("Suffixed Name: %s", name)
             end
@@ -229,7 +236,7 @@ function Loot:getLootName(e)
     return name
 end
 
----@param effects DripModifierEffect[]
+---@param effects Drip.Modifier.Effect[]
 function Loot:mergeEffects(effects)
     --Compare effects in list to find duplicates
     local duplicates = {}
@@ -257,7 +264,7 @@ function Loot:mergeEffects(effects)
     end
 end
 
----@param modifiers DripModifier[]
+---@param modifiers Drip.Modifier[]
 function Loot:buildEnchantmentEffects(modifiers)
     local effects = {}
     for _, modifier in ipairs(modifiers) do
@@ -296,7 +303,7 @@ function Loot:getEnchantmentValues(modifiers)
     return values
 end
 
-
+---@return tes3enchantment|nil
 function Loot:makeComplexEnchantment(modifiers)
     local enchantmentValues = self:getEnchantmentValues(modifiers)
     if #enchantmentValues.effects == 0 then return end
@@ -308,6 +315,7 @@ function Loot:makeComplexEnchantment(modifiers)
         maxCharge = enchantmentValues.maxCharge or 100,
         chargeCost = enchantmentValues.chargeCost or 10,
     }
+    ---@cast enchantment tes3enchantment
     enchantment.modified = true
     return enchantment
 end
@@ -320,7 +328,7 @@ function Loot:replaceLootInInventory(ownerReference, stack)
     --Add loot to inventory
     tes3.addItem{
         reference = ownerReference,
-        item = self.object,
+        item = self.object, ---@diagnostic disable-line: assign-type-mismatch
         count = count,
         playSound = false,
     }
@@ -330,6 +338,7 @@ function Loot:replaceLootInInventory(ownerReference, stack)
             logger:debug("Has a mobile")
             ownerReference.mobile:unequip{ item = stack.object}
             logger:debug("Unequipping %s and equipping %s", stack.object.name, self.object.name)
+            ---@diagnostic disable-next-line: assign-type-mismatch
             ownerReference.mobile:equip{ item = self.object }
             ownerReference:updateEquipment()
         end
@@ -337,6 +346,7 @@ function Loot:replaceLootInInventory(ownerReference, stack)
 
     --Remove the object from the inventory
     if stack.count >= 0 then
+        ---@diagnostic disable-next-line: deprecated
         mwscript.removeItem{
             reference = ownerReference,
             item = stack.object,
@@ -345,6 +355,7 @@ function Loot:replaceLootInInventory(ownerReference, stack)
         }
     else
         --use "addItem" to remove if count is negative
+        ---@diagnostic disable-next-line: deprecated
         mwscript.addItem{
             reference = ownerReference,
             item = stack.object,
