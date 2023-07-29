@@ -1,4 +1,5 @@
 local Common = {}
+local config = require("mer.drip.config")
 Common.config = require("mer.drip.config")
 local logger = require("logging.logger")
 local logLevel = Common.config.mcm.logLevel
@@ -15,6 +16,10 @@ Common.updateLoggers = function(newLogLevel)
     for _, logger in ipairs(loggers) do
         logger:setLogLevel(newLogLevel)
     end
+end
+
+function Common.getVersion()
+    return config.metadata.package.version
 end
 
 Common.getAllLootObjectIds = function()

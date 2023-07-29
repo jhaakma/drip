@@ -22,9 +22,11 @@ Drip adds Diablo 2 style loot to Morrowind. Unique weapons, armor, clothing and 
     clothing = {},
     armor = {},
 }
+
+---@type MWSE.Metadata
+config.metadata = toml.loadFile("Data Files\\DRIP-metadata.toml")
+
 local cache
-
-
 --Static Configs
 
 --MCM Configs (Stored in Json, cached in memory)

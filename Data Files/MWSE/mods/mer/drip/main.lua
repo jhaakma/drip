@@ -1,7 +1,7 @@
-
+local common = require("mer.drip.common")
+local logger = common.createLogger("main")
 --Register effects first so the tes3.effect exists
 require("mer.drip.customEffects")
-
 require("mer.drip.mcm")
 require("mer.drip.controllers.lootPlacement")
 require("mer.drip.controllers.tooltips")
@@ -28,3 +28,4 @@ local clothing = require("mer.drip.config.vanilla.clothing")
 for _, clothing in ipairs(clothing) do
     interop.registerClothing(clothing)
 end
+logger:info("initialized %s", common.getVersion())
