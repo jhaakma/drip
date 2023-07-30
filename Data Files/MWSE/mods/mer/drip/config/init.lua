@@ -5,7 +5,6 @@ local config = {
     modDescription = [[
 Drip adds Diablo 2 style loot to Morrowind. Unique weapons, armor, clothing and accesories are dynamically generated, with over a hundred unique modifiers and more than a million possible combinations.
 ]],
-    selfRepairPercentPerHour = 1,
     multiplierFieldDecimals= {
         speed = 2,
     },
