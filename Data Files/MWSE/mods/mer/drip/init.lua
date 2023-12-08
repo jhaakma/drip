@@ -4,35 +4,23 @@ local Modifier = require("mer.drip.components.Modifier")
 local Loot = require("mer.drip.components.Loot")
 local config = common.config
 
-local drip = {}
+local drip = {
+    Loot = Loot,
+    Modifier = Modifier,
+    config = config,
+}
 
-function drip.registerMaterialPattern(str)
+function drip.registerMaterialPattern(str, isSuffix)
+    local list = isSuffix and config.materialSuffixes or config.materialPrefixes
     --Puts patterns with multiple words at the front so they get caught first
     if string.find(str, " ") then
-
-        table.insert(config.materials, 1, str)
+        table.insert(list, 1, str:lower())
     else
-        table.insert(config.materials, str:lower())
+        table.insert(list, str:lower())
     end
 end
 
-function drip.registerModifier(modifierData)
-    local modifier = Modifier:new(modifierData)
-    if not modifier then
-        logger:trace("Invalid modifier data")
-        return
-    end
-    if modifier.prefix then
-        logger:trace("Registering as prefix %s", modifier.prefix)
-        table.insert(config.modifiers.prefixes, modifier)
-    elseif modifier.suffix then
-        logger:trace("Registering as suffix %s", modifier.suffix)
-        table.insert(config.modifiers.suffixes, modifier)
-    else
-        logger:trace("Invalid modifier data: no prefix or suffix provided")
-        return
-    end
-end
+drip.registerModifier = Modifier.register
 
 function drip.registerWeapon(weaponId)
     logger:trace("registering weapon id %s", weaponId)
@@ -56,7 +44,8 @@ end
 ]]
 ---@param object tes3object|tes3misc
 ---@return Drip.Loot|nil
-function drip.dripify(object)
+function drip.rollDrip(object)
+    logger:info("Dripifying %s", object.name)
     if common.canBeDripified(object) then
         local modifiers = Modifier.rollForModifiers(object)
         if modifiers and #modifiers > 0 then
@@ -66,13 +55,60 @@ function drip.dripify(object)
                 modifiers = modifiers,
             }
             if loot then
-                logger:debug("Converted to %s", loot.object.name)
+                logger:info("Converted to %s", loot.object.name)
                 return loot
             end
+        else
+            logger:error("Unable to roll modifiers for %s", object.name)
         end
     end
-    logger:debug("Failed to dripify %s", object.name)
+    logger:error("%s can not be dripified", object.name)
     return nil
+end
+
+---Dripify with a guaranteed modifier
+---@param object tes3object|tes3misc
+---@param listId string
+function drip.dripify(object, listId)
+    local modifiers = {}
+    local firstModifier = Modifier.getRandomModifier(object, common.config.modifiers[listId])
+    if firstModifier then
+        table.insert(modifiers, firstModifier)
+    end
+
+    if #modifiers > 0 then
+        local loot = Loot:new{
+            baseObject = object,
+            modifiers = modifiers,
+        }
+        if loot then
+            logger:info("Converted to %s", loot.object.name)
+            return loot
+        end
+    end
+end
+
+---Replace a reference with a dripified version
+---@param reference tes3reference
+---@param listId string
+function drip.dripifyReference(reference, listId)
+    local loot = drip.dripify(reference.object, listId)
+    if not loot then
+        logger:error("Failed to dripify %s", reference.object.id)
+        return
+    end
+
+    local newRef = tes3.createReference{
+        object = loot.object,
+        position = reference.position,
+        orientation = reference.orientation,
+        cell = reference.cell,
+        scale = reference.scale,
+    }
+    logger:info("Replaced %s with %s", reference.object.id, loot.object.id)
+    reference:delete()
+    loot:persist()
+    return newRef
 end
 
 return drip

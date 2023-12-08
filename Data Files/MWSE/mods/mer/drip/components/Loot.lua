@@ -7,17 +7,14 @@ local logger = common.createLogger("Loot")
 ---@field modifiers Drip.Modifier[]
 
 ---@class Drip.Loot : Drip.Loot.Data
-local Loot = {
-    ---@type tes3object|tes3weapon|tes3armor|tes3clothing
-    object = nil,
-    ---@type Drip.Modifier.Data[]
-    modifiers = nil,
-}
+---@field object tes3object|tes3weapon|tes3armor|tes3clothing
+---@field modifiers table<number, Drip.Modifier.Data|string>
+local Loot = {}
 
 ---@param lootData Drip.Loot.Data
 function Loot:new(lootData)
     logger:debug("Creating new loot for %s", lootData.baseObject.name)
-    local loot = setmetatable(lootData, self)
+    local loot = setmetatable(lootData, self) --[[@as Drip.Loot]]
     self.__index = self
     --Create the tes3object
     loot.object = loot.baseObject:createCopy{}
@@ -178,13 +175,22 @@ function Loot:applyMultipliers()
     end
 end
 
-function Loot:removeMaterialPrefix(name)
+---@param name string
+function Loot:removeMaterialNames(name)
     local lowerName = name:lower()
     logger:trace("lowerName: %s", lowerName)
-    for _, material in ipairs(config.materials) do
+    --prefixes
+    for _, material in ipairs(config.materialPrefixes) do
         if string.startswith(lowerName, (material .. " ")) then
             logger:trace("Removing material prefix: %s", material)
             return name:sub(#material + 2)
+        end
+    end
+    --suffixes
+    for _, material in ipairs(config.materialSuffixes) do
+        if string.endswith(lowerName, material) then
+            logger:trace("Removing material suffix: %s", material)
+            return name:sub(1, #name - #material)
         end
     end
 
@@ -223,7 +229,7 @@ function Loot:getLootName(e)
     appendPrefixSuffix()
     --while attempts < 10 and #name > 31 do
     while attempts < 10 and #name > maxLength do
-        baseName = self:removeMaterialPrefix(baseName)
+        baseName = self:removeMaterialNames(baseName)
         appendPrefixSuffix()
         attempts = attempts + 1
     end
@@ -338,7 +344,6 @@ function Loot:replaceLootInInventory(ownerReference, stack)
             logger:debug("Has a mobile")
             ownerReference.mobile:unequip{ item = stack.object}
             logger:debug("Unequipping %s and equipping %s", stack.object.name, self.object.name)
-            ---@diagnostic disable-next-line: assign-type-mismatch
             ownerReference.mobile:equip{ item = self.object }
             ownerReference:updateEquipment()
         end
@@ -369,8 +374,13 @@ function Loot:replaceLootInInventory(ownerReference, stack)
 end
 
 function Loot:persist()
+    local modifierIds = {}
+    --store modified by string
+    for _, modifier in ipairs(self.modifiers) do
+        table.insert(modifierIds, modifier.id)
+    end
     config.persistent.generatedLoot[self.object.id:lower()] = {
-        modifiers = self.modifiers,
+        modifiers = modifierIds,
     }
 end
 

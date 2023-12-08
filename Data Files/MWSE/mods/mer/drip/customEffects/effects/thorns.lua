@@ -5,6 +5,7 @@ local logger = common.createLogger("Thorns")
 
 tes3.claimSpellEffectId("thorns", 8501)
 interop.registerModifier{
+    id = "barbs",
     suffix = "Barbs",
     value = 25,
     castType = tes3.enchantmentType.constant,
@@ -21,6 +22,7 @@ interop.registerModifier{
     },
 }
 interop.registerModifier{
+    id = "thorns",
     suffix = "Thorns",
     value = 100,
     castType = tes3.enchantmentType.constant,
@@ -36,8 +38,6 @@ interop.registerModifier{
         [tes3.objectType.armor] = true,
     },
 }
-
-
 
 event.register("magicEffectsResolved", function()
     logger:trace("Creating Thorns Magic Effect")

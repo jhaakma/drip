@@ -28,4 +28,10 @@ local clothing = require("mer.drip.config.vanilla.clothing")
 for _, clothing in ipairs(clothing) do
     interop.registerClothing(clothing)
 end
+
+event.register("UIEXP:sandboxConsole", function(e)
+    e.sandbox.drip = table.copy(interop)
+end)
+
+
 logger:info("initialized %s", common.getVersion())

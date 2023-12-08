@@ -26,7 +26,7 @@ function UI.addLabelToTooltip(e)
     local insertBefore = mainBlock:findChild("HelpMenu_armorRating")
         or mainBlock:findChild("HelpMenu_weaponType") or -2
 
-    mainBlock:reorderChildren(insertBefore, -1, 1)
+    --mainBlock:reorderChildren(insertBefore, -1, 1)
     mainBlock:updateLayout()
 
     if text then
@@ -42,16 +42,6 @@ end
 
 function UI.createEffectBlock(e)
     local block = UI.addLabelToTooltip(e)
-
-    -- if doIcon then
-    --     local icon = effectBlock:createImage{ path = e.icon }
-    --     icon.height = 16
-    --     icon.width = 16
-    --     icon.scaleMode = true
-    --     icon.borderAllSides = 1
-    -- end
-    -- local effectLabel = effectBlock:createLabel{ text = e.text }
-    -- effectLabel.borderLeft = 4
 end
 
 return UI

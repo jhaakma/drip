@@ -1,3 +1,4 @@
+---@class Drip.Config
 local config = {
     modName = "Drip",
     configPath = "drip",
@@ -12,9 +13,13 @@ Drip adds Diablo 2 style loot to Morrowind. Unique weapons, armor, clothing and 
     maxEnchantCapacty = 500,
     maxEnchantEffect = 5,
     --registered configs
-    materials = {},
+    materialPrefixes = {},
+    materialSuffixes = {},
+
     modifiers = {
+        ---@type table <string, Drip.Modifier[]>
         prefixes = {},
+        ---@type table <string, Drip.Modifier[]>
         suffixes = {},
     },
     weapons = {},
@@ -57,6 +62,12 @@ config.mcm = setmetatable({}, {
 config.persistentDefault = {
     generatedLoot = {}
 }
+
+
+---@alias Drip.GeneratedLoot.Modifier Drip.Modifier.Data|string
+---@alias Drip.GeneratedLoot { modifiers:table<number, Drip.GeneratedLoot.Modifier> }
+---@class Drip.Config.Persistent
+---@field generatedLoot table<string, Drip.GeneratedLoot>
 config.persistent = setmetatable({}, {
     __index = function(_, key)
         if not tes3.player then return end

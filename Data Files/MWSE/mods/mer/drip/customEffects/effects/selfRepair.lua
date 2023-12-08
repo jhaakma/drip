@@ -5,6 +5,7 @@ local logger = common.createLogger("SelfRepair")
 
 tes3.claimSpellEffectId("selfRepair", 8500)
 interop.registerModifier{
+    id = "selfRepair",
     suffix = "Self-Repair",
     value = 50,
     valueMulti = 1.1,
@@ -23,6 +24,7 @@ interop.registerModifier{
     },
 }
 interop.registerModifier{
+    id = "fastRepair",
     suffix = "Fast-Repair",
     value = 100,
     valueMulti = 1.2,
@@ -48,25 +50,23 @@ event.register("magicEffectsResolved", function()
         school = tes3.magicSchool.alteration,
         description = "Slowly restores item condition while equipped.",
         icon = "drip\\selfRepair_s.dds",
-		particleTexture = "vfx_alt_glow.tga",
-		castSound = "alteration cast",
-		castVFX = "VFX_AlterationCast",
-		boltSound = "alteration bolt",
-		boltVFX = "VFX_AlterationBolt",
-		hitSound = "alteration hit",
-		hitVFX = "VFX_AlterationHit",
-		areaSound = "alteration area",
-		areaVFX = "VFX_AlterationArea",
-		--True
-		allowEnchanting = true,
+        particleTexture = "vfx_alt_glow.tga",
+        castSound = "alteration cast",
+        castVFX = "VFX_AlterationCast",
+        boltSound = "alteration bolt",
+        boltVFX = "VFX_AlterationBolt",
+        hitSound = "alteration hit",
+        hitVFX = "VFX_AlterationHit",
+        areaSound = "alteration area",
+        areaVFX = "VFX_AlterationArea",
+        --True
+        allowEnchanting = true,
         canCastSelf = true,
         casterLinked = true,
         hasNoDuration = true,
-
         --Must be false for some weird reason
         unreflectable = false,
-		hasNoMagnitude = false,
-
+        hasNoMagnitude = false,
         --default
         hasContinuousVFX =  false,
         nonRecastable = true,
@@ -79,7 +79,6 @@ event.register("magicEffectsResolved", function()
         targetsAttributes = false,
         targetsSkills = false,
         usesNegativeLighting = false,
-
         onTick = function(e)
             e:trigger()
             if not e.sourceInstance then return end
@@ -90,7 +89,6 @@ event.register("magicEffectsResolved", function()
             local magnitude = effect.magnitude
             local condition = itemData.condition
             local maxCondition = item.maxCondition
-
             logger:trace("self-repair magnitude: %s", magnitude)
             if condition and maxCondition then
                 logger:trace("Current condition: %s", condition)
@@ -106,14 +104,12 @@ event.register("magicEffectsResolved", function()
                 logger:trace("new Leftover: %s", leftOver)
                 itemData.data.selfRepairLeftover = leftOver
                 repairAmount = math.floor(repairAmount)
-
                 logger:trace("Repair amount: %s", repairAmount)
                 local newCondition = condition + repairAmount
                 logger:trace("New condition: %s", newCondition)
                 newCondition = math.min(newCondition, maxCondition)
                 itemData.condition = newCondition
             end
-
         end
     }
 end)

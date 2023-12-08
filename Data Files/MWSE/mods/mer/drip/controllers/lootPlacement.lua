@@ -100,3 +100,24 @@ local function onLeveledItemPicked(e)
     end
 end
 event.register("leveledItemPicked", onLeveledItemPicked)
+
+local initialized
+event.register("initialized", function() initialized = true end)
+
+event.register("objectCreated", function(e)
+    if not initialized then return end
+    if not e.copiedFrom then return end
+    local modifiers = Modifier.getObjectModifiers(e.copiedFrom)
+    if #modifiers > 0 then
+        logger:info("Registering copied loot. Original: %s, New: %s",
+        e.copiedFrom.id, e.object.id)
+        local modifierIds = {}
+        --store modified by string
+        for _, modifier in ipairs(modifiers) do
+            table.insert(modifierIds, modifier.id)
+        end
+        common.config.persistent.generatedLoot[e.object.id:lower()] = {
+            modifiers = modifierIds,
+        }
+    end
+end)
