@@ -15,7 +15,6 @@ local function applyTooltips(e)
                 UI.createEffectBlock{
                     tooltip = e.tooltip,
                     text = modifier.description,
-                    icon = modifier.icon,
                     color = { 0.1, 0.8, 0.1}
                 }
             end
