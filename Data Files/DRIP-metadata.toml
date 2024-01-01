@@ -10,7 +10,7 @@ version = "1.2.1"
 assets = [ "Icons/drip", "Meshes/drip", "MWSE/mods/mer/drip", "Textures/drip",]
 
 [dependencies.mwse]
-buildnumber = 3519
+buildnumber = 3520
 
 [dependencies.mge-xe]
 version = ">=0.15.0"
