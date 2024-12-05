@@ -3,11 +3,12 @@ local config = common.config
 local logger = common.createLogger("Loot")
 
 ---@class Drip.Loot.Data
+---@field object? tes3object|tes3weapon|tes3armor|tes3clothing
 ---@field baseObject tes3object|tes3weapon|tes3armor|tes3clothing
 ---@field modifiers Drip.Modifier[]
 
 ---@class Drip.Loot : Drip.Loot.Data
----@field object tes3object|tes3weapon|tes3armor|tes3clothing
+---@field object? tes3object|tes3weapon|tes3armor|tes3clothing
 ---@field modifiers table<number, Drip.Modifier.Data|string>
 local Loot = {}
 
@@ -16,45 +17,51 @@ function Loot:new(lootData)
     logger:debug("Creating new loot for %s", lootData.baseObject.name)
     local loot = setmetatable(lootData, self) --[[@as Drip.Loot]]
     self.__index = self
-    --Create the tes3object
-    loot.object = loot.baseObject:createCopy{}
-    if not loot.object then return nil end
+    return loot
+end
 
-    loot.object.modified = true
+function Loot:initialize()
+    --Create the tes3object
+    self.object = self.baseObject:createCopy{}
+    if not self.object then return nil end
+
+    self.object.modified = true
     --Remove any modifiers that don't share the same cast type as the first one
-    local targetCastType = loot.modifiers[1].castType or tes3.enchantmentType.constant
+    local targetCastType = self.modifiers[1].castType or tes3.enchantmentType.constant
     local modifiers = {}
-    for i, modifier in ipairs(loot.modifiers) do
+    for i, modifier in ipairs(self.modifiers) do
         logger:debug("modifier: %s", modifier.prefix or modifier.suffix)
-        if (not loot.modifiers[i].castType) or loot.modifiers[i].castType == targetCastType then
+        if (not self.modifiers[i].castType) or self.modifiers[i].castType == targetCastType then
             table.insert(modifiers, modifier)
         end
     end
-    loot.modifiers = modifiers
-    loot:applyModifications()
-    loot:applyMultipliers()
+    self.modifiers = modifiers
+    self:applyModifications()
+    self:applyMultipliers()
 
-    local enchantment = Loot:makeComplexEnchantment(loot.modifiers)
+    local enchantment = Loot:makeComplexEnchantment(self.modifiers)
     if enchantment then
-        loot.object.enchantment = enchantment
-        loot:applyEnchantCapacityScaling()
+        self.object.enchantment = enchantment
+        self:applyEnchantCapacityScaling()
         logger:debug("Checking for wild")
-        if loot:canHaveWild() and loot:rollForWild() then
-            loot:applyWild()
+        if self:canHaveWild() and self:rollForWild() then
+            self:applyWild()
         end
     end
-    local name = loot:getLootName{ wild = loot.wild }
+    local name = self:getLootName{ wild = self.wild }
     if #name > 31 then
-        logger:debug("Name '%s' excedes 31 characters, cancelling Loot creation", name)
+        logger:debug("Name '%s' exceeds 31 characters, cancelling Loot creation", name)
         return nil
     end
-    loot.object.name = name
+    self.object.name = name
 
-    loot:applyValueModifiers()
+    self:applyValueModifiers()
 
-    logger:debug("Created new loot: %s", loot.object.name)
-    return loot
+    logger:debug("Created new loot: %s", self.object.name)
+    return self
 end
+
+
 
 function Loot:rollForWild()
     local roll = math.random(100)
@@ -326,11 +333,21 @@ function Loot:makeComplexEnchantment(modifiers)
     return enchantment
 end
 
+
+
 ---@param ownerReference tes3reference
 ---@param stack tes3itemStack
-function Loot:replaceLootInInventory(ownerReference, stack)
-    local count = stack.count
-    logger:debug("stack.count: %s", stack.count)
+---@param itemData? tes3itemData
+function Loot:replaceLootInInventory(ownerReference, stack, itemData)
+    logger:debug("Replacing loot in inventory. Has itemdata? %s", itemData ~= nil)
+    local count = 1
+    --Enchant whole stack if its ammunition
+    if self.object.objectType == tes3.objectType.ammunition then
+        logger:debug("Enchanting whole stack of ammo")
+        count = stack.count
+    end
+
+    logger:debug("count: %s", count)
     --Add loot to inventory
     tes3.addItem{
         reference = ownerReference,
@@ -338,6 +355,14 @@ function Loot:replaceLootInInventory(ownerReference, stack)
         count = count,
         playSound = false,
     }
+    -- if itemData then
+    --     logger:debug("Copying item data")
+    --     common.copyItemData{
+    --         baseObject = self.baseObject,
+    --         object = self.object,
+    --         itemData = itemData
+    --     }
+    -- end
 
     if ownerReference.mobile then
         if ownerReference.object:hasItemEquipped(stack.object) then
@@ -350,27 +375,37 @@ function Loot:replaceLootInInventory(ownerReference, stack)
     end
 
     --Remove the object from the inventory
-    if stack.count >= 0 then
+    if count >= 0 then
         ---@diagnostic disable-next-line: deprecated
         mwscript.removeItem{
             reference = ownerReference,
             item = stack.object,
-            count = stack.count,
+            count = count,
             playSound = false,
+            itemData = itemData
         }
     else
         --use "addItem" to remove if count is negative
         ---@diagnostic disable-next-line: deprecated
-        mwscript.addItem{
+        tes3.addItem{
             reference = ownerReference,
             item = stack.object,
-            count = stack.count,
+            count = count,
             playSound = false,
         }
     end
     --register on player data
     logger:debug("Adding %s to generatedLoot list", self.object.id:lower())
     self:persist()
+    --if original object had modifiers, add it to the list of generated loot
+    if config.persistent.generatedLoot[self.baseObject.id:lower()] then
+        logger:debug("Adding %s to generatedLoot list", self.baseObject.id:lower())
+        local baseLootConfig = config.persistent.generatedLoot[self.baseObject.id:lower()]
+        local newLootConfig = config.persistent.generatedLoot[self.object.id:lower()]
+        for _, modifierId in ipairs(baseLootConfig.modifiers) do
+            table.insert(newLootConfig.modifiers, modifierId)
+        end
+    end
 end
 
 function Loot:persist()

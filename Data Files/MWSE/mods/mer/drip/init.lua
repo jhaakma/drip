@@ -37,6 +37,7 @@ function drip.registerClothing(clothingId)
     config.clothing[clothingId:lower()] = true
 end
 
+
 --[[
     Dripify an object using the standard DRIP
     chances. If the object is dripified, returns
@@ -53,7 +54,7 @@ function drip.rollDrip(object)
             local loot = Loot:new{
                 baseObject = object,
                 modifiers = modifiers,
-            }
+            }:initialize()
             if loot then
                 logger:info("Converted to %s", loot.object.name)
                 return loot
@@ -80,7 +81,7 @@ function drip.dripify(object, listId)
         local loot = Loot:new{
             baseObject = object,
             modifiers = modifiers,
-        }
+        }:initialize()
         if loot then
             logger:info("Converted to %s", loot.object.name)
             return loot

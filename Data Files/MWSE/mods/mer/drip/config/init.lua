@@ -72,13 +72,11 @@ config.persistent = setmetatable({}, {
     __index = function(_, key)
         if not tes3.player then return end
         tes3.player.data[config.configPath] = tes3.player.data[config.configPath] or config.persistentDefault
-        table.copymissing(tes3.player.data[config.configPath], config.persistentDefault)
         return tes3.player.data[config.configPath][key]
     end,
     __newindex = function(_, key, value)
         if not tes3.player then return end
         tes3.player.data[config.configPath] = tes3.player.data[config.configPath] or config.persistentDefault
-        table.copymissing(tes3.player.data[config.configPath], config.persistentDefault)
         tes3.player.data[config.configPath][key] = value
     end
 })

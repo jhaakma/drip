@@ -1,5 +1,6 @@
 --A list of material names to remove from the name of the base object
 local materials = {
+    "ashlander",
     "hlaalu guard",
     "adamantium",
     "armor",

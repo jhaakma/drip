@@ -22,7 +22,7 @@ local function addToRef(reference)
                 local loot = Loot:new{
                     baseObject = stack.object,
                     modifiers = modifiers,
-                }
+                }:initialize()
                 if loot then
                     logger:debug("Converted to %s", loot.object.name)
                     logger:debug("Replacing existing object with enchanted version")
@@ -89,7 +89,7 @@ local function onLeveledItemPicked(e)
             local loot = Loot:new{
                 baseObject = object, ---@diagnostic disable-line: assign-type-mismatch
                 modifiers = modifiers,
-            }
+            }:initialize()
             if loot then
                 logger:debug("Converted to %s", loot.object.name)
                 logger:debug("Replacing existing object with enchanted version")
