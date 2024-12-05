@@ -6,10 +6,12 @@ local logger = common.createLogger("Loot")
 ---@field object? tes3object|tes3weapon|tes3armor|tes3clothing
 ---@field baseObject tes3object|tes3weapon|tes3armor|tes3clothing
 ---@field modifiers Drip.Modifier[]
+---@field wild? boolean If not set, will be determined randomly
 
 ---@class Drip.Loot : Drip.Loot.Data
 ---@field object? tes3object|tes3weapon|tes3armor|tes3clothing
 ---@field modifiers table<number, Drip.Modifier.Data|string>
+---@field wild boolean @If true, the loot will have wild effects
 local Loot = {}
 
 ---@param lootData Drip.Loot.Data
@@ -44,9 +46,10 @@ function Loot:initialize()
         self.object.enchantment = enchantment
         self:applyEnchantCapacityScaling()
         logger:debug("Checking for wild")
-        if self:canHaveWild() and self:rollForWild() then
-            self:applyWild()
+        if self.wild == nil and self:canHaveWild() and self:rollForWild() then
+            self.wild = true
         end
+        self:applyWild()
     end
     local name = self:getLootName{ wild = self.wild }
     if #name > 31 then
@@ -97,6 +100,7 @@ function Loot:canHaveWild()
 end
 
 function Loot:applyWild()
+    if not self.wild then return end
     if not self.object.enchantment then return false end
     logger:debug("Making %s Wild", self.object.name)
     --Wildify the effects
@@ -105,7 +109,6 @@ function Loot:applyWild()
         effect.min = 1
         effect.max = wildMax
     end
-    self.wild = true
 end
 
 function Loot:applyValueModifiers()
@@ -205,6 +208,7 @@ function Loot:removeMaterialNames(name)
 end
 
 function Loot:getLootName(e)
+    e = e or { wild = self.wild }
     logger:trace("Getting loot name")
 
     local maxLength = 31
