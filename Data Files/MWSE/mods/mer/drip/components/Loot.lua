@@ -291,7 +291,7 @@ function Loot:buildEnchantmentEffects(modifiers)
             end
         end
     end
-    assert(#effects <= 8, "Too many effects combined!")
+    logger:assert(#effects <= 8, "Too many effects combined!")
     return effects
 end
 

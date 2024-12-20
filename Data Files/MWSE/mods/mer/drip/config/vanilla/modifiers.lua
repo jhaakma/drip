@@ -654,9 +654,9 @@ local modifiers = {
             {
                 id = tes3.effect.swiftSwim,
                 rangeType = tes3.effectRange.self,
-                duration = 15,
-                min = 5,
-                max = 5,
+                duration = 25,
+                min = 10,
+                max = 10,
             },
         },
         validObjectTypes = {
@@ -671,25 +671,27 @@ local modifiers = {
     {
         id = "dreugh",
         suffix = "the Dreugh",
-        value = 50,
-        castType = tes3.enchantmentType.onUse,
+        value = 100,
+        castType = tes3.enchantmentType.constant,
         chargeCost = 50,
         maxCharge = 500,
         effects = {
             {
                 id = tes3.effect.swiftSwim,
                 rangeType = tes3.effectRange.self,
-                duration = 25,
                 min = 10,
                 max = 10,
             },
         },
         validObjectTypes = {
             [tes3.objectType.clothing] = true,
+            [tes3.objectType.armor] = true,
         },
         validClothingSlots = {
-            [tes3.clothingSlot.ring] = true,
-            [tes3.clothingSlot.amulet] = true,
+            [tes3.clothingSlot.shoes] = true,
+        },
+        validArmorSlots = {
+            [tes3.armorSlot.boots] = true,
         }
     },
 
@@ -721,23 +723,25 @@ local modifiers = {
     {
         id = "Ocean-striding",
         suffix = "Ocean-Striding",
-        value = 50,
-        castType = tes3.enchantmentType.onUse,
+        value = 100,
+        castType = tes3.enchantmentType.constant,
         chargeCost = 50,
         maxCharge = 500,
         effects = {
             {
                 id = tes3.effect.waterWalking,
                 rangeType = tes3.effectRange.self,
-                duration = 25,
             },
         },
         validObjectTypes = {
             [tes3.objectType.clothing] = true,
+            [tes3.objectType.armor] = true,
         },
         validClothingSlots = {
-            [tes3.clothingSlot.ring] = true,
-            [tes3.clothingSlot.amulet] = true,
+            [tes3.clothingSlot.shoes] = true,
+        },
+        validArmorSlots = {
+            [tes3.armorSlot.boots] = true,
         }
     },
 
