@@ -101,11 +101,9 @@ local function onLeveledItemPicked(e)
 end
 event.register("leveledItemPicked", onLeveledItemPicked)
 
-local initialized
-event.register("initialized", function() initialized = true end)
 
 event.register("objectCreated", function(e)
-    if not initialized then return end
+    if not tes3.player then return end
     if not e.copiedFrom then return end
     local modifiers = Modifier.getObjectModifiers(e.copiedFrom)
     if #modifiers > 0 then
